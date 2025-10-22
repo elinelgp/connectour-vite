@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.3",
     "@mui/base": "^5.0.0-beta.36",
     "@mui/icons-material": "^5.15.10",
     "@mui/joy": "^5.0.0-beta.28",
@@ -19,12 +20,12 @@
     "@mui/x-data-grid": "^7.16.0",
     "@mui/x-date-pickers": "^7.16.0",
     "dayjs": "^1.11.13",
+    "jotai": "^2.6.4",
     "firebase": "^10.8.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-router-dom": "^6.22.0",
     "notistack": "^3.0.1"
-
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",

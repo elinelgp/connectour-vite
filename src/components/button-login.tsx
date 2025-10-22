@@ -3,7 +3,7 @@
 
 import { Button, ButtonProps } from "@mui/joy";
 import { SignInMethod, useSignIn } from "../core/auth";
-import { AnonymousIcon, GoogleIcon } from "../icons";
+import { AnonymousIcon, GoogleIcon } from "../assets";
 
 export function LoginButton(props: LoginButtonProps): JSX.Element {
   const { signInMethod, ...other } = props;
