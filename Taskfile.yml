@@ -1,0 +1,9 @@
+version: '3'
+tasks:
+  release:
+    cmds:
+      - git diff --exit-code
+      - git cliff --bump -o
+      - git add CHANGELOG.md
+      - git commit -m "release $(git cliff --bumped-version)"
+      - git tag $(git cliff --bumped-version)
