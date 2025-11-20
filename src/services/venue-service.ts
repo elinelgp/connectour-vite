@@ -54,9 +54,7 @@ export const fetchVenues = (): Venue[] => {
 };
 
 export const fetchVenue = (shortVenueName: string): Venue => {
-  const venueFound = fetchVenues().find(
-    (venue) => venue.shortName === shortVenueName,
-  );
+  const venueFound = fetchVenues().find((venue) => venue.shortName === shortVenueName);
   if (venueFound === undefined) {
     throw new Response("Not Found", { status: 404 });
   }

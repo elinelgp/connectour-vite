@@ -38,9 +38,7 @@ export function ColorSchemeButton(props: ColorSchemeButtonProps): JSX.Element {
   );
 }
 
-const ModeMenuItem = memo(function ModeMenuItem({
-  mode,
-}: ModeMenuItemProps): JSX.Element {
+const ModeMenuItem = memo(function ModeMenuItem({ mode }: ModeMenuItemProps): JSX.Element {
   const schemeJoy = useJoyColorScheme();
   const schemeMaterial = useMaterialColorScheme();
 
@@ -53,19 +51,14 @@ const ModeMenuItem = memo(function ModeMenuItem({
       selected={schemeJoy.mode === mode}
     >
       <ListItemDecorator sx={{ ml: 0.5 }}>
-        {mode === "light" ||
-        (mode !== "dark" && schemeJoy.systemMode === "light") ? (
+        {mode === "light" || (mode !== "dark" && schemeJoy.systemMode === "light") ? (
           <LightModeRounded />
         ) : (
           <DarkModeRounded />
         )}
       </ListItemDecorator>
       <ListItemContent sx={{ pr: 2 }}>
-        {mode === "light"
-          ? "Light theme"
-          : mode === "dark"
-            ? "Dark theme"
-            : "Device default"}
+        {mode === "light" ? "Light theme" : mode === "dark" ? "Dark theme" : "Device default"}
       </ListItemContent>
     </MenuItem>
   );

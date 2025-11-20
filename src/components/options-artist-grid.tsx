@@ -31,7 +31,7 @@ export function OptionArtistGrid(optionsProps: OptionGridProps): JSX.Element {
                     {availability.zones.reduce(
                       (accumulator: string, currentValue: string) =>
                         currentValue + " " + accumulator,
-                      "",
+                      ""
                     )}
                   </Typography>
                 </td>
@@ -48,14 +48,10 @@ export function OptionArtistGrid(optionsProps: OptionGridProps): JSX.Element {
                 {availability.options?.map((option: Option) => (
                   <>
                     <td>
-                      <Typography color="primary">
-                        {option.organizer}
-                      </Typography>
+                      <Typography color="primary">{option.organizer}</Typography>
                     </td>
                     <td>
-                      <Typography color="primary">
-                        {option.venueName}
-                      </Typography>
+                      <Typography color="primary">{option.venueName}</Typography>
                     </td>
                     <td>
                       <Typography color="primary">
@@ -87,7 +83,7 @@ export function OptionArtistGrid(optionsProps: OptionGridProps): JSX.Element {
                   </>
                 ))}
               </tr>
-            ),
+            )
         )}
       </tbody>
     </Table>

@@ -1,12 +1,5 @@
 import { getApp } from "firebase/app";
-import {
-  addDoc,
-  collection,
-  getDocs,
-  getFirestore,
-  query,
-  where,
-} from "firebase/firestore";
+import { addDoc, collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 
 import { app } from "../core/firebaseInit";
 import { UserType } from "../types/user-type";
@@ -14,7 +7,7 @@ const db = getFirestore(app ? app : getApp());
 
 export const fetchUserType = async (userId: string): Promise<UserType> => {
   const querySnapshotUserType = await getDocs(
-    query(collection(db, "userTypes"), where("userId", "==", userId)),
+    query(collection(db, "userTypes"), where("userId", "==", userId))
   );
   if (querySnapshotUserType.docs.length > 0) {
     const userType = querySnapshotUserType.docs[0].data();
@@ -27,10 +20,7 @@ export const fetchUserType = async (userId: string): Promise<UserType> => {
   return {} as unknown as UserType;
 };
 
-export const subscribeToArtist = async (
-  userId: string,
-  artistId: string,
-): Promise<void> => {
+export const subscribeToArtist = async (userId: string, artistId: string): Promise<void> => {
   try {
     const subscriptionData = {
       userId: userId,
@@ -48,15 +38,15 @@ export const subscribeToArtist = async (
 
 export const isUserSubscribedToArtist = async (
   userId: string,
-  artistId: string,
+  artistId: string
 ): Promise<boolean> => {
   try {
     const querySnapshot = await getDocs(
       query(
         collection(db, "subscriptions"),
         where("userId", "==", userId),
-        where("artistId", "==", artistId),
-      ),
+        where("artistId", "==", artistId)
+      )
     );
 
     // If the query returns any documents, the user is subscribed

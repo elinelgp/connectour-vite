@@ -13,18 +13,14 @@ import { Artist } from "../types/artist";
  * @param {Array} list - The array of products to filter.
  * @returns {JSX.Element} - The filtered product list.
  */
-export function SearchedArtists(
-  searchedArtistsProps: SearchedArtistsProps,
-): JSX.Element {
+export function SearchedArtists(searchedArtistsProps: SearchedArtistsProps): JSX.Element {
   // Create a new array, filteredList, using the array filter function to filter the dummy data based on input.
   const [artistsData, setArtistsData] = useState<Artist[]>([]);
   const searchBar = document.getElementById("search-bar");
 
   useEffect(() => {
     async function fetchData() {
-      const artists = await fetchArtistsFromString(
-        searchedArtistsProps.searchString,
-      );
+      const artists = await fetchArtistsFromString(searchedArtistsProps.searchString);
       console.log(artists);
       setArtistsData(artists);
     }

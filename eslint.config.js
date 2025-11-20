@@ -26,9 +26,9 @@ export default defineConfig([
     rules: {
       // add Prettier rules
       "prettier/prettier": [
-        "error",
+        "off",
         {
-          singleQuote: true,
+          singleQuote: false,
           printWidth: 100,
           tabWidth: 2,
           semi: true,

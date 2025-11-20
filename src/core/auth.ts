@@ -19,11 +19,11 @@ import { app, auth } from "./firebaseInit";
 import { store } from "./store";
 
 export const currentUser = atom<Promise<User | null> | User | null>(
-  new Promise<User | null>(() => {}),
+  new Promise<User | null>(() => {})
 );
 
 export const currentUserType = atom<Promise<UserType | null> | UserType | null>(
-  new Promise<UserType | null>(() => {}),
+  new Promise<UserType | null>(() => {})
 );
 
 currentUser.debugLabel = "currentUser";
@@ -60,9 +60,7 @@ export function useCurrentUserTypeLoadable() {
   return useAtomValue(currentUserTypeLoadable);
 }
 
-export function useSignIn(
-  signInMethod: SignInMethod,
-): [signIn: () => void, inFlight: boolean] {
+export function useSignIn(signInMethod: SignInMethod): [signIn: () => void, inFlight: boolean] {
   const navigate = useNavigate();
   const [inFlight, setInFlight] = useState(false);
 

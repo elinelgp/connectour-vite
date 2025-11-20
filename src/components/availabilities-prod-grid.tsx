@@ -11,9 +11,7 @@ import { createOptionFromAvailability } from "../services/artist-service";
 import { Availability } from "../types/availability";
 import { AvailabilityGridProps } from "./availabilities-simple-grid";
 
-export function AvailabilityProdGrid(
-  availabilitiesProps: AvailabilityGridProps,
-): JSX.Element {
+export function AvailabilityProdGrid(availabilitiesProps: AvailabilityGridProps): JSX.Element {
   const [hourMap, setHourMap] = useState(new Map());
   const updateMap = (k: string, v: Dayjs) => {
     setHourMap(hourMap.set(k, v));
@@ -45,71 +43,62 @@ export function AvailabilityProdGrid(
           </tr>
         </thead>
         <tbody>
-          {availabilitiesProps.availabilities.map(
-            (availability: Availability) => (
-              <>
-                <tr key={availability.id}>
-                  <td>
-                    <Typography color="primary">
-                      {availability.artistName}
-                    </Typography>
-                  </td>
-                  <td>
-                    <Typography color="primary">
-                      {availability.zones.join(", ")}
-                    </Typography>
-                  </td>
-                  <td>
-                    <Typography color="primary">
-                      {dayjs(availability.startDate).format("DD/MM/YYYY")}
-                    </Typography>
-                  </td>
-                  <td>
-                    <Typography color="primary">
-                      {dayjs(availability.endDate).format("DD/MM/YYYY")}
-                    </Typography>
-                  </td>
-                  <td>
-                    <Stack
-                      direction="row"
-                      spacing={2}
-                      sx={{
-                        justifyContent: "center",
-                        alignItems: "center",
+          {availabilitiesProps.availabilities.map((availability: Availability) => (
+            <>
+              <tr key={availability.id}>
+                <td>
+                  <Typography color="primary">{availability.artistName}</Typography>
+                </td>
+                <td>
+                  <Typography color="primary">{availability.zones.join(", ")}</Typography>
+                </td>
+                <td>
+                  <Typography color="primary">
+                    {dayjs(availability.startDate).format("DD/MM/YYYY")}
+                  </Typography>
+                </td>
+                <td>
+                  <Typography color="primary">
+                    {dayjs(availability.endDate).format("DD/MM/YYYY")}
+                  </Typography>
+                </td>
+                <td>
+                  <Stack
+                    direction="row"
+                    spacing={2}
+                    sx={{
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <DatePicker
+                      disablePast
+                      minDate={availability.startDate}
+                      maxDate={availability.endDate}
+                      label="Date"
+                      value={availability.startDate}
+                      onChange={(newValue: Dayjs | null) => {
+                        if (newValue) {
+                          updateMap(availability.id, newValue);
+                        }
+                      }}
+                    />
+                    <IconButton
+                      sx={{ mb: 1 }}
+                      variant="plain"
+                      onClick={() => {
+                        createOptionFromAvailability(availability, hourMap.get(availability.id));
+                        availabilitiesProps.updateState();
+                        updateMap(availability.id, availability.startDate);
                       }}
                     >
-                      <DatePicker
-                        disablePast
-                        minDate={availability.startDate}
-                        maxDate={availability.endDate}
-                        label="Date"
-                        value={availability.startDate}
-                        onChange={(newValue: Dayjs | null) => {
-                          if (newValue) {
-                            updateMap(availability.id, newValue);
-                          }
-                        }}
-                      />
-                      <IconButton
-                        sx={{ mb: 1 }}
-                        variant="plain"
-                        onClick={() => {
-                          createOptionFromAvailability(
-                            availability,
-                            hourMap.get(availability.id),
-                          );
-                          availabilitiesProps.updateState();
-                          updateMap(availability.id, availability.startDate);
-                        }}
-                      >
-                        <CheckCircleOutlineIcon />
-                      </IconButton>
-                    </Stack>
-                  </td>
-                </tr>
-              </>
-            ),
-          )}
+                      <CheckCircleOutlineIcon />
+                    </IconButton>
+                  </Stack>
+                </td>
+              </tr>
+            </>
+          ))}
         </tbody>
       </LocalizationProvider>
     </Table>

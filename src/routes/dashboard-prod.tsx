@@ -80,11 +80,7 @@ export const Component = function DashboardProd(): JSX.Element {
       </Typography>
 
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="basic tabs example"
-        >
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Disponibilités" {...a11yProps(0)} />
           <Tab label="Options" {...a11yProps(1)} />
         </Tabs>
@@ -93,19 +89,13 @@ export const Component = function DashboardProd(): JSX.Element {
         <Typography color="primary" sx={{ mb: 1 }} level="h3">
           Disponibilités
         </Typography>
-        <AvailabilityProdGrid
-          availabilities={availabilityData || []}
-          updateState={handleUpdate}
-        />
+        <AvailabilityProdGrid availabilities={availabilityData || []} updateState={handleUpdate} />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <Typography color="primary" sx={{ mb: 1 }} level="h3">
           Options
         </Typography>
-        <OptionsProdGrid
-          availabilities={availabilityData || []}
-          updateState={handleUpdate}
-        />
+        <OptionsProdGrid availabilities={availabilityData || []} updateState={handleUpdate} />
       </CustomTabPanel>
 
       <Box sx={{ width: "100%" }}>

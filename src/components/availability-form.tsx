@@ -1,5 +1,6 @@
+import React from "react";
 import { Button, FormControl, Stack } from "@mui/joy";
-import Autocomplete from "@mui/material/Autocomplete";
+import Autocomplete, { AutocompleteRenderInputParams } from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import { DatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -11,9 +12,7 @@ import { addAvailability } from "../services/artist-service";
 import { fetchRegionsDepartments } from "../services/ext-service";
 import { Availability } from "../types/availability";
 
-export function AvailabilityForm(
-  availabilitiesFormProps: AvailabilitiesFormProps,
-): JSX.Element {
+export function AvailabilityForm(availabilitiesFormProps: AvailabilitiesFormProps): JSX.Element {
   const [startDate, setStartDate] = useState<Dayjs | null>(null);
   const [endDate, setEndDate] = useState<Dayjs | null>(null);
   const [zoneList, setZoneList] = useState<string[]>([""]);
@@ -26,7 +25,7 @@ export function AvailabilityForm(
         } else {
           return zone;
         }
-      }),
+      })
     );
   };
   const deleteFromZoneList = (indexToDelete: number) => {
@@ -105,19 +104,15 @@ export function AvailabilityForm(
               <Autocomplete
                 disablePortal
                 options={regionsDepartments}
-                onChange={(event: any, newValue: string | null) => {
-                  newValue
-                    ? updateZoneList(index, newValue)
-                    : updateZoneList(index, "");
-                }}
-                renderInput={(params: any) => (
+                onChange={(event: React.ChangeEvent<HTMLInputElement>, newValue: string | null) =>
+                  newValue ? updateZoneList(index, newValue) : updateZoneList(index, "")
+                }
+                renderInput={(params: AutocompleteRenderInputParams) => (
                   <TextField {...params} label="Region ou département" />
                 )}
               />
               {index !== 0 && (
-                <Button onClick={() => deleteAutocomplete(index)}>
-                  Supprimer la zone
-                </Button>
+                <Button onClick={() => deleteAutocomplete(index)}>Supprimer la zone</Button>
               )}
             </FormControl>
           ))}

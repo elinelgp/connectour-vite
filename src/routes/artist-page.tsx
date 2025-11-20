@@ -1,13 +1,6 @@
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import {
-  Box,
-  Card,
-  CardContent,
-  Container,
-  IconButton,
-  Typography,
-} from "@mui/joy";
+import { Box, Card, CardContent, Container, IconButton, Typography } from "@mui/joy";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import { useEffect, useState } from "react";
@@ -16,10 +9,7 @@ import { AvailabilitySimpleGrid, ConcertGrid } from "../components";
 import { useCurrentUser } from "../core/auth";
 import { usePageEffect } from "../core/page";
 import { fetchArtistFromShortName } from "../services/artist-service";
-import {
-  isUserSubscribedToArtist,
-  subscribeToArtist,
-} from "../services/user-service";
+import { isUserSubscribedToArtist, subscribeToArtist } from "../services/user-service";
 import { Artist } from "../types/artist";
 
 interface TabPanelProps {
@@ -68,10 +58,7 @@ export const Component = function ArtistPage(): JSX.Element {
     if (currentUser && artistShortName) {
       const artist = await fetchArtistFromShortName(artistShortName);
       setArtistData(artist);
-      const isSubscribed = await isUserSubscribedToArtist(
-        currentUser.uid,
-        artist.id,
-      );
+      const isSubscribed = await isUserSubscribedToArtist(currentUser.uid, artist.id);
       setIsSubscribed(isSubscribed);
       console.log(artist);
     }
@@ -129,11 +116,7 @@ export const Component = function ArtistPage(): JSX.Element {
             )}
           </CardContent>
         </Card>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="basic tabs example"
-        >
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Disponibilités" {...a11yProps(0)} />
           <Tab label="Dates programmées" {...a11yProps(2)} />
         </Tabs>

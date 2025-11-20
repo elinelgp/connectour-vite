@@ -17,7 +17,7 @@ export function SearchBar(): JSX.Element {
       console.log(input);
     }, 500);
     return () => clearTimeout(timeoutId);
-  }, [input, 500]);
+  }, [input]);
 
   return (
     <Box

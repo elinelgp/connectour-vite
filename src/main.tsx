@@ -12,7 +12,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { StoreProvider } from "./core/store";
 import { themeJoy, themeMui } from "./core/theme";
-import { Router } from "./routes/index";
+import { Router } from "./routes/router";
 const container = document.getElementById("root");
 const root = createRoot(container!);
 
@@ -28,7 +28,7 @@ root.render(
         </SnackbarProvider>
       </JoyCssVarsProvider>
     </MaterialCssVarsProvider>
-  </StrictMode>,
+  </StrictMode>
 );
 
 if (import.meta.hot) {

@@ -7,10 +7,7 @@ import { useLocation } from "react-router-dom";
 
 const appName = import.meta.env.VITE_APP_NAME;
 
-export function usePageEffect(
-  options?: Options,
-  deps: React.DependencyList = [],
-) {
+export function usePageEffect(options?: Options, deps: React.DependencyList = []) {
   const location = useLocation();
 
   // Once the page component was rendered, update the HTML document's title
@@ -27,11 +24,7 @@ export function usePageEffect(
     return function () {
       document.title = previousTitle;
     };
-  }, [
-    ...deps /* eslint-disable-line react-hooks/exhaustive-deps */,
-    location,
-    options?.title,
-  ]);
+  }, [...deps /* eslint-disable-line react-hooks/exhaustive-deps */, location, options?.title]);
 
   // Send "page view" event to Google Analytics
   // https://support.google.com/analytics/answer/11403294?hl=en

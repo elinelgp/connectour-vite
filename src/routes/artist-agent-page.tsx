@@ -3,11 +3,7 @@ import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {
-  AvailabilityArtistGrid,
-  AvailabilityForm,
-  ConcertGrid,
-} from "../components";
+import { AvailabilityArtistGrid, AvailabilityForm, ConcertGrid } from "../components";
 import { OptionArtistGrid } from "../components/options-artist-grid";
 import { useCurrentUser } from "../core/auth";
 import { usePageEffect } from "../core/page";
@@ -85,11 +81,7 @@ export const Component = function ArtistPage(): JSX.Element {
             <Typography color="primary">{artistData?.description}</Typography>
           </CardContent>
         </Card>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="basic tabs example"
-        >
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Disponibilités" {...a11yProps(0)} />
           <Tab label="Options" {...a11yProps(1)} />
           <Tab label="Dates programmées" {...a11yProps(2)} />
@@ -124,10 +116,7 @@ export const Component = function ArtistPage(): JSX.Element {
         <Typography color="primary" sx={{ mb: 1 }} level="h3">
           Nouvelle disponibilité
         </Typography>
-        <AvailabilityForm
-          artistId={artistData?.id || ""}
-          updateState={handleUpdate}
-        />
+        <AvailabilityForm artistId={artistData?.id || ""} updateState={handleUpdate} />
       </CustomTabPanel>
     </Container>
   );

@@ -2,14 +2,7 @@
 /* SPDX-License-Identifier: MIT */
 
 import OpenInNew from "@mui/icons-material/OpenInNew";
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  Container,
-  Typography,
-} from "@mui/joy";
+import { Box, Button, Card, CardContent, Container, Typography } from "@mui/joy";
 import { useEffect, useState } from "react";
 import { useCurrentUser } from "../core/auth";
 import { usePageEffect } from "../core/page";

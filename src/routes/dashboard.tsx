@@ -24,12 +24,7 @@ export const Component = function Dashboard(): JSX.Element {
             </Button>
           )}
           {currentUserType?.type === "prod" && (
-            <Button
-              variant="contained"
-              color="secondary"
-              component={Link}
-              to="/dashboard/prod"
-            >
+            <Button variant="contained" color="secondary" component={Link} to="/dashboard/prod">
               Prod Dashboard
             </Button>
           )}

@@ -7,9 +7,7 @@ import "dayjs/locale/fr";
 import { Availability } from "../types/availability";
 import { Option } from "../types/option";
 
-export function OptionsProdGrid(
-  availabilitiesProps: OptionGridProps,
-): JSX.Element {
+export function OptionsProdGrid(availabilitiesProps: OptionGridProps): JSX.Element {
   return (
     <Table aria-label="basic table">
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="fr">
@@ -17,9 +15,7 @@ export function OptionsProdGrid(
           <tr>
             <th style={{ width: "12.5%" }}>Artiste</th>
             <th style={{ width: "12.5%" }}>Région</th>
-            <th style={{ width: "12.5%" }}>
-              Date de début de la disponibilité
-            </th>
+            <th style={{ width: "12.5%" }}>Date de début de la disponibilité</th>
             <th style={{ width: "12.5%" }}>Date de fin de la disponibilité</th>
             <th style={{ width: "12.5%" }}>Organisateur</th>
             <th style={{ width: "12.5%" }}>Lieu</th>
@@ -33,16 +29,14 @@ export function OptionsProdGrid(
               availability.options?.length > 0 && (
                 <tr key={availability.id}>
                   <td>
-                    <Typography color="primary">
-                      {availability.artistName}
-                    </Typography>
+                    <Typography color="primary">{availability.artistName}</Typography>
                   </td>
                   <td>
                     <Typography color="primary">
                       {availability.zones.reduce(
                         (accumulator: string, currentValue: string) =>
                           currentValue + " " + accumulator,
-                        "",
+                        ""
                       )}
                     </Typography>
                   </td>
@@ -59,14 +53,10 @@ export function OptionsProdGrid(
                   {availability.options?.map((option: Option) => (
                     <>
                       <td>
-                        <Typography color="primary">
-                          {option.organizer}
-                        </Typography>
+                        <Typography color="primary">{option.organizer}</Typography>
                       </td>
                       <td>
-                        <Typography color="primary">
-                          {option.venueName}
-                        </Typography>
+                        <Typography color="primary">{option.venueName}</Typography>
                       </td>
                       <td>
                         <Typography color="primary">
@@ -76,7 +66,7 @@ export function OptionsProdGrid(
                     </>
                   ))}
                 </tr>
-              ),
+              )
           )}
         </tbody>
       </LocalizationProvider>

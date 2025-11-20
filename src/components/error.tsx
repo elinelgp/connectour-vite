@@ -19,8 +19,7 @@ export function RootError(): JSX.Element {
         }}
         level="h1"
       >
-        <strong>Error {err.status || 500}</strong>:{" "}
-        {err.statusText ?? err.message}
+        <strong>Error {err.status || 500}</strong>: {err.statusText ?? err.message}
       </Typography>
     </Container>
   );

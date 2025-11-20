@@ -23,12 +23,7 @@ export function Logo(props: LogoProps): JSX.Element {
       <IconButton component={Link} to="/" color="primary" variant="soft">
         <SkipNext />
       </IconButton>
-      <Typography
-        color="primary"
-        sx={{ fontSize: "1.25rem" }}
-        level="h4"
-        component="div"
-      >
+      <Typography color="primary" sx={{ fontSize: "1.25rem" }} level="h4" component="div">
         {import.meta.env.VITE_APP_NAME}
       </Typography>
     </Box>

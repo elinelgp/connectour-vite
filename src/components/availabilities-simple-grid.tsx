@@ -5,9 +5,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import { Availability } from "../types/availability";
 
-export function AvailabilitySimpleGrid(
-  availabilitiesProps: AvailabilityGridProps,
-): JSX.Element {
+export function AvailabilitySimpleGrid(availabilitiesProps: AvailabilityGridProps): JSX.Element {
   return (
     <Table aria-label="basic table">
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="fr">
@@ -20,32 +18,26 @@ export function AvailabilitySimpleGrid(
           </tr>
         </thead>
         <tbody>
-          {availabilitiesProps.availabilities.map(
-            (availability: Availability) => (
-              <tr key={availability.id}>
-                <td>
-                  <Typography color="primary">
-                    {availability.artistName}
-                  </Typography>
-                </td>
-                <td>
-                  <Typography color="primary">
-                    {availability.zones.join(", ")}
-                  </Typography>
-                </td>
-                <td>
-                  <Typography color="primary">
-                    {dayjs(availability.startDate).format("DD/MM/YYYY")}
-                  </Typography>
-                </td>
-                <td>
-                  <Typography color="primary">
-                    {dayjs(availability.endDate).format("DD/MM/YYYY")}
-                  </Typography>
-                </td>
-              </tr>
-            ),
-          )}
+          {availabilitiesProps.availabilities.map((availability: Availability) => (
+            <tr key={availability.id}>
+              <td>
+                <Typography color="primary">{availability.artistName}</Typography>
+              </td>
+              <td>
+                <Typography color="primary">{availability.zones.join(", ")}</Typography>
+              </td>
+              <td>
+                <Typography color="primary">
+                  {dayjs(availability.startDate).format("DD/MM/YYYY")}
+                </Typography>
+              </td>
+              <td>
+                <Typography color="primary">
+                  {dayjs(availability.endDate).format("DD/MM/YYYY")}
+                </Typography>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </LocalizationProvider>
     </Table>

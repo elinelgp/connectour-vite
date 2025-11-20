@@ -14,9 +14,7 @@ export default function GeoSearchBar() {
       disabled={regionsDepartments.isEmpty}
       disablePortal
       options={regionsDepartments}
-      renderInput={(params) => (
-        <TextField {...params} label="Region ou département" />
-      )}
+      renderInput={(params) => <TextField {...params} label="Region ou département" />}
     />
   );
 }
