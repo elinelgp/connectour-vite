@@ -1,18 +1,18 @@
-import { Box, Card, CardContent, Container, Typography } from "@mui/joy"
-import Tab from "@mui/material/Tab"
-import Tabs from "@mui/material/Tabs"
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Box, Card, CardContent, Container, Typography } from "@mui/joy";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import {
   AvailabilityArtistGrid,
   AvailabilityForm,
   ConcertGrid,
-} from "../components"
-import { OptionArtistGrid } from "../components/options-artist-grid"
-import { useCurrentUser } from "../core/auth"
-import { usePageEffect } from "../core/page"
-import { fetchArtistFromShortName } from "../services/artist-service"
-import { Artist } from "../types/artist"
+} from "../components";
+import { OptionArtistGrid } from "../components/options-artist-grid";
+import { useCurrentUser } from "../core/auth";
+import { usePageEffect } from "../core/page";
+import { fetchArtistFromShortName } from "../services/artist-service";
+import { Artist } from "../types/artist";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -58,7 +58,7 @@ export const Component = function ArtistPage(): JSX.Element {
     if (currentUser && artistShortName) {
       const artist = await fetchArtistFromShortName(artistShortName);
       setArtistData(artist);
-      console.log(artist)
+      console.log(artist);
     }
   }
 
@@ -75,14 +75,14 @@ export const Component = function ArtistPage(): JSX.Element {
 
   return (
     <Container sx={{ py: 2 }}>
-      <Typography  color="primary" sx={{ mb: 2 }} level="h2">
+      <Typography color="primary" sx={{ mb: 2 }} level="h2">
         {artistData?.longName}
       </Typography>
 
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Card sx={{ mb: 2 }} key={artistData?.id}>
           <CardContent sx={{ minHeight: 150 }}>
-            <Typography  color="primary">{artistData?.description}</Typography>
+            <Typography color="primary">{artistData?.description}</Typography>
           </CardContent>
         </Card>
         <Tabs
@@ -97,7 +97,7 @@ export const Component = function ArtistPage(): JSX.Element {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <Typography  color="primary" sx={{ mb: 1 }} level="h3">
+        <Typography color="primary" sx={{ mb: 1 }} level="h3">
           Disponibilités
         </Typography>
         <AvailabilityArtistGrid
@@ -106,7 +106,7 @@ export const Component = function ArtistPage(): JSX.Element {
         />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <Typography  color="primary" sx={{ mb: 1 }} level="h3">
+        <Typography color="primary" sx={{ mb: 1 }} level="h3">
           Options
         </Typography>
         <OptionArtistGrid
@@ -115,13 +115,13 @@ export const Component = function ArtistPage(): JSX.Element {
         />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        <Typography  color="primary" sx={{ mb: 1 }} level="h3">
+        <Typography color="primary" sx={{ mb: 1 }} level="h3">
           Dates programmées
         </Typography>
         <ConcertGrid concerts={artistData?.concerts || []} />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={3}>
-        <Typography  color="primary" sx={{ mb: 1 }} level="h3">
+        <Typography color="primary" sx={{ mb: 1 }} level="h3">
           Nouvelle disponibilité
         </Typography>
         <AvailabilityForm

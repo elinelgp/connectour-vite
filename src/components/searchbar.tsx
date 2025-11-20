@@ -25,7 +25,7 @@ export function SearchBar(): JSX.Element {
       sx={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-evenly"
+        justifyContent: "space-evenly",
       }}
     >
       <form style={{ display: "flex", alignItems: "center" }}>
@@ -39,13 +39,13 @@ export function SearchBar(): JSX.Element {
           size="small"
           sx={{
             width: 350,
-            margin: "10px auto"
+            margin: "10px auto",
           }}
         />
         <SearchIcon />
       </form>
 
-      <SearchedArtists searchString={debouncedInputValue}/>
+      <SearchedArtists searchString={debouncedInputValue} />
     </Box>
   );
-}; 
+}

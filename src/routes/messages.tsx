@@ -9,10 +9,10 @@ export const Component = function Messages(): JSX.Element {
 
   return (
     <Container sx={{ py: 2 }}>
-      <Typography  color="primary" level="h2" gutterBottom>
+      <Typography color="primary" level="h2" gutterBottom>
         Messages
       </Typography>
-      <Typography  color="primary">Coming soon...</Typography>
+      <Typography color="primary">Coming soon...</Typography>
     </Container>
   );
 };

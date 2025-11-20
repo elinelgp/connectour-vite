@@ -35,7 +35,10 @@ export const router = createBrowserRouter([
       { path: "dashboard/prod", lazy: () => import("./dashboard-prod") },
       { path: "tasks", lazy: () => import("./tasks") },
       { path: "messages", lazy: () => import("./messages") },
-      { path: "artist/management/:artistShortName", lazy: () => import("./artist-agent-page") },
+      {
+        path: "artist/management/:artistShortName",
+        lazy: () => import("./artist-agent-page"),
+      },
       { path: "artist/:artistShortName", lazy: () => import("./artist-page") },
     ],
   },

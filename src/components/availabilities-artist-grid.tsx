@@ -22,17 +22,17 @@ export function AvailabilityArtistGrid(
             <>
               <tr key={availability.id}>
                 <td>
-                  <Typography  color="primary">
-                    {availability.zones.join(', ')}
+                  <Typography color="primary">
+                    {availability.zones.join(", ")}
                   </Typography>
                 </td>
                 <td>
-                  <Typography  color="primary">
+                  <Typography color="primary">
                     {dayjs(availability.startDate).format("DD/MM/YYYY")}
                   </Typography>
                 </td>
                 <td>
-                  <Typography  color="primary">
+                  <Typography color="primary">
                     {dayjs(availability.endDate).format("DD/MM/YYYY")}
                   </Typography>
                 </td>
@@ -44,4 +44,3 @@ export function AvailabilityArtistGrid(
     </Table>
   );
 }
-

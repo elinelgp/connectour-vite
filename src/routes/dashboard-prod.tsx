@@ -75,7 +75,7 @@ export const Component = function DashboardProd(): JSX.Element {
 
   return (
     <Container sx={{ py: 2 }}>
-      <Typography  color="primary" sx={{ mb: 2 }} level="h2">
+      <Typography color="primary" sx={{ mb: 2 }} level="h2">
         Dashboard Prod
       </Typography>
 
@@ -90,7 +90,7 @@ export const Component = function DashboardProd(): JSX.Element {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <Typography  color="primary" sx={{ mb: 1 }} level="h3">
+        <Typography color="primary" sx={{ mb: 1 }} level="h3">
           Disponibilités
         </Typography>
         <AvailabilityProdGrid
@@ -99,7 +99,7 @@ export const Component = function DashboardProd(): JSX.Element {
         />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <Typography  color="primary" sx={{ mb: 1 }} level="h3">
+        <Typography color="primary" sx={{ mb: 1 }} level="h3">
           Options
         </Typography>
         <OptionsProdGrid

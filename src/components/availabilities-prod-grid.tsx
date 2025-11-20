@@ -1,15 +1,15 @@
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline"
-import { IconButton, Stack, Table, Typography } from "@mui/joy"
-import dayjs, { Dayjs } from "dayjs"
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import { IconButton, Stack, Table, Typography } from "@mui/joy";
+import dayjs, { Dayjs } from "dayjs";
 //import { rejectOption, validateOption } from "../services/artist-service";
-import { DatePicker } from "@mui/x-date-pickers"
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
-import "dayjs/locale/fr"
-import { useEffect, useState } from "react"
-import { createOptionFromAvailability } from "../services/artist-service"
-import { Availability } from "../types/availability"
-import { AvailabilityGridProps } from "./availabilities-simple-grid"
+import { DatePicker } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import "dayjs/locale/fr";
+import { useEffect, useState } from "react";
+import { createOptionFromAvailability } from "../services/artist-service";
+import { Availability } from "../types/availability";
+import { AvailabilityGridProps } from "./availabilities-simple-grid";
 
 export function AvailabilityProdGrid(
   availabilitiesProps: AvailabilityGridProps,
@@ -50,20 +50,22 @@ export function AvailabilityProdGrid(
               <>
                 <tr key={availability.id}>
                   <td>
-                    <Typography  color="primary">{availability.artistName}</Typography>
+                    <Typography color="primary">
+                      {availability.artistName}
+                    </Typography>
                   </td>
                   <td>
-                  <Typography  color="primary">
-                  {availability.zones.join(', ')}
-                  </Typography>
+                    <Typography color="primary">
+                      {availability.zones.join(", ")}
+                    </Typography>
                   </td>
                   <td>
-                    <Typography  color="primary">
+                    <Typography color="primary">
                       {dayjs(availability.startDate).format("DD/MM/YYYY")}
                     </Typography>
                   </td>
                   <td>
-                    <Typography  color="primary">
+                    <Typography color="primary">
                       {dayjs(availability.endDate).format("DD/MM/YYYY")}
                     </Typography>
                   </td>

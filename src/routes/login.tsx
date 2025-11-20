@@ -17,7 +17,11 @@ export const Component = function Login(): JSX.Element {
       }}
       maxWidth="xs"
     >
-      <Typography  color="primary" sx={{ mb: 1, textAlign: "center" }} level="h2">
+      <Typography
+        color="primary"
+        sx={{ mb: 1, textAlign: "center" }}
+        level="h2"
+      >
         Sign In
       </Typography>
 

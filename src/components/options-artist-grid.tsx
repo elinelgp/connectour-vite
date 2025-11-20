@@ -1,11 +1,11 @@
-import CancelIcon from "@mui/icons-material/Cancel"
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline"
-import {IconButton, Table, Typography} from "@mui/joy"
-import dayjs from "dayjs"
+import CancelIcon from "@mui/icons-material/Cancel";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import { IconButton, Table, Typography } from "@mui/joy";
+import dayjs from "dayjs";
 //import { rejectOption, validateOption } from "../services/artist-service";
-import {cancelOption, validateOption} from "../services/artist-service"
-import {Availability} from "../types/availability"
-import {Option} from "../types/option"
+import { cancelOption, validateOption } from "../services/artist-service";
+import { Availability } from "../types/availability";
+import { Option } from "../types/option";
 
 export function OptionArtistGrid(optionsProps: OptionGridProps): JSX.Element {
   return (
@@ -27,32 +27,38 @@ export function OptionArtistGrid(optionsProps: OptionGridProps): JSX.Element {
             availability.options?.length > 0 && (
               <tr key={availability.id}>
                 <td>
-                  <Typography  color="primary">
+                  <Typography color="primary">
                     {availability.zones.reduce(
-                      (accumulator: string, currentValue: string) => currentValue + " " + accumulator,
-                    "",)}
+                      (accumulator: string, currentValue: string) =>
+                        currentValue + " " + accumulator,
+                      "",
+                    )}
                   </Typography>
                 </td>
                 <td>
-                  <Typography  color="primary">
+                  <Typography color="primary">
                     {dayjs(availability.startDate).format("DD/MM/YYYY")}
                   </Typography>
                 </td>
                 <td>
-                  <Typography  color="primary">
+                  <Typography color="primary">
                     {dayjs(availability.endDate).format("DD/MM/YYYY")}
                   </Typography>
                 </td>
                 {availability.options?.map((option: Option) => (
                   <>
                     <td>
-                      <Typography  color="primary">{option.organizer}</Typography>
+                      <Typography color="primary">
+                        {option.organizer}
+                      </Typography>
                     </td>
                     <td>
-                      <Typography  color="primary">{option.venueName}</Typography>
+                      <Typography color="primary">
+                        {option.venueName}
+                      </Typography>
                     </td>
                     <td>
-                      <Typography  color="primary">
+                      <Typography color="primary">
                         {dayjs(option.date).format("DD/MM/YYYY")}
                       </Typography>
                     </td>

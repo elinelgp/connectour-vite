@@ -1,7 +1,6 @@
 import { extendTheme } from "@mui/joy/styles";
 import { experimental_extendTheme as materialExtendTheme } from "@mui/material/styles";
 
-
 export const themeJoy = extendTheme({
   colorSchemes: {
     light: {
@@ -11,7 +10,7 @@ export const themeJoy = extendTheme({
           body: "#2c0405",
           surface: "#2c0405",
         },
-        text:{
+        text: {
           icon: "#FFE98F",
         },
         primary: {
@@ -24,7 +23,7 @@ export const themeJoy = extendTheme({
           plainActiveBg: "#C55516",
           plainHoverBg: "#C55516",
           plainColor: "#FFAC21",
-          50:  "#FFAC21",
+          50: "#FFAC21",
           100: "#FFAC21",
           200: "#FFAC21",
           300: "#FFAC21",
@@ -45,7 +44,7 @@ export const themeJoy = extendTheme({
           plainActiveBg: "#C55516",
           plainHoverBg: "#C55516",
           plainColor: "#FFAC21",
-          50:  "#FFAC21",
+          50: "#FFAC21",
           100: "#FFAC21",
           200: "#FFAC21",
           300: "#FFAC21",
@@ -66,7 +65,7 @@ export const themeJoy = extendTheme({
           plainActiveBg: "#C55516",
           plainHoverBg: "#C55516",
           plainColor: "#FFAC21",
-          50:  "#FFAC21",
+          50: "#FFAC21",
           100: "#FFAC21",
           200: "#FFAC21",
           300: "#FFAC21",
@@ -76,10 +75,10 @@ export const themeJoy = extendTheme({
           700: "#FFAC21",
           800: "#FFAC21",
           900: "#FFAC21",
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 });
 
 export const themeMui = materialExtendTheme({
@@ -87,39 +86,39 @@ export const themeMui = materialExtendTheme({
     light: {
       palette: {
         primary: {
-          main: '#ffe473',
+          main: "#ffe473",
         },
         secondary: {
-          main: '#f50057',
+          main: "#f50057",
         },
         background: {
-          default: '#2c0405',
-          paper: '#2c0405',
+          default: "#2c0405",
+          paper: "#2c0405",
         },
         text: {
-          primary: '#FFAC21',
-          secondary: '#A34700',
-        }, 
+          primary: "#FFAC21",
+          secondary: "#A34700",
+        },
         action: {
-          active: '#FFAC21',
-        }, 
+          active: "#FFAC21",
+        },
       },
     },
     dark: {
       palette: {
         primary: {
-          main: '#ffe473',
+          main: "#ffe473",
         },
         secondary: {
-          main: '#f50057',
+          main: "#f50057",
         },
         background: {
-          default: '#2c0405',
-          paper: '#2c0405',
+          default: "#2c0405",
+          paper: "#2c0405",
         },
         text: {
-          primary: '#FFAC21',
-          secondary: '#A34700',
+          primary: "#FFAC21",
+          secondary: "#A34700",
         },
       },
     },

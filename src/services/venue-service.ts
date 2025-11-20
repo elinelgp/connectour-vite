@@ -1,4 +1,4 @@
-import {Venue} from "../types/venue"
+import { Venue } from "../types/venue";
 
 const venues: Venue[] = [
   {

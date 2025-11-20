@@ -1,18 +1,25 @@
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { Box, Card, CardContent, Container, IconButton, Typography } from "@mui/joy";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import {
+  Box,
+  Card,
+  CardContent,
+  Container,
+  IconButton,
+  Typography,
+} from "@mui/joy";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {
-  AvailabilitySimpleGrid,
-  ConcertGrid
-} from "../components";
+import { AvailabilitySimpleGrid, ConcertGrid } from "../components";
 import { useCurrentUser } from "../core/auth";
 import { usePageEffect } from "../core/page";
-import { fetchArtistFromShortName } from '../services/artist-service';
-import { isUserSubscribedToArtist, subscribeToArtist } from "../services/user-service";
+import { fetchArtistFromShortName } from "../services/artist-service";
+import {
+  isUserSubscribedToArtist,
+  subscribeToArtist,
+} from "../services/user-service";
 import { Artist } from "../types/artist";
 
 interface TabPanelProps {
@@ -61,9 +68,12 @@ export const Component = function ArtistPage(): JSX.Element {
     if (currentUser && artistShortName) {
       const artist = await fetchArtistFromShortName(artistShortName);
       setArtistData(artist);
-      const isSubscribed = await isUserSubscribedToArtist(currentUser.uid, artist.id);
+      const isSubscribed = await isUserSubscribedToArtist(
+        currentUser.uid,
+        artist.id,
+      );
       setIsSubscribed(isSubscribed);
-      console.log(artist)
+      console.log(artist);
     }
   }
 
@@ -71,7 +81,7 @@ export const Component = function ArtistPage(): JSX.Element {
     fetchData();
   }
 
-  async function handleSubscribe()  {
+  async function handleSubscribe() {
     try {
       if (currentUser && artistData) {
         await subscribeToArtist(currentUser.uid, artistData.id);
@@ -81,7 +91,7 @@ export const Component = function ArtistPage(): JSX.Element {
     } catch (error) {
       console.error("Failed to subscribe:", error);
     }
-  };
+  }
 
   useEffect(() => {
     fetchData();
@@ -92,35 +102,31 @@ export const Component = function ArtistPage(): JSX.Element {
 
   return (
     <Container sx={{ py: 2 }}>
-      <Typography  color="primary" sx={{ mb: 2 }} level="h2">
+      <Typography color="primary" sx={{ mb: 2 }} level="h2">
         {artistData?.longName}
       </Typography>
 
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Card sx={{ mb: 2 }} key={artistData?.id}>
           <CardContent sx={{ minHeight: 150 }}>
-            <Typography sx={{ mb: 2 }} color="primary">{artistData?.description}</Typography>
+            <Typography sx={{ mb: 2 }} color="primary">
+              {artistData?.description}
+            </Typography>
             {!isSubscribed ? (
-              <IconButton
-              sx={{ mb: 1 }}
-              variant="plain"
-              onClick={() => {
-                handleSubscribe();
-              }}
-            >
-              <FavoriteBorderIcon />
-            </IconButton>
-            ) : (
               <IconButton
                 sx={{ mb: 1 }}
                 variant="plain"
                 onClick={() => {
+                  handleSubscribe();
                 }}
               >
+                <FavoriteBorderIcon />
+              </IconButton>
+            ) : (
+              <IconButton sx={{ mb: 1 }} variant="plain" onClick={() => {}}>
                 <FavoriteIcon />
               </IconButton>
             )}
-
           </CardContent>
         </Card>
         <Tabs
@@ -133,7 +139,7 @@ export const Component = function ArtistPage(): JSX.Element {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <Typography  color="primary" sx={{ mb: 1 }} level="h3">
+        <Typography color="primary" sx={{ mb: 1 }} level="h3">
           Disponibilités
         </Typography>
         <AvailabilitySimpleGrid
@@ -142,7 +148,7 @@ export const Component = function ArtistPage(): JSX.Element {
         />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        <Typography  color="primary" sx={{ mb: 1 }} level="h3">
+        <Typography color="primary" sx={{ mb: 1 }} level="h3">
           Dates programmées
         </Typography>
         <ConcertGrid concerts={artistData?.concerts || []} />

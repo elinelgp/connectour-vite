@@ -16,13 +16,13 @@ export function ConcertGrid(concertsProps: ConcertGridProps): JSX.Element {
         {concertsProps.concerts.map((concert: Concert) => (
           <tr key={concert.id}>
             <td>
-              <Typography  color="primary">{concert.organizer}</Typography>
+              <Typography color="primary">{concert.organizer}</Typography>
             </td>
             <td>
-              <Typography  color="primary">{concert.venueName}</Typography>
+              <Typography color="primary">{concert.venueName}</Typography>
             </td>
             <td>
-              <Typography  color="primary">
+              <Typography color="primary">
                 {dayjs(concert.date).format("DD/MM/YYYY HH:mm")}
               </Typography>
             </td>

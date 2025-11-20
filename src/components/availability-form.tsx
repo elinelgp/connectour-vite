@@ -1,15 +1,15 @@
-import { Button, FormControl, Stack } from "@mui/joy"
-import Autocomplete from '@mui/material/Autocomplete'
-import TextField from '@mui/material/TextField'
-import { DatePicker } from "@mui/x-date-pickers"
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
-import { Dayjs } from "dayjs"
-import "dayjs/locale/fr"
-import { useEffect, useState } from "react"
-import { addAvailability } from "../services/artist-service"
-import { fetchRegionsDepartments } from "../services/ext-service"
-import { Availability } from "../types/availability"
+import { Button, FormControl, Stack } from "@mui/joy";
+import Autocomplete from "@mui/material/Autocomplete";
+import TextField from "@mui/material/TextField";
+import { DatePicker } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { Dayjs } from "dayjs";
+import "dayjs/locale/fr";
+import { useEffect, useState } from "react";
+import { addAvailability } from "../services/artist-service";
+import { fetchRegionsDepartments } from "../services/ext-service";
+import { Availability } from "../types/availability";
 
 export function AvailabilityForm(
   availabilitiesFormProps: AvailabilitiesFormProps,
@@ -19,22 +19,26 @@ export function AvailabilityForm(
   const [zoneList, setZoneList] = useState<string[]>([""]);
 
   const updateZoneList = (indexToChange: number, newValue: string) => {
-    setZoneList(zoneList.map((zone: string, index: number) => {
-      if (index === indexToChange) {
-        return newValue;
-      } else {
-        return zone;
-      }
-    }))
+    setZoneList(
+      zoneList.map((zone: string, index: number) => {
+        if (index === indexToChange) {
+          return newValue;
+        } else {
+          return zone;
+        }
+      }),
+    );
   };
   const deleteFromZoneList = (indexToDelete: number) => {
-    const nextZones = zoneList.map((zone: string, index: number) => {
-      if (index === indexToDelete) {
-        return undefined;
-      } else {
-        return zone;
-      }
-    }).filter((zone: string | undefined) => zone !== undefined);
+    const nextZones = zoneList
+      .map((zone: string, index: number) => {
+        if (index === indexToDelete) {
+          return undefined;
+        } else {
+          return zone;
+        }
+      })
+      .filter((zone: string | undefined) => zone !== undefined);
     // Re-render with the new array
     setZoneList(nextZones);
   };
@@ -96,23 +100,36 @@ export function AvailabilityForm(
               onChange={(newValue: Dayjs | null) => setEndDate(newValue)}
             />
           </FormControl>
-          {zoneList.map((zone: string,index: number) => (
+          {zoneList.map((zone: string, index: number) => (
             <FormControl key={index} required>
               <Autocomplete
                 disablePortal
                 options={regionsDepartments}
                 onChange={(event: any, newValue: string | null) => {
-                  newValue ?  updateZoneList(index, newValue) : updateZoneList(index, "");
+                  newValue
+                    ? updateZoneList(index, newValue)
+                    : updateZoneList(index, "");
                 }}
-                renderInput={(params: any) => <TextField {...params} label="Region ou département" />}
+                renderInput={(params: any) => (
+                  <TextField {...params} label="Region ou département" />
+                )}
               />
-            {index !== 0 && <Button onClick={() => deleteAutocomplete(index)}>Supprimer la zone</Button>}
+              {index !== 0 && (
+                <Button onClick={() => deleteAutocomplete(index)}>
+                  Supprimer la zone
+                </Button>
+              )}
             </FormControl>
           ))}
 
           <Button onClick={addAutocomplete}>Zone Supplémentaire</Button>
           <Button
-            disabled={startDate === null || endDate === null || startDate.isAfter(endDate) || zoneList.includes("")}
+            disabled={
+              startDate === null ||
+              endDate === null ||
+              startDate.isAfter(endDate) ||
+              zoneList.includes("")
+            }
             type="submit"
             sx={{ mt: 1 }}
           >

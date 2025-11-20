@@ -1,6 +1,6 @@
-import { Artist } from "../types/artist"
+import { Artist } from "../types/artist";
 
-import { getApp } from "firebase/app"
+import { getApp } from "firebase/app";
 import {
   Timestamp,
   addDoc,
@@ -12,14 +12,14 @@ import {
   getFirestore,
   query,
   where,
-} from "firebase/firestore"
+} from "firebase/firestore";
 
-import dayjs from "dayjs"
-import { app } from "../core/firebaseInit"
-import { Availability } from "../types/availability"
-import { Concert } from "../types/concert"
-import { Option } from "../types/option"
-import { Venue } from "../types/venue"
+import dayjs from "dayjs";
+import { app } from "../core/firebaseInit";
+import { Availability } from "../types/availability";
+import { Concert } from "../types/concert";
+import { Option } from "../types/option";
+import { Venue } from "../types/venue";
 const db = getFirestore(app ? app : getApp());
 
 const convertFirestoreDateToDayjs = (firestoreDate: Timestamp): dayjs.Dayjs => {
@@ -27,7 +27,7 @@ const convertFirestoreDateToDayjs = (firestoreDate: Timestamp): dayjs.Dayjs => {
 };
 
 const today = new Date();
-today.setHours(0,0,0,0)
+today.setHours(0, 0, 0, 0);
 const midnightThisMorning = Timestamp.fromDate(today);
 
 export const fetchSimpleAvailability = async (
@@ -52,7 +52,12 @@ export const fetchSimpleAvailability = async (
 };
 
 export const fetchAvailabilities = async (): Promise<Availability[]> => {
-  const querySnapshot = await getDocs(query(collection(db, "availabilities"), where("endDate", ">=", midnightThisMorning)));
+  const querySnapshot = await getDocs(
+    query(
+      collection(db, "availabilities"),
+      where("endDate", ">=", midnightThisMorning),
+    ),
+  );
   const availabilities = await Promise.all(
     querySnapshot.docs.map(async (availability) => {
       const data = availability.data();
@@ -79,7 +84,11 @@ export const fetchAvailabilitiesFromArtistId = async (
   artistId: string,
 ): Promise<Availability[]> => {
   const queryAvailabilities = await getDocs(
-    query(collection(db, "availabilities"), where("artistId", "==", artistId), where("endDate", ">=", midnightThisMorning)),
+    query(
+      collection(db, "availabilities"),
+      where("artistId", "==", artistId),
+      where("endDate", ">=", midnightThisMorning),
+    ),
   );
   const availabilities = await Promise.all(
     queryAvailabilities.docs.map(async (availability) => {
@@ -134,7 +143,7 @@ export const fetchOptionsFromAvailabilityId = async (
     query(
       collection(db, "options"),
       where("availabilityId", "==", availabilityId),
-      where("date", ">=", midnightThisMorning)
+      where("date", ">=", midnightThisMorning),
     ),
   );
   const options = await Promise.all(
@@ -170,14 +179,17 @@ export const fetchArtists = async (): Promise<Artist[]> => {
   });
 };
 
-export const fetchArtistsFromString = async (searchString: string): Promise<Artist[]> => {
-  searchString=searchString.toLowerCase().replace(/\s/g, "");
+export const fetchArtistsFromString = async (
+  searchString: string,
+): Promise<Artist[]> => {
+  searchString = searchString.toLowerCase().replace(/\s/g, "");
   const querySnapshot = await getDocs(
     query(
       collection(db, "artists"),
-      where('shortName', '>=', searchString),
-      where('shortName', '<=', searchString+ '\uf8ff')
-    ));
+      where("shortName", ">=", searchString),
+      where("shortName", "<=", searchString + "\uf8ff"),
+    ),
+  );
   return querySnapshot.docs.map((artist) => {
     const data = artist.data();
     return {
@@ -190,7 +202,6 @@ export const fetchArtistsFromString = async (searchString: string): Promise<Arti
     } as unknown as Artist;
   });
 };
-
 
 export const fetchArtist = async (artistId: string): Promise<Artist> => {
   const artist = await getDoc(doc(db, "artists", artistId));
@@ -211,29 +222,31 @@ export const fetchArtist = async (artistId: string): Promise<Artist> => {
   return {} as unknown as Artist;
 };
 
-export const fetchArtistFromShortName = async (shortName: string): Promise<Artist> => {
+export const fetchArtistFromShortName = async (
+  shortName: string,
+): Promise<Artist> => {
   // Query to find the artist with matching shortName
   const artistQuery = query(
     collection(db, "artists"),
-    where('shortName', '==', shortName)
+    where("shortName", "==", shortName),
   );
-  
+
   const querySnapshot = await getDocs(artistQuery);
-  
+
   // Check if any results found
   if (querySnapshot.empty) {
     return {} as unknown as Artist;
   }
-  
+
   // Get the first matching artist
   const artistDoc = querySnapshot.docs[0];
   const data = artistDoc.data();
   const artistId = artistDoc.id;
-  
+
   // Fetch related data
   const availabilities = await fetchAvailabilitiesFromArtistId(artistId);
   const concerts = await fetchConcertsFromArtistId(artistId, data.longName);
-  
+
   return {
     id: artistId,
     longName: data.longName,
