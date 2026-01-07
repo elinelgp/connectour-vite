@@ -1,17 +1,14 @@
-import React from 'react';
-import { ButtonProps } from './Button.types';
-import { 
-  buttonSizeClasses, 
-  buttonVariantColors 
-} from '../../componentStyles';
+import React from "react";
+import { ButtonProps } from "./Button.types";
+import { buttonSizeClasses, buttonVariantColors } from "../../componentStyles";
 
 export const Button: React.FC<ButtonProps> = ({
-  variant = 'primary',
-  size = 'md',
+  variant = "primary",
+  size = "md",
   children,
   disabled = false,
   fullWidth = false,
-  className = '',
+  className = "",
   ...props
 }) => {
   // Récupérer les styles de size et variant depuis le mapping centralisé
@@ -20,9 +17,11 @@ export const Button: React.FC<ButtonProps> = ({
 
   // Classes Tailwind (structure)
   const finalClasses = `
-    ${fullWidth ? 'w-full' : ''}
+    ${fullWidth ? "w-full" : ""}
     ${className}
-  `.replace(/\s+/g, ' ').trim();
+  `
+    .replace(/\s+/g, " ")
+    .trim();
 
   // Combiner styles inline (couleurs + tailles en inline)
   const combinedStyles: React.CSSProperties = {
@@ -31,15 +30,10 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   return (
-    <button
-      className={finalClasses}
-      style={combinedStyles}
-      disabled={disabled}
-      {...props}
-    >
+    <button className={finalClasses} style={combinedStyles} disabled={disabled} {...props}>
       {children}
     </button>
   );
 };
 
-Button.displayName = 'Button';
+Button.displayName = "Button";

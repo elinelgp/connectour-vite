@@ -1,6 +1,6 @@
-import { InputHTMLAttributes, ReactNode } from 'react';
+import { InputHTMLAttributes, ReactNode } from "react";
 
-export type InputVariant = 'default' | 'error' | 'success';
+export type InputVariant = "default" | "error" | "success";
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   /**

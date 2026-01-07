@@ -1,34 +1,34 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Input } from './Input';
-import { Mail, Search, AlertCircle } from 'lucide-react';
+import type { Meta, StoryObj } from "@storybook/react";
+import { Input } from "./Input";
+import { Mail, Search, AlertCircle } from "lucide-react";
 
 const meta = {
-  title: 'Design System/Atoms/Input',
+  title: "Design System/Atoms/Input",
   component: Input,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: 'select',
-      options: ['default', 'error', 'success'],
+      control: "select",
+      options: ["default", "error", "success"],
     },
     size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
+      control: "select",
+      options: ["sm", "md", "lg"],
     },
     label: {
-      control: 'text',
+      control: "text",
     },
     helperText: {
-      control: 'text',
+      control: "text",
     },
     disabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     fullWidth: {
-      control: 'boolean',
+      control: "boolean",
     },
   },
 } satisfies Meta<typeof Input>;
@@ -38,61 +38,61 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    label: 'Email',
-    placeholder: 'example@email.com',
+    label: "Email",
+    placeholder: "example@email.com",
   },
 };
 
 export const WithLeftIcon: Story = {
   args: {
-    label: 'Search',
-    placeholder: 'Search...',
+    label: "Search",
+    placeholder: "Search...",
     leftIcon: <Search className="w-5 h-5" />,
   },
 };
 
 export const WithRightIcon: Story = {
   args: {
-    label: 'Email',
-    placeholder: 'example@email.com',
+    label: "Email",
+    placeholder: "example@email.com",
     rightIcon: <Mail className="w-5 h-5" />,
   },
 };
 
 export const Error: Story = {
   args: {
-    label: 'Email',
-    placeholder: 'example@email.com',
-    variant: 'error',
-    helperText: 'Adresse email invalide',
+    label: "Email",
+    placeholder: "example@email.com",
+    variant: "error",
+    helperText: "Adresse email invalide",
     rightIcon: <AlertCircle className="w-5 h-5 text-red-500" />,
   },
 };
 
 export const Success: Story = {
   args: {
-    label: 'Email',
-    placeholder: 'example@email.com',
-    variant: 'success',
-    helperText: 'Adresse valide',
+    label: "Email",
+    placeholder: "example@email.com",
+    variant: "success",
+    helperText: "Adresse valide",
   },
 };
 
 export const Disabled: Story = {
   args: {
-    label: 'Email',
-    placeholder: 'example@email.com',
+    label: "Email",
+    placeholder: "example@email.com",
     disabled: true,
   },
 };
 
 export const FullWidth: Story = {
   args: {
-    label: 'Email',
-    placeholder: 'example@email.com',
+    label: "Email",
+    placeholder: "example@email.com",
     fullWidth: true,
   },
   parameters: {
-    layout: 'padded',
+    layout: "padded",
   },
 };

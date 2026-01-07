@@ -1,19 +1,16 @@
-import React from 'react';
-import { InputProps } from './Input.types';
-import {
-  inputSizeClasses,
-  inputVariantColors,
-} from '../../componentStyles';
+import React from "react";
+import { InputProps } from "./Input.types";
+import { inputSizeClasses, inputVariantColors } from "../../componentStyles";
 
 export const Input: React.FC<InputProps> = ({
-  variant = 'default',
-  size = 'md',
+  variant = "default",
+  size = "md",
   label,
   helperText,
   leftIcon,
   rightIcon,
   fullWidth = false,
-  className = '',
+  className = "",
   disabled = false,
   id,
   ...props
@@ -25,14 +22,16 @@ export const Input: React.FC<InputProps> = ({
   const colorStyles = inputVariantColors[variant];
 
   const containerClasses = `
-    ${fullWidth ? 'w-full' : 'w-auto'}
+    ${fullWidth ? "w-full" : "w-auto"}
   `.trim();
 
   const inputClasses = `
     ${className}
-    ${leftIcon ? 'pl-10' : ''}
-    ${rightIcon ? 'pr-10' : ''}
-  `.replace(/\s+/g, ' ').trim();
+    ${leftIcon ? "pl-10" : ""}
+    ${rightIcon ? "pr-10" : ""}
+  `
+    .replace(/\s+/g, " ")
+    .trim();
 
   const combinedStyles: React.CSSProperties = {
     ...sizeStyles,
@@ -42,10 +41,7 @@ export const Input: React.FC<InputProps> = ({
   return (
     <div className={containerClasses}>
       {label && (
-        <label
-          htmlFor={inputId}
-          className="block mb-1 text-sm font-medium"
-        >
+        <label htmlFor={inputId} className="block mb-1 text-sm font-medium">
           {label}
         </label>
       )}
@@ -62,7 +58,7 @@ export const Input: React.FC<InputProps> = ({
           className={inputClasses}
           style={combinedStyles}
           disabled={disabled}
-          aria-invalid={variant === 'error'}
+          aria-invalid={variant === "error"}
           {...props}
         />
 
@@ -74,11 +70,7 @@ export const Input: React.FC<InputProps> = ({
       </div>
 
       {helperText && (
-        <p
-          className={`mt-1 text-sm ${
-            variant === 'error' ? 'text-red-600' : 'text-gray-500'
-          }`}
-        >
+        <p className={`mt-1 text-sm ${variant === "error" ? "text-red-600" : "text-gray-500"}`}>
           {helperText}
         </p>
       )}
@@ -86,4 +78,4 @@ export const Input: React.FC<InputProps> = ({
   );
 };
 
-Input.displayName = 'Input';
+Input.displayName = "Input";

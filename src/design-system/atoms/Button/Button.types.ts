@@ -1,7 +1,7 @@
-import { ReactNode, ButtonHTMLAttributes } from 'react';
+import { ReactNode, ButtonHTMLAttributes } from "react";
 
-export type ButtonVariant = 'primary' | 'secondary' | 'ghost';
-export type ButtonSize = 'sm' | 'md' | 'lg';
+export type ButtonVariant = "primary" | "secondary" | "ghost";
+export type ButtonSize = "sm" | "md" | "lg";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
@@ -9,24 +9,24 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * @default 'primary'
    */
   variant?: ButtonVariant;
-  
+
   /**
    * Taille du bouton
    * @default 'md'
    */
   size?: ButtonSize;
-  
+
   /**
    * Contenu du bouton
    */
   children: ReactNode;
-  
+
   /**
    * Désactiver le bouton
    * @default false
    */
   disabled?: boolean;
-  
+
   /**
    * Afficher le bouton en pleine largeur
    * @default false
