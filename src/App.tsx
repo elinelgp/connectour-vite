@@ -1,30 +1,50 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+    <div className="connectour-container">
+      <div className="connectour-content">
+        <img src="/src/assets/connectour-logo.svg" alt="Connectour Logo" className="connectour-logo" />
+        
+        <h1>🎵 Connectour</h1>
+        
+        <p className="connectour-tagline">
+          Connecting Artists and Venues
         </p>
+        
+        <p className="connectour-description">
+          A modern platform for seamless event booking and collaboration between musicians and concert venues.
+        </p>
+        
+        <div className="connectour-features">
+          <div className="feature">
+            <span className="feature-icon">🎤</span>
+            <h3>For Artists</h3>
+            <p>Manage your profile, set availability, and book concerts</p>
+          </div>
+          
+          <div className="feature">
+            <span className="feature-icon">🎪</span>
+            <h3>For Venues</h3>
+            <p>Discover artists and organize amazing events</p>
+          </div>
+          
+          <div className="feature">
+            <span className="feature-icon">📅</span>
+            <h3>Event Management</h3>
+            <p>Streamlined booking and scheduling system</p>
+          </div>
+        </div>
+        
+        <button className="connectour-btn">
+          Get Started
+        </button>
+        
+        <footer className="connectour-footer">
+          <p>© 2026 Connectour. All rights reserved.</p>
+        </footer>
       </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+    </div>
   );
 }
 

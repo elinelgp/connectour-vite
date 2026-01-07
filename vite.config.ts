@@ -1,19 +1,53 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import eslint from 'vite-plugin-eslint';
+/// <reference types="vitest/config" />
+import { defineConfig } from "vitest/config";
+import react from "@vitejs/plugin-react";
+import eslint from "vite-plugin-eslint";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
+import { playwright } from "@vitest/browser-playwright";
 
-// https://vite.dev/config/
+const dirname = typeof __dirname !== "undefined" ? __dirname : path.dirname(fileURLToPath(import.meta.url));
+
 export default defineConfig({
   base: "/",
   plugins: [react(), eslint()],
-  preview: {
-   port: 8080,
-   strictPort: true,
+  resolve: {
+    alias: {
+      "@": path.resolve(dirname, "./src"),
+    },
   },
   server: {
-   port: 8080,
-   strictPort: true,
-   host: true,
-   origin: "http://0.0.0.0:8080",
+    port: 8080,
+    strictPort: false,
+    host: "0.0.0.0",
+    hmr: {
+      host: "localhost",
+      port: 8080,
+      protocol: "http",
+    },
   },
- });
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: ["./src/test/setup.ts"],
+    projects: [
+      {
+        extends: true,
+        plugins: [
+          storybookTest({
+            configDir: path.join(dirname, ".storybook"),
+          }),
+        ],
+        test: {
+          browser: {
+            enabled: true,
+            headless: true,
+            provider: playwright(),
+            instances: [{ browser: "chromium" }],
+          },
+        },
+      },
+    ],
+  },
+});
