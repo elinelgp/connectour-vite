@@ -1,7 +1,8 @@
 /* SPDX-FileCopyrightText: 2014-present Kriasoft */
 /* SPDX-License-Identifier: MIT */
-import { createBrowserRouter, Navigate } from "react-router-dom";
-import { BaseLayout, MainLayout, RootError } from "../components";
+import { createBrowserRouter } from "react-router-dom";
+import { MainLayout } from "../layouts/MainLayout/MainLayout";
+import { ErrorLayout } from "../layouts/ErrorLayout/ErrorLayout";
 
 /**
  * Application routes
@@ -9,21 +10,41 @@ import { BaseLayout, MainLayout, RootError } from "../components";
  */
 export const router = createBrowserRouter([
   {
+    // Routes "clean" / nouveau design system (sans MUI)
     path: "",
-    element: <BaseLayout />,
-    errorElement: <RootError />,
+    element: <MainLayout />,
+    errorElement: <ErrorLayout />,
     children: [
+      {
+        index: true,
+        lazy: () =>
+          import("../features/home").then((module) => ({
+            Component: module.HomePage,
+          })),
+      },
       { path: "login", lazy: () => import("./login") },
       { path: "privacy", lazy: () => import("./privacy") },
       { path: "terms", lazy: () => import("./terms") },
     ],
   },
   {
+    // Routes legacy / MUI (chargées uniquement quand nécessaire)
     path: "",
-    element: <MainLayout />,
-    errorElement: <RootError />,
+    lazy: async () => {
+      const { MainLayout: MainLayoutMui } = await import("../components/layout");
+      const { RootError } = await import("../components/error");
+      const { MuiProviders } = await import("../providers/MuiProviders");
+      
+      return {
+        element: (
+          <MuiProviders>
+            <MainLayoutMui />
+          </MuiProviders>
+        ),
+        errorElement: <RootError />,
+      };
+    },
     children: [
-      { index: true, element: <Navigate to="/dashboard" replace /> },
       { path: "dashboard", lazy: () => import("./dashboard") },
       { path: "dashboard/agent", lazy: () => import("./dashboard-agent") },
       { path: "dashboard/prod", lazy: () => import("./dashboard-prod") },

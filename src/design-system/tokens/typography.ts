@@ -8,4 +8,10 @@ export const typography = {
     "2xl": "1.5rem",
     "3xl": "1.875rem",
   },
+  fontWeights: {
+    normal: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+  },
 };

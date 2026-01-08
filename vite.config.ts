@@ -2,6 +2,7 @@ import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import eslint from "vite-plugin-eslint";
 import path from "node:path";
+import tailwindcss from "@tailwindcss/vite";
 import { fileURLToPath } from "node:url";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
 import { playwright } from "@vitest/browser-playwright";
@@ -10,7 +11,7 @@ const dirname = typeof __dirname !== "undefined" ? __dirname : path.dirname(file
 
 export default defineConfig({
   base: "/",
-  plugins: [react(), eslint()],
+  plugins: [react(), eslint(), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(dirname, "./src"),
