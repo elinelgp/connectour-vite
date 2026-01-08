@@ -21,20 +21,26 @@ export const Input: React.FC<InputProps> = ({
   const sizeStyles = inputSizeClasses[size];
   const colorStyles = inputVariantColors[variant];
 
+  // Ajuster le padding en fonction des icônes
+  const paddingStyles = {
+    ...sizeStyles,
+    paddingLeft: leftIcon ? "40px" : sizeStyles.paddingLeft,
+    paddingRight: rightIcon ? "40px" : sizeStyles.paddingRight,
+  };
+
   const containerClasses = `
     ${fullWidth ? "w-full" : "w-auto"}
   `.trim();
 
   const inputClasses = `
     ${className}
-    ${leftIcon ? "pl-10" : ""}
-    ${rightIcon ? "pr-10" : ""}
+    truncate
   `
     .replace(/\s+/g, " ")
     .trim();
 
   const combinedStyles: React.CSSProperties = {
-    ...sizeStyles,
+    ...paddingStyles,
     ...colorStyles,
   };
 
