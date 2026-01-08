@@ -2,14 +2,14 @@
  * Classe Event - Modèle métier pour les événements
  */
 
-import { z } from 'zod';
+import { z } from "zod";
 
 export enum EventStatus {
-  DRAFT = 'draft',
-  PUBLISHED = 'published',
-  ONGOING = 'ongoing',
-  COMPLETED = 'completed',
-  CANCELLED = 'cancelled',
+  DRAFT = "draft",
+  PUBLISHED = "published",
+  ONGOING = "ongoing",
+  COMPLETED = "completed",
+  CANCELLED = "cancelled",
 }
 
 export interface IEvent {

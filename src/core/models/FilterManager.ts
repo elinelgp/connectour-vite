@@ -6,12 +6,12 @@
 export interface FilterConfig {
   key: string;
   value: unknown;
-  operator?: 'equals' | 'contains' | 'startsWith' | 'gt' | 'lt' | 'gte' | 'lte' | 'in';
+  operator?: "equals" | "contains" | "startsWith" | "gt" | "lt" | "gte" | "lte" | "in";
 }
 
 export interface SortConfig {
   key: string;
-  direction: 'asc' | 'desc';
+  direction: "asc" | "desc";
 }
 
 export class FilterManager<T = Record<string, unknown>> {
@@ -28,7 +28,7 @@ export class FilterManager<T = Record<string, unknown>> {
   /**
    * Ajoute un filtre
    */
-  addFilter(key: string, value: unknown, operator: FilterConfig['operator'] = 'equals'): this {
+  addFilter(key: string, value: unknown, operator: FilterConfig["operator"] = "equals"): this {
     this.filters.push({ key, value, operator });
     return this;
   }
@@ -36,7 +36,7 @@ export class FilterManager<T = Record<string, unknown>> {
   /**
    * Ajoute plusieurs filtres
    */
-  addFilters(configs: Omit<FilterConfig, 'operator'>[]): this {
+  addFilters(configs: Omit<FilterConfig, "operator">[]): this {
     configs.forEach((config) => {
       this.addFilter(config.key, config.value);
     });
@@ -62,7 +62,7 @@ export class FilterManager<T = Record<string, unknown>> {
   /**
    * Ajoute un tri
    */
-  addSort(key: string, direction: 'asc' | 'desc' = 'asc'): this {
+  addSort(key: string, direction: "asc" | "desc" = "asc"): this {
     this.sorts.push({ key, direction });
     return this;
   }
@@ -125,8 +125,8 @@ export class FilterManager<T = Record<string, unknown>> {
         const aVal = a[sort.key];
         const bVal = b[sort.key];
 
-        if (aVal < bVal) return sort.direction === 'asc' ? -1 : 1;
-        if (aVal > bVal) return sort.direction === 'asc' ? 1 : -1;
+        if (aVal < bVal) return sort.direction === "asc" ? -1 : 1;
+        if (aVal > bVal) return sort.direction === "asc" ? 1 : -1;
         return 0;
       });
     });
@@ -176,24 +176,24 @@ export class FilterManager<T = Record<string, unknown>> {
    */
   private matchesFilter(item: T, filter: FilterConfig): boolean {
     const value = item[filter.key];
-    const operator = filter.operator || 'equals';
+    const operator = filter.operator || "equals";
 
     switch (operator) {
-      case 'equals':
+      case "equals":
         return value === filter.value;
-      case 'contains':
+      case "contains":
         return String(value).includes(String(filter.value));
-      case 'startsWith':
+      case "startsWith":
         return String(value).startsWith(String(filter.value));
-      case 'gt':
+      case "gt":
         return value > filter.value;
-      case 'lt':
+      case "lt":
         return value < filter.value;
-      case 'gte':
+      case "gte":
         return value >= filter.value;
-      case 'lte':
+      case "lte":
         return value <= filter.value;
-      case 'in':
+      case "in":
         return Array.isArray(filter.value) && filter.value.includes(value);
       default:
         return true;

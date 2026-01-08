@@ -3,12 +3,12 @@
  * Gère les propriétés et comportements d'un utilisateur Connectour
  */
 
-import { z } from 'zod';
+import { z } from "zod";
 
 export enum UserRole {
-  ARTIST = 'artist',
-  VENUE_MANAGER = 'venue_manager',
-  ADMIN = 'admin',
+  ARTIST = "artist",
+  VENUE_MANAGER = "venue_manager",
+  ADMIN = "admin",
 }
 
 export interface IUser {
@@ -70,7 +70,7 @@ export class User implements IUser {
   /**
    * Retourne les données publiques de l'utilisateur
    */
-  getPublicData(): Omit<IUser, 'email'> {
+  getPublicData(): Omit<IUser, "email"> {
     return {
       id: this.id,
       name: this.name,

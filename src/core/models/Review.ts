@@ -2,12 +2,12 @@
  * Classe Review - Modèle métier pour les évaluations
  */
 
-import { z } from 'zod';
+import { z } from "zod";
 
 export enum ReviewType {
-  EVENT = 'event',
-  VENUE = 'venue',
-  ARTIST = 'artist',
+  EVENT = "event",
+  VENUE = "venue",
+  ARTIST = "artist",
 }
 
 export interface IReview {
@@ -91,7 +91,7 @@ export class Review implements IReview {
    * Obtient les étoiles comme visuel
    */
   getRatingStars(): string {
-    return '⭐'.repeat(this.rating) + '☆'.repeat(5 - this.rating);
+    return "⭐".repeat(this.rating) + "☆".repeat(5 - this.rating);
   }
 
   /**
@@ -99,13 +99,13 @@ export class Review implements IReview {
    */
   getRatingLabel(): string {
     const labels: Record<number, string> = {
-      1: 'Mauvais',
-      2: 'Passable',
-      3: 'Bon',
-      4: 'Très bon',
-      5: 'Excellent',
+      1: "Mauvais",
+      2: "Passable",
+      3: "Bon",
+      4: "Très bon",
+      5: "Excellent",
     };
-    return labels[this.rating] || 'Non noté';
+    return labels[this.rating] || "Non noté";
   }
 
   /**
@@ -113,9 +113,9 @@ export class Review implements IReview {
    */
   getTargetTypeLabel(): string {
     const labels: Record<ReviewType, string> = {
-      [ReviewType.EVENT]: 'Événement',
-      [ReviewType.VENUE]: 'Venue',
-      [ReviewType.ARTIST]: 'Artiste',
+      [ReviewType.EVENT]: "Événement",
+      [ReviewType.VENUE]: "Venue",
+      [ReviewType.ARTIST]: "Artiste",
     };
     return labels[this.targetType];
   }
@@ -132,7 +132,7 @@ export class Review implements IReview {
     const weeks = Math.floor(diff / 604800000);
     const months = Math.floor(diff / 2592000000);
 
-    if (minutes < 1) return 'À l\'instant';
+    if (minutes < 1) return "À l'instant";
     if (minutes < 60) return `${minutes}m`;
     if (hours < 24) return `${hours}h`;
     if (days < 7) return `${days}d`;

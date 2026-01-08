@@ -2,16 +2,16 @@
  * Classe Notification - Modèle métier pour les notifications
  */
 
-import { z } from 'zod';
+import { z } from "zod";
 
 export enum NotificationType {
-  EVENT_CREATED = 'event_created',
-  EVENT_UPDATED = 'event_updated',
-  EVENT_CANCELLED = 'event_cancelled',
-  BOOKING_CONFIRMED = 'booking_confirmed',
-  BOOKING_CANCELLED = 'booking_cancelled',
-  MESSAGE = 'message',
-  SYSTEM = 'system',
+  EVENT_CREATED = "event_created",
+  EVENT_UPDATED = "event_updated",
+  EVENT_CANCELLED = "event_cancelled",
+  BOOKING_CONFIRMED = "booking_confirmed",
+  BOOKING_CANCELLED = "booking_cancelled",
+  MESSAGE = "message",
+  SYSTEM = "system",
 }
 
 export interface INotification {
@@ -71,19 +71,19 @@ export class Notification implements INotification {
   getIcon(): string {
     switch (this.type) {
       case NotificationType.EVENT_CREATED:
-        return '🎭';
+        return "🎭";
       case NotificationType.EVENT_UPDATED:
-        return '📝';
+        return "📝";
       case NotificationType.EVENT_CANCELLED:
-        return '❌';
+        return "❌";
       case NotificationType.BOOKING_CONFIRMED:
-        return '✅';
+        return "✅";
       case NotificationType.BOOKING_CANCELLED:
-        return '⛔';
+        return "⛔";
       case NotificationType.MESSAGE:
-        return '💬';
+        return "💬";
       default:
-        return 'ℹ️';
+        return "ℹ️";
     }
   }
 
@@ -94,14 +94,14 @@ export class Notification implements INotification {
     switch (this.type) {
       case NotificationType.EVENT_CREATED:
       case NotificationType.BOOKING_CONFIRMED:
-        return 'success';
+        return "success";
       case NotificationType.EVENT_CANCELLED:
       case NotificationType.BOOKING_CANCELLED:
-        return 'error';
+        return "error";
       case NotificationType.EVENT_UPDATED:
-        return 'info';
+        return "info";
       default:
-        return 'default';
+        return "default";
     }
   }
 
@@ -115,7 +115,7 @@ export class Notification implements INotification {
     const hours = Math.floor(diff / 3600000);
     const days = Math.floor(diff / 86400000);
 
-    if (minutes < 1) return 'À l\'instant';
+    if (minutes < 1) return "À l'instant";
     if (minutes < 60) return `${minutes}m ago`;
     if (hours < 24) return `${hours}h ago`;
     return `${days}d ago`;

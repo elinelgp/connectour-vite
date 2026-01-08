@@ -19,7 +19,7 @@ import {
   BookingStatus,
   Review,
   ReviewType,
-} from '../models';
+} from "../models";
 
 /**
  * Exemple 1: Gestion des utilisateurs
@@ -51,7 +51,7 @@ export class UserService {
       const zodError = error as { errors?: Array<{ message: string }> };
       return {
         valid: false,
-        errors: zodError.errors?.map((e) => e.message) || ['Validation échouée'],
+        errors: zodError.errors?.map((e) => e.message) || ["Validation échouée"],
       };
     }
   }
@@ -60,18 +60,18 @@ export class UserService {
    * Obtient les permissions basées sur le rôle
    */
   static getPermissions(user: User): string[] {
-    const permissions: string[] = ['read:profile'];
+    const permissions: string[] = ["read:profile"];
 
     if (user.isArtist()) {
-      permissions.push('create:events', 'edit:own_events', 'delete:own_events');
+      permissions.push("create:events", "edit:own_events", "delete:own_events");
     }
 
     if (user.isVenueManager()) {
-      permissions.push('create:venues', 'edit:own_venues', 'manage:bookings');
+      permissions.push("create:venues", "edit:own_venues", "manage:bookings");
     }
 
     if (user.isAdmin()) {
-      permissions.push('admin:users', 'admin:events', 'admin:venues');
+      permissions.push("admin:users", "admin:events", "admin:venues");
     }
 
     return permissions;
@@ -118,10 +118,10 @@ export class EventService {
     const manager = new FilterManager<Event>();
 
     // Filtrer par statut PUBLISHED
-    manager.addFilter('status', EventStatus.PUBLISHED);
+    manager.addFilter("status", EventStatus.PUBLISHED);
 
     // Trier par date de début
-    manager.addSort('startDate', 'asc');
+    manager.addSort("startDate", "asc");
 
     // Appliquer pagination (10 par page, page 1)
     manager.setPage(1, 10);
@@ -137,10 +137,10 @@ export class EventService {
     const futureDate = new Date(now.getTime() + days * 24 * 60 * 60 * 1000);
 
     const manager = new FilterManager<Event>();
-    manager.addFilter('startDate', now, 'gte');
-    manager.addFilter('startDate', futureDate, 'lte');
-    manager.addFilter('status', EventStatus.PUBLISHED);
-    manager.addSort('startDate', 'asc');
+    manager.addFilter("startDate", now, "gte");
+    manager.addFilter("startDate", futureDate, "lte");
+    manager.addFilter("status", EventStatus.PUBLISHED);
+    manager.addSort("startDate", "asc");
 
     return manager.apply(events);
   }
@@ -179,7 +179,7 @@ export class NotificationService {
     return this.createNotification(
       userId,
       NotificationType.EVENT_CREATED,
-      'Nouvel événement',
+      "Nouvel événement",
       `Un nouvel événement "${eventTitle}" a été créé`,
       { eventId }
     );
@@ -190,8 +190,8 @@ export class NotificationService {
    */
   static getUnreadNotifications(notifications: Notification[]): Notification[] {
     const manager = new FilterManager<Notification>();
-    manager.addFilter('read', false);
-    manager.addSort('createdAt', 'desc');
+    manager.addFilter("read", false);
+    manager.addSort("createdAt", "desc");
     return manager.apply(notifications);
   }
 
@@ -212,31 +212,31 @@ export class AdvancedFilterExample {
     const events: Event[] = [
       new Event({
         id: crypto.randomUUID(),
-        title: 'Concert Jazz',
-        description: 'Un concert de jazz classique',
-        startDate: new Date('2025-02-15'),
-        endDate: new Date('2025-02-16'),
-        venueId: 'venue-1',
-        artistIds: ['artist-1'],
+        title: "Concert Jazz",
+        description: "Un concert de jazz classique",
+        startDate: new Date("2025-02-15"),
+        endDate: new Date("2025-02-16"),
+        venueId: "venue-1",
+        artistIds: ["artist-1"],
         status: EventStatus.PUBLISHED,
         capacity: 500,
         bookedSeats: 350,
-        createdBy: 'creator-1',
+        createdBy: "creator-1",
         createdAt: new Date(),
         updatedAt: new Date(),
       }),
       new Event({
         id: crypto.randomUUID(),
-        title: 'Festival Rock',
-        description: 'Grand festival de rock',
-        startDate: new Date('2025-03-01'),
-        endDate: new Date('2025-03-03'),
-        venueId: 'venue-2',
-        artistIds: ['artist-1', 'artist-2'],
+        title: "Festival Rock",
+        description: "Grand festival de rock",
+        startDate: new Date("2025-03-01"),
+        endDate: new Date("2025-03-03"),
+        venueId: "venue-2",
+        artistIds: ["artist-1", "artist-2"],
         status: EventStatus.PUBLISHED,
         capacity: 10000,
         bookedSeats: 8000,
-        createdBy: 'creator-1',
+        createdBy: "creator-1",
         createdAt: new Date(),
         updatedAt: new Date(),
       }),
@@ -247,9 +247,9 @@ export class AdvancedFilterExample {
 
     // Filtrer et trier
     manager
-      .addFilter('status', EventStatus.PUBLISHED)
-      .addFilter('capacity', 500, 'gte') // Capacité >= 500
-      .addSort('startDate', 'asc')
+      .addFilter("status", EventStatus.PUBLISHED)
+      .addFilter("capacity", 500, "gte") // Capacité >= 500
+      .addSort("startDate", "asc")
       .setPage(1, 5);
 
     // Appliquer les filtres
@@ -257,7 +257,7 @@ export class AdvancedFilterExample {
 
     // Obtenir les stats
     const stats = manager.getStats(events);
-    console.log('Stats:', stats); // { total: 2, filtered: 2, page: 1, pageSize: 5 }
+    console.log("Stats:", stats); // { total: 2, filtered: 2, page: 1, pageSize: 5 }
 
     return filtered;
   }
@@ -303,7 +303,7 @@ export class VenueService {
    */
   static findVenuesByCity(venues: Venue[], city: string): Venue[] {
     const manager = new FilterManager<Venue>();
-    manager.addFilter('city', city).addFilter('isActive', true);
+    manager.addFilter("city", city).addFilter("isActive", true);
     return manager.apply(venues);
   }
 
@@ -312,7 +312,7 @@ export class VenueService {
    */
   static getTopVenues(venues: Venue[], limit: number = 5): Venue[] {
     const manager = new FilterManager<Venue>();
-    manager.addFilter('isActive', true).addSort('rating', 'desc').setLimit(limit);
+    manager.addFilter("isActive", true).addSort("rating", "desc").setLimit(limit);
     return manager.apply(venues);
   }
 }
@@ -351,9 +351,9 @@ export class ArtistService {
   static getPopularArtists(artists: Artist[], minFollowers: number = 100): Artist[] {
     const manager = new FilterManager<Artist>();
     manager
-      .addFilter('isVerified', true)
-      .addFilter('followerCount', minFollowers, 'gte')
-      .addSort('followerCount', 'desc');
+      .addFilter("isVerified", true)
+      .addFilter("followerCount", minFollowers, "gte")
+      .addSort("followerCount", "desc");
     return manager.apply(artists);
   }
 
@@ -399,7 +399,7 @@ export class BookingService {
    */
   static getActiveBookings(bookings: Booking[]): Booking[] {
     const manager = new FilterManager<Booking>();
-    manager.addFilter('status', BookingStatus.PENDING);
+    manager.addFilter("status", BookingStatus.PENDING);
     return manager.apply(bookings);
   }
 
@@ -408,10 +408,7 @@ export class BookingService {
    */
   static getUserBookingHistory(bookings: Booking[], userId: string): Booking[] {
     const manager = new FilterManager<Booking>();
-    manager
-      .addFilter('userId', userId)
-      .addSort('createdAt', 'desc')
-      .setPage(1, 10);
+    manager.addFilter("userId", userId).addSort("createdAt", "desc").setPage(1, 10);
     return manager.apply(bookings);
   }
 }
@@ -453,9 +450,9 @@ export class ReviewService {
   static getTopReviews(reviews: Review[], targetId: string): Review[] {
     const manager = new FilterManager<Review>();
     manager
-      .addFilter('targetId', targetId)
-      .addSort('rating', 'desc')
-      .addSort('helpful', 'desc')
+      .addFilter("targetId", targetId)
+      .addSort("rating", "desc")
+      .addSort("helpful", "desc")
       .setLimit(5);
     return manager.apply(reviews);
   }
@@ -475,7 +472,7 @@ export class ReviewService {
    */
   static getVerifiedReviews(reviews: Review[], targetId: string): Review[] {
     const manager = new FilterManager<Review>();
-    manager.addFilter('targetId', targetId).addFilter('verified', true);
+    manager.addFilter("targetId", targetId).addFilter("verified", true);
     return manager.apply(reviews);
   }
 }
@@ -485,28 +482,28 @@ export class ReviewService {
  */
 export class CompleteSystemExample {
   static demonstrateCompleteSystem() {
-    console.log('=== CONNECTOUR SYSTEM DEMO ===\n');
+    console.log("=== CONNECTOUR SYSTEM DEMO ===\n");
 
     // 1. Créer des utilisateurs
-    console.log('1️⃣  Création d\'utilisateurs');
-    const artist = UserService.createUser('artist@connectour.com', 'David Smith', UserRole.ARTIST);
+    console.log("1️⃣  Création d'utilisateurs");
+    const artist = UserService.createUser("artist@connectour.com", "David Smith", UserRole.ARTIST);
     const venueManager = UserService.createUser(
-      'venue@connectour.com',
-      'Marie Dupont',
+      "venue@connectour.com",
+      "Marie Dupont",
       UserRole.VENUE_MANAGER
     );
     console.log(`✓ Artiste: ${artist.name} (${artist.role})`);
     console.log(`✓ Manager: ${venueManager.name} (${venueManager.role})\n`);
 
     // 2. Créer une venue
-    console.log('2️⃣  Création d\'une venue');
+    console.log("2️⃣  Création d'une venue");
     const venue = VenueService.createVenue(
-      'Le Grand Théâtre',
-      'Un magnifique théâtre au cœur de la ville avec une acoustique exceptionnelle',
+      "Le Grand Théâtre",
+      "Un magnifique théâtre au cœur de la ville avec une acoustique exceptionnelle",
       VenueType.THEATER,
-      '123 Rue de la Paix',
-      'Paris',
-      'France',
+      "123 Rue de la Paix",
+      "Paris",
+      "France",
       500,
       venueManager.id
     );
@@ -514,11 +511,11 @@ export class CompleteSystemExample {
     console.log(`✓ Adresse: ${venue.getFullAddress()}\n`);
 
     // 3. Créer un artiste
-    console.log('3️⃣  Création d\'un artiste');
+    console.log("3️⃣  Création d'un artiste");
     const artistProfile = ArtistService.createArtist(
       artist.id,
-      'The Devil & The Almighty Blues',
-      'Groupe de heavy blues',
+      "The Devil & The Almighty Blues",
+      "Groupe de heavy blues",
       [GenreMusic.HEAVY_BLUES, GenreMusic.STONER_METAL]
     );
     artistProfile.verify();
@@ -526,12 +523,12 @@ export class CompleteSystemExample {
     console.log(`✓ Genres: ${artistProfile.getGenresLabel()}\n`);
 
     // 4. Créer un événement
-    console.log('4️⃣  Création d\'un événement');
+    console.log("4️⃣  Création d'un événement");
     const event = EventService.createEvent(
-      'Blues Night - David & The Blues',
-      'Une soirée magique avec le meilleur du blues live. Ambiance garantie!',
-      new Date('2025-02-28'),
-      new Date('2025-03-01'),
+      "Blues Night - David & The Blues",
+      "Une soirée magique avec le meilleur du blues live. Ambiance garantie!",
+      new Date("2025-02-28"),
+      new Date("2025-03-01"),
       venue.id,
       venue.capacity,
       artist.id
@@ -542,7 +539,7 @@ export class CompleteSystemExample {
     console.log(`✓ Capacité: ${event.capacity} places\n`);
 
     // 5. Créer des réservations
-    console.log('5️⃣  Création de réservations');
+    console.log("5️⃣  Création de réservations");
     const booking1 = BookingService.createBooking(event.id, artist.id, 2, 100);
     const booking2 = BookingService.createBooking(event.id, venueManager.id, 5, 250);
     booking1.confirm();
@@ -553,14 +550,14 @@ export class CompleteSystemExample {
     console.log(`✓ Taux d'occupation: ${event.getOccupancyRate()}%\n`);
 
     // 6. Créer des reviews
-    console.log('6️⃣  Création de reviews');
+    console.log("6️⃣  Création de reviews");
     const venueReview = ReviewService.createReview(
       artist.id,
       venue.id,
       ReviewType.VENUE,
       5,
-      'Excellente acoustique!',
-      'Le son était cristallin. Parfait pour notre performance. Le personnel était très professionnel.'
+      "Excellente acoustique!",
+      "Le son était cristallin. Parfait pour notre performance. Le personnel était très professionnel."
     );
     venueReview.verify();
     const artistReview = ReviewService.createReview(
@@ -568,27 +565,19 @@ export class CompleteSystemExample {
       artistProfile.id,
       ReviewType.ARTIST,
       5,
-      'Incontournable!',
-      'David & The Blues offre toujours des performances exceptionnelles. À recommander vivement!'
+      "Incontournable!",
+      "David & The Blues offre toujours des performances exceptionnelles. À recommander vivement!"
     );
     artistReview.verify();
-    console.log(
-      `✓ Review Venue: ${venueReview.getRatingStars()} - ${venueReview.title}`
-    );
-    console.log(
-      `✓ Review Artist: ${artistReview.getRatingStars()} - ${artistReview.title}\n`
-    );
+    console.log(`✓ Review Venue: ${venueReview.getRatingStars()} - ${venueReview.title}`);
+    console.log(`✓ Review Artist: ${artistReview.getRatingStars()} - ${artistReview.title}\n`);
 
     // 7. Notifications
-    console.log('7️⃣  Notifications');
-    const notification = NotificationService.notifyNewEvent(
-      venueManager.id,
-      event.title,
-      event.id
-    );
+    console.log("7️⃣  Notifications");
+    const notification = NotificationService.notifyNewEvent(venueManager.id, event.title, event.id);
     console.log(`✓ ${notification.getIcon()} ${notification.title}`);
     console.log(`✓ Message: ${notification.message}\n`);
 
-    console.log('=== FIN DE LA DÉMO ===');
+    console.log("=== FIN DE LA DÉMO ===");
   }
 }

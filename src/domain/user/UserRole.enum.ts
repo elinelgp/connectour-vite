@@ -1,5 +1,5 @@
 export enum UserRole {
-  ARTIST = 'artist',
-  VENUE_MANAGER = 'venue_manager',
-  ADMIN = 'admin',
+  ARTIST = "artist",
+  VENUE_MANAGER = "venue_manager",
+  ADMIN = "admin",
 }

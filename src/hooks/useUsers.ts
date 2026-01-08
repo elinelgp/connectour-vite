@@ -27,10 +27,10 @@ export function useUsers(): UseUsersReturn {
     try {
       setLoading(true);
       setError(null);
-      await new Promise(resolve => setTimeout(resolve, 300));
+      await new Promise((resolve) => setTimeout(resolve, 300));
       setUsers([...mockUsers]);
     } catch (err) {
-      setError('Erreur lors du chargement des utilisateurs');
+      setError("Erreur lors du chargement des utilisateurs");
       console.error(err);
     } finally {
       setLoading(false);
@@ -43,29 +43,38 @@ export function useUsers(): UseUsersReturn {
 
   // === FILTRES ===
 
-  const findByEmail = useCallback((email: string) => {
-    return users.find(u => u.email === email);
-  }, [users]);
+  const findByEmail = useCallback(
+    (email: string) => {
+      return users.find((u) => u.email === email);
+    },
+    [users]
+  );
 
-  const findByRole = useCallback((role: UserRole) => {
-    return users.filter(u => u.role === role);
-  }, [users]);
+  const findByRole = useCallback(
+    (role: UserRole) => {
+      return users.filter((u) => u.role === role);
+    },
+    [users]
+  );
 
   const getArtists = useCallback(() => {
-    return users.filter(u => u.isArtist());
+    return users.filter((u) => u.isArtist());
   }, [users]);
 
   const getVenueManagers = useCallback(() => {
-    return users.filter(u => u.isVenueManager());
+    return users.filter((u) => u.isVenueManager());
   }, [users]);
 
   const getAdmins = useCallback(() => {
-    return users.filter(u => u.isAdmin());
+    return users.filter((u) => u.isAdmin());
   }, [users]);
 
-  const findById = useCallback((id: string) => {
-    return users.find(u => u.id === id);
-  }, [users]);
+  const findById = useCallback(
+    (id: string) => {
+      return users.find((u) => u.id === id);
+    },
+    [users]
+  );
 
   return {
     users,

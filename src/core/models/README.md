@@ -22,60 +22,75 @@ src/core/models/
 ## Classes Disponibles
 
 ### 1. **User** - Gestion des utilisateurs
+
 - Rôles: `ARTIST`, `VENUE_MANAGER`, `ADMIN`
 - Méthodes: `isArtist()`, `isVenueManager()`, `isAdmin()`, `updateProfile()`, `getPublicData()`
 
 ### 2. **Event** - Gestion des événements
+
 - Statuts: `DRAFT`, `PUBLISHED`, `ONGOING`, `COMPLETED`, `CANCELLED`
 - Méthodes: `bookSeats()`, `cancelSeats()`, `publish()`, `cancel()`, `addArtist()`, `getOccupancyRate()`
 
 ### 3. **Venue** - Gestion des lieux
+
 - Types: `CONCERT_HALL`, `CLUB`, `THEATER`, `FESTIVAL_GROUND`, `OUTDOOR`, `OTHER`
 - Méthodes: `getFullAddress()`, `updateRating()`, `activate()`, `deactivate()`, `getPublicInfo()`
 
 ### 4. **Artist** - Profils d'artistes
+
 - Genres: `ROCK`, `POP`, `JAZZ`, `CLASSICAL`, `ELECTRONIC`, `HIP_HOP`, `BLUES`, `FOLK`, `METAL`, `REGGAE`, `OTHER`
 - Méthodes: `addGenre()`, `addFollower()`, `updateRating()`, `verify()`, `getPublicInfo()`
 
 ### 5. **Booking** - Gestion des réservations
+
 - Statuts: `PENDING`, `CONFIRMED`, `COMPLETED`, `CANCELLED`, `NO_SHOW`
 - Méthodes: `confirm()`, `complete()`, `cancel()`, `markNoShow()`, `generateTickets()`, `getPricePerSeat()`
 
 ### 6. **Review** - Évaluations et avis
+
 - Types: `EVENT`, `VENUE`, `ARTIST`
 - Méthodes: `verify()`, `addHelpful()`, `getRatingStars()`, `getHelpfulnessScore()`, `getTimeAgo()`
 
 ### 7. **Notification** - Notifications utilisateur
+
 - Types: `EVENT_CREATED`, `EVENT_UPDATED`, `BOOKING_CONFIRMED`, `MESSAGE`, `SYSTEM`, etc.
 - Méthodes: `markAsRead()`, `getIcon()`, `getColor()`, `getTimeAgo()`
 
 ### 8. **FilterManager** - Gestionnaire de filtres générique
+
 - Opérateurs: `equals`, `contains`, `startsWith`, `gt`, `lt`, `gte`, `lte`, `in`
 - Méthodes: `addFilter()`, `addSort()`, `setPage()`, `apply()`, `getStats()`, `reset()`
 
 ## Concepts POO Implémentés
 
 ### 1. **Encapsulation**
+
 Chaque classe gère ses données et comportements internes:
+
 ```typescript
 class User {
-  private email: string;  // Privé
-  
-  public isArtist(): boolean {  // Public
+  private email: string; // Privé
+
+  public isArtist(): boolean {
+    // Public
     return this.role === UserRole.ARTIST;
   }
 }
 ```
 
 ### 2. **Interfaces & Contrats**
+
 Chaque classe implémente une interface:
+
 ```typescript
 export interface IUser { ... }
 export class User implements IUser { ... }
 ```
 
 ### 3. **Héritage (Potentiel)**
+
 Possibilité d'étendre les classes:
+
 ```typescript
 class PremiumEvent extends Event {
   premiumFeatures: string[];
@@ -83,35 +98,37 @@ class PremiumEvent extends Event {
 ```
 
 ### 4. **Validation Zod**
+
 Validation robuste des données:
+
 ```typescript
-User.schema.parse(userData);  // Lance une erreur si invalide
+User.schema.parse(userData); // Lance une erreur si invalide
 ```
 
 ### 5. **Chaînage de Méthodes (Fluent API)**
+
 FilterManager supporte la chaîne:
+
 ```typescript
-manager
-  .addFilter('status', 'published')
-  .addSort('date', 'asc')
-  .setPage(1, 10);
+manager.addFilter("status", "published").addSort("date", "asc").setPage(1, 10);
 ```
 
 ## Exemples d'Utilisation
 
 ### Créer une Venue
+
 ```typescript
-import { Venue, VenueType, VenueService } from '@/core/models';
+import { Venue, VenueType, VenueService } from "@/core/models";
 
 const venue = VenueService.createVenue(
-  'Le Grand Théâtre',
-  'Magnifique théâtre avec acoustique exceptionnelle',
+  "Le Grand Théâtre",
+  "Magnifique théâtre avec acoustique exceptionnelle",
   VenueType.THEATER,
-  '123 Rue de la Paix',
-  'Paris',
-  'France',
+  "123 Rue de la Paix",
+  "Paris",
+  "France",
   500,
-  'manager-id'
+  "manager-id"
 );
 
 console.log(venue.getFullAddress()); // 123 Rue de la Paix, Paris, France
@@ -119,13 +136,14 @@ console.log(venue.getIcon()); // 🎭
 ```
 
 ### Créer un Artiste
+
 ```typescript
-import { Artist, GenreMusic, ArtistService } from '@/core/models';
+import { Artist, GenreMusic, ArtistService } from "@/core/models";
 
 const artist = ArtistService.createArtist(
-  'user-id',
-  'David & The Blues',
-  'Un groupe de blues authentique avec 20 ans d\'expérience',
+  "user-id",
+  "David & The Blues",
+  "Un groupe de blues authentique avec 20 ans d'expérience",
   [GenreMusic.BLUES, GenreMusic.JAZZ]
 );
 
@@ -135,12 +153,13 @@ console.log(artist.getGenresLabel()); // BLUES, JAZZ
 ```
 
 ### Créer une Réservation
+
 ```typescript
-import { Booking, BookingService } from '@/core/models';
+import { Booking, BookingService } from "@/core/models";
 
 const booking = BookingService.createBooking(
-  'event-id',
-  'user-id',
+  "event-id",
+  "user-id",
   2,
   100 // Prix total
 );
@@ -151,16 +170,17 @@ console.log(booking.getPricePerSeat()); // 50
 ```
 
 ### Créer une Review
+
 ```typescript
-import { Review, ReviewType, ReviewService } from '@/core/models';
+import { Review, ReviewType, ReviewService } from "@/core/models";
 
 const review = ReviewService.createReview(
-  'user-id',
-  'artist-id',
+  "user-id",
+  "artist-id",
   ReviewType.ARTIST,
   5,
-  'Incontournable!',
-  'Performance exceptionnelle, à recommander vivement!'
+  "Incontournable!",
+  "Performance exceptionnelle, à recommander vivement!"
 );
 
 review.verify();
@@ -169,6 +189,7 @@ console.log(review.getTimeAgo()); // À l'instant
 ```
 
 ### Filtrer les Artists populaires
+
 ```typescript
 import { Artist, FilterManager } from '@/core/models';
 
@@ -191,12 +212,14 @@ const result = manager.apply(artists);
 ## Bonnes Pratiques
 
 ### ✅ À Faire
+
 - Utiliser les classes pour la logique métier
 - Valider les données avec les schémas Zod
 - Utiliser le FilterManager pour les requêtes complexes
 - Documenter les méthodes publiques
 
 ### ❌ À Éviter
+
 - Modifier directement les propriétés privées
 - Créer plusieurs instances du même FilterManager
 - Ignorer la validation Zod
@@ -206,14 +229,14 @@ const result = manager.apply(artists);
 
 ```typescript
 // ✅ BON - Utiliser les classes dans les hooks
-import { useCallback } from 'react';
-import { Event, EventService } from '@/core/models';
+import { useCallback } from "react";
+import { Event, EventService } from "@/core/models";
 
 export function EventList() {
   const handleFilterEvents = useCallback((events: Event[]) => {
     return EventService.filterEvents(events);
   }, []);
-  
+
   return /* ... */;
 }
 ```
@@ -223,11 +246,9 @@ export function EventList() {
 export function EventList() {
   const handleFilterEvents = (events) => {
     // Logique mélangée avec React
-    return events
-      .filter(e => e.status === 'published')
-      .sort((a, b) => a.startDate - b.startDate);
+    return events.filter((e) => e.status === "published").sort((a, b) => a.startDate - b.startDate);
   };
-  
+
   return /* ... */;
 }
 ```

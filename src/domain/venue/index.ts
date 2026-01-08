@@ -1,2 +1,2 @@
-export { Venue, type IVenue } from './Venue';
-export { VenueType } from './VenueType.enum';
+export { Venue, type IVenue } from "./Venue";
+export { VenueType } from "./VenueType.enum";

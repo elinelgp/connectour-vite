@@ -2,15 +2,15 @@
  * Classe Venue - Modèle métier pour les lieux de spectacle
  */
 
-import { z } from 'zod';
+import { z } from "zod";
 
 export enum VenueType {
-  CONCERT_HALL = 'concert_hall',
-  CLUB = 'club',
-  THEATER = 'theater',
-  FESTIVAL_GROUND = 'festival_ground',
-  OUTDOOR = 'outdoor',
-  OTHER = 'other',
+  CONCERT_HALL = "concert_hall",
+  CLUB = "club",
+  THEATER = "theater",
+  FESTIVAL_GROUND = "festival_ground",
+  OUTDOOR = "outdoor",
+  OTHER = "other",
 }
 
 export interface IVenue {
@@ -82,17 +82,17 @@ export class Venue implements IVenue {
   getIcon(): string {
     switch (this.type) {
       case VenueType.CONCERT_HALL:
-        return '🎼';
+        return "🎼";
       case VenueType.CLUB:
-        return '🍸';
+        return "🍸";
       case VenueType.THEATER:
-        return '🎭';
+        return "🎭";
       case VenueType.FESTIVAL_GROUND:
-        return '🎪';
+        return "🎪";
       case VenueType.OUTDOOR:
-        return '🏞️';
+        return "🏞️";
       default:
-        return '📍';
+        return "📍";
     }
   }
 
@@ -101,12 +101,12 @@ export class Venue implements IVenue {
    */
   getTypeLabel(): string {
     const labels: Record<VenueType, string> = {
-      [VenueType.CONCERT_HALL]: 'Salle de Concert',
-      [VenueType.CLUB]: 'Club',
-      [VenueType.THEATER]: 'Théâtre',
-      [VenueType.FESTIVAL_GROUND]: 'Lieu Festival',
-      [VenueType.OUTDOOR]: 'En Plein Air',
-      [VenueType.OTHER]: 'Autre',
+      [VenueType.CONCERT_HALL]: "Salle de Concert",
+      [VenueType.CLUB]: "Club",
+      [VenueType.THEATER]: "Théâtre",
+      [VenueType.FESTIVAL_GROUND]: "Lieu Festival",
+      [VenueType.OUTDOOR]: "En Plein Air",
+      [VenueType.OTHER]: "Autre",
     };
     return labels[this.type];
   }
@@ -147,7 +147,7 @@ export class Venue implements IVenue {
   /**
    * Retourne les infos publiques
    */
-  getPublicInfo(): Omit<IVenue, 'managerId'> {
+  getPublicInfo(): Omit<IVenue, "managerId"> {
     return {
       id: this.id,
       name: this.name,

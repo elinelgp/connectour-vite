@@ -36,10 +36,10 @@ export function useArtists(): UseArtistsReturn {
     try {
       setLoading(true);
       setError(null);
-      await new Promise(resolve => setTimeout(resolve, 300));
+      await new Promise((resolve) => setTimeout(resolve, 300));
       setArtists([...mockArtists]);
     } catch (err) {
-      setError('Erreur lors du chargement des artistes');
+      setError("Erreur lors du chargement des artistes");
       console.error(err);
     } finally {
       setLoading(false);
@@ -52,116 +52,145 @@ export function useArtists(): UseArtistsReturn {
 
   // === ACTIONS ===
 
-  const followArtist = useCallback(async (artistId: string): Promise<boolean> => {
-    const artist = artists.find(a => a.id === artistId);
-    if (!artist) return false;
+  const followArtist = useCallback(
+    async (artistId: string): Promise<boolean> => {
+      const artist = artists.find((a) => a.id === artistId);
+      if (!artist) return false;
 
-    artist.follow();
-    await new Promise(resolve => setTimeout(resolve, 200));
-    setArtists([...artists]);
-    return true;
-  }, [artists]);
+      artist.follow();
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      setArtists([...artists]);
+      return true;
+    },
+    [artists]
+  );
 
-  const unfollowArtist = useCallback(async (artistId: string): Promise<boolean> => {
-    const artist = artists.find(a => a.id === artistId);
-    if (!artist) return false;
+  const unfollowArtist = useCallback(
+    async (artistId: string): Promise<boolean> => {
+      const artist = artists.find((a) => a.id === artistId);
+      if (!artist) return false;
 
-    artist.unfollow();
-    await new Promise(resolve => setTimeout(resolve, 200));
-    setArtists([...artists]);
-    return true;
-  }, [artists]);
+      artist.unfollow();
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      setArtists([...artists]);
+      return true;
+    },
+    [artists]
+  );
 
-  const verifyArtist = useCallback(async (artistId: string): Promise<boolean> => {
-    const artist = artists.find(a => a.id === artistId);
-    if (!artist) return false;
+  const verifyArtist = useCallback(
+    async (artistId: string): Promise<boolean> => {
+      const artist = artists.find((a) => a.id === artistId);
+      if (!artist) return false;
 
-    artist.verify();
-    await new Promise(resolve => setTimeout(resolve, 200));
-    setArtists([...artists]);
-    return true;
-  }, [artists]);
+      artist.verify();
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      setArtists([...artists]);
+      return true;
+    },
+    [artists]
+  );
 
-  const unverifyArtist = useCallback(async (artistId: string): Promise<boolean> => {
-    const artist = artists.find(a => a.id === artistId);
-    if (!artist) return false;
+  const unverifyArtist = useCallback(
+    async (artistId: string): Promise<boolean> => {
+      const artist = artists.find((a) => a.id === artistId);
+      if (!artist) return false;
 
-    artist.unverify();
-    await new Promise(resolve => setTimeout(resolve, 200));
-    setArtists([...artists]);
-    return true;
-  }, [artists]);
+      artist.unverify();
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      setArtists([...artists]);
+      return true;
+    },
+    [artists]
+  );
 
-  const addGenre = useCallback(async (artistId: string, genre: GenreMusic): Promise<boolean> => {
-    const artist = artists.find(a => a.id === artistId);
-    if (!artist) return false;
+  const addGenre = useCallback(
+    async (artistId: string, genre: GenreMusic): Promise<boolean> => {
+      const artist = artists.find((a) => a.id === artistId);
+      if (!artist) return false;
 
-    const success = artist.addGenre(genre);
-    if (!success) return false;
+      const success = artist.addGenre(genre);
+      if (!success) return false;
 
-    await new Promise(resolve => setTimeout(resolve, 200));
-    setArtists([...artists]);
-    return true;
-  }, [artists]);
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      setArtists([...artists]);
+      return true;
+    },
+    [artists]
+  );
 
-  const removeGenre = useCallback(async (artistId: string, genre: GenreMusic): Promise<boolean> => {
-    const artist = artists.find(a => a.id === artistId);
-    if (!artist) return false;
+  const removeGenre = useCallback(
+    async (artistId: string, genre: GenreMusic): Promise<boolean> => {
+      const artist = artists.find((a) => a.id === artistId);
+      if (!artist) return false;
 
-    const success = artist.removeGenre(genre);
-    if (!success) return false;
+      const success = artist.removeGenre(genre);
+      if (!success) return false;
 
-    await new Promise(resolve => setTimeout(resolve, 200));
-    setArtists([...artists]);
-    return true;
-  }, [artists]);
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      setArtists([...artists]);
+      return true;
+    },
+    [artists]
+  );
 
-  const updateRating = useCallback(async (
-    artistId: string,
-    rating: number,
-    reviewCount: number
-  ): Promise<boolean> => {
-    const artist = artists.find(a => a.id === artistId);
-    if (!artist) return false;
+  const updateRating = useCallback(
+    async (artistId: string, rating: number, reviewCount: number): Promise<boolean> => {
+      const artist = artists.find((a) => a.id === artistId);
+      if (!artist) return false;
 
-    artist.updateRating(rating, reviewCount);
-    await new Promise(resolve => setTimeout(resolve, 200));
-    setArtists([...artists]);
-    return true;
-  }, [artists]);
+      artist.updateRating(rating, reviewCount);
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      setArtists([...artists]);
+      return true;
+    },
+    [artists]
+  );
 
   // === FILTRES ===
 
-  const findByGenre = useCallback((genre: GenreMusic) => {
-    return artists.filter(a => a.genres.includes(genre));
-  }, [artists]);
+  const findByGenre = useCallback(
+    (genre: GenreMusic) => {
+      return artists.filter((a) => a.genres.includes(genre));
+    },
+    [artists]
+  );
 
   const findVerified = useCallback(() => {
-    return artists.filter(a => a.isVerified);
+    return artists.filter((a) => a.isVerified);
   }, [artists]);
 
-  const findTopRated = useCallback((limit: number = 10) => {
-    return [...artists]
-      .sort((a, b) => b.rating - a.rating)
-      .slice(0, limit);
-  }, [artists]);
+  const findTopRated = useCallback(
+    (limit: number = 10) => {
+      return [...artists].sort((a, b) => b.rating - a.rating).slice(0, limit);
+    },
+    [artists]
+  );
 
-  const findByUserId = useCallback((userId: string) => {
-    return artists.find(a => a.userId === userId);
-  }, [artists]);
+  const findByUserId = useCallback(
+    (userId: string) => {
+      return artists.find((a) => a.userId === userId);
+    },
+    [artists]
+  );
 
-  const findById = useCallback((id: string) => {
-    return artists.find(a => a.id === id);
-  }, [artists]);
+  const findById = useCallback(
+    (id: string) => {
+      return artists.find((a) => a.id === id);
+    },
+    [artists]
+  );
 
-  const search = useCallback((query: string) => {
-    const lowerQuery = query.toLowerCase();
-    return artists.filter(
-      a =>
-        a.stageName.toLowerCase().includes(lowerQuery) ||
-        a.bio.toLowerCase().includes(lowerQuery)
-    );
-  }, [artists]);
+  const search = useCallback(
+    (query: string) => {
+      const lowerQuery = query.toLowerCase();
+      return artists.filter(
+        (a) =>
+          a.stageName.toLowerCase().includes(lowerQuery) || a.bio.toLowerCase().includes(lowerQuery)
+      );
+    },
+    [artists]
+  );
 
   return {
     artists,
@@ -201,7 +230,7 @@ export function useArtist(artistId: string) {
     updateRating,
   } = useArtists();
 
-  const artist = artists.find(a => a.id === artistId);
+  const artist = artists.find((a) => a.id === artistId);
 
   return {
     artist,

@@ -8,7 +8,7 @@ export type IUser = {
   role: UserRole;
   createdAt: Date;
   updatedAt: Date;
-}
+};
 
 export class User extends BaseEntity {
   private _email: string;
@@ -67,7 +67,7 @@ export class User extends BaseEntity {
     };
   }
 
-  getPublicData(): Omit<IUser, 'email'> {
+  getPublicData(): Omit<IUser, "email"> {
     const { ...publicData } = this.toJSON();
     return publicData;
   }

@@ -32,10 +32,10 @@ export function useVenues(): UseVenuesReturn {
     try {
       setLoading(true);
       setError(null);
-      await new Promise(resolve => setTimeout(resolve, 300));
+      await new Promise((resolve) => setTimeout(resolve, 300));
       setVenues([...mockVenues]);
     } catch (err) {
-      setError('Erreur lors du chargement des venues');
+      setError("Erreur lors du chargement des venues");
       console.error(err);
     } finally {
       setLoading(false);
@@ -48,65 +48,85 @@ export function useVenues(): UseVenuesReturn {
 
   // === ACTIONS ===
 
-  const activateVenue = useCallback(async (venueId: string): Promise<boolean> => {
-    const venue = venues.find(v => v.id === venueId);
-    if (!venue) return false;
+  const activateVenue = useCallback(
+    async (venueId: string): Promise<boolean> => {
+      const venue = venues.find((v) => v.id === venueId);
+      if (!venue) return false;
 
-    venue.activate();
-    await new Promise(resolve => setTimeout(resolve, 200));
-    setVenues([...venues]);
-    return true;
-  }, [venues]);
+      venue.activate();
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      setVenues([...venues]);
+      return true;
+    },
+    [venues]
+  );
 
-  const deactivateVenue = useCallback(async (venueId: string): Promise<boolean> => {
-    const venue = venues.find(v => v.id === venueId);
-    if (!venue) return false;
+  const deactivateVenue = useCallback(
+    async (venueId: string): Promise<boolean> => {
+      const venue = venues.find((v) => v.id === venueId);
+      if (!venue) return false;
 
-    venue.deactivate();
-    await new Promise(resolve => setTimeout(resolve, 200));
-    setVenues([...venues]);
-    return true;
-  }, [venues]);
+      venue.deactivate();
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      setVenues([...venues]);
+      return true;
+    },
+    [venues]
+  );
 
-  const updateRating = useCallback(async (
-    venueId: string,
-    rating: number,
-    reviewCount: number
-  ): Promise<boolean> => {
-    const venue = venues.find(v => v.id === venueId);
-    if (!venue) return false;
+  const updateRating = useCallback(
+    async (venueId: string, rating: number, reviewCount: number): Promise<boolean> => {
+      const venue = venues.find((v) => v.id === venueId);
+      if (!venue) return false;
 
-    venue.updateRating(rating, reviewCount);
-    await new Promise(resolve => setTimeout(resolve, 200));
-    setVenues([...venues]);
-    return true;
-  }, [venues]);
+      venue.updateRating(rating, reviewCount);
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      setVenues([...venues]);
+      return true;
+    },
+    [venues]
+  );
 
   // === FILTRES ===
 
-  const findByManagerId = useCallback((managerId: string) => {
-    return venues.filter(v => v.managerId === managerId);
-  }, [venues]);
+  const findByManagerId = useCallback(
+    (managerId: string) => {
+      return venues.filter((v) => v.managerId === managerId);
+    },
+    [venues]
+  );
 
-  const findByCity = useCallback((city: string) => {
-    return venues.filter(v => v.city.toLowerCase() === city.toLowerCase());
-  }, [venues]);
+  const findByCity = useCallback(
+    (city: string) => {
+      return venues.filter((v) => v.city.toLowerCase() === city.toLowerCase());
+    },
+    [venues]
+  );
 
-  const findByType = useCallback((type: VenueType) => {
-    return venues.filter(v => v.type === type);
-  }, [venues]);
+  const findByType = useCallback(
+    (type: VenueType) => {
+      return venues.filter((v) => v.type === type);
+    },
+    [venues]
+  );
 
   const findActive = useCallback(() => {
-    return venues.filter(v => v.isActive);
+    return venues.filter((v) => v.isActive);
   }, [venues]);
 
-  const findByCapacityRange = useCallback((min: number, max: number) => {
-    return venues.filter(v => v.capacity >= min && v.capacity <= max);
-  }, [venues]);
+  const findByCapacityRange = useCallback(
+    (min: number, max: number) => {
+      return venues.filter((v) => v.capacity >= min && v.capacity <= max);
+    },
+    [venues]
+  );
 
-  const findById = useCallback((id: string) => {
-    return venues.find(v => v.id === id);
-  }, [venues]);
+  const findById = useCallback(
+    (id: string) => {
+      return venues.find((v) => v.id === id);
+    },
+    [venues]
+  );
 
   return {
     venues,

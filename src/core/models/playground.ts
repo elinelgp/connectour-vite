@@ -3,7 +3,7 @@
  * Run: npx tsx src/core/models/playground.ts
  */
 
-import ModelTests from './tests';
+import ModelTests from "./tests";
 
 // Exécuter tous les tests
 ModelTests.runAllTests();

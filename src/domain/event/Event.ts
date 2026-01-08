@@ -15,7 +15,7 @@ export type IEvent = {
   createdBy: string;
   createdAt: Date;
   updatedAt: Date;
-}
+};
 
 export class Event extends BaseEntity {
   readonly title: string;
@@ -167,7 +167,7 @@ export class Event extends BaseEntity {
     createdBy: string
   ): Event {
     if (endDate <= startDate) {
-      throw new Error('End date must be after start date');
+      throw new Error("End date must be after start date");
     }
 
     return new Event({

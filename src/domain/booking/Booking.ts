@@ -13,7 +13,7 @@ export type IBooking = {
   ticketIds: string[];
   createdAt: Date;
   updatedAt: Date;
-}
+};
 
 export class Booking extends BaseEntity {
   readonly eventId: string;

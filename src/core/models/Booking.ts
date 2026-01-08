@@ -2,14 +2,14 @@
  * Classe Booking - Modèle métier pour les réservations
  */
 
-import { z } from 'zod';
+import { z } from "zod";
 
 export enum BookingStatus {
-  PENDING = 'pending',
-  CONFIRMED = 'confirmed',
-  COMPLETED = 'completed',
-  CANCELLED = 'cancelled',
-  NO_SHOW = 'no_show',
+  PENDING = "pending",
+  CONFIRMED = "confirmed",
+  COMPLETED = "completed",
+  CANCELLED = "cancelled",
+  NO_SHOW = "no_show",
 }
 
 export interface IBooking {
@@ -114,8 +114,9 @@ export class Booking implements IBooking {
    * Génère des IDs de tickets
    */
   generateTickets(): void {
-    this.ticketIds = Array.from({ length: this.numberOfSeats }, () =>
-      `TICKET-${crypto.randomUUID()}`
+    this.ticketIds = Array.from(
+      { length: this.numberOfSeats },
+      () => `TICKET-${crypto.randomUUID()}`
     );
     this.updatedAt = new Date();
   }
@@ -131,9 +132,7 @@ export class Booking implements IBooking {
    * Vérifie si la réservation est active
    */
   isActive(): boolean {
-    return (
-      this.status === BookingStatus.PENDING || this.status === BookingStatus.CONFIRMED
-    );
+    return this.status === BookingStatus.PENDING || this.status === BookingStatus.CONFIRMED;
   }
 
   /**
@@ -141,11 +140,11 @@ export class Booking implements IBooking {
    */
   getStatusLabel(): string {
     const labels: Record<BookingStatus, string> = {
-      [BookingStatus.PENDING]: 'En attente',
-      [BookingStatus.CONFIRMED]: 'Confirmée',
-      [BookingStatus.COMPLETED]: 'Complétée',
-      [BookingStatus.CANCELLED]: 'Annulée',
-      [BookingStatus.NO_SHOW]: 'Absent',
+      [BookingStatus.PENDING]: "En attente",
+      [BookingStatus.CONFIRMED]: "Confirmée",
+      [BookingStatus.COMPLETED]: "Complétée",
+      [BookingStatus.CANCELLED]: "Annulée",
+      [BookingStatus.NO_SHOW]: "Absent",
     };
     return labels[this.status];
   }
@@ -156,17 +155,17 @@ export class Booking implements IBooking {
   getStatusColor(): string {
     switch (this.status) {
       case BookingStatus.PENDING:
-        return 'warning';
+        return "warning";
       case BookingStatus.CONFIRMED:
-        return 'success';
+        return "success";
       case BookingStatus.COMPLETED:
-        return 'success';
+        return "success";
       case BookingStatus.CANCELLED:
-        return 'error';
+        return "error";
       case BookingStatus.NO_SHOW:
-        return 'error';
+        return "error";
       default:
-        return 'default';
+        return "default";
     }
   }
 

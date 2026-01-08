@@ -23,8 +23,7 @@ export const Validators = {
    * Valide un UUID
    */
   isValidUUID(uuid: string): boolean {
-    const uuidRegex =
-      /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+    const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
     return uuidRegex.test(uuid);
   },
 
@@ -83,17 +82,17 @@ export const Validators = {
  */
 
 // Dans un composant React
-import { Event } from '../domain';
-import { EventFormatters, Formatters } from './formatters';
+import { Event } from "../domain";
+import { EventFormatters, Formatters } from "./formatters";
 
 const event = Event.create(
-  'Rock Festival',
-  'Amazing festival',
-  new Date('2025-08-15'),
-  new Date('2025-08-17'),
-  'venue-123',
+  "Rock Festival",
+  "Amazing festival",
+  new Date("2025-08-15"),
+  new Date("2025-08-17"),
+  "venue-123",
   10000,
-  'user-456'
+  "user-456"
 );
 
 // Affichage formaté

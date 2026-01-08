@@ -17,7 +17,7 @@ export type IArtist = {
   profileImageUrl?: string;
   createdAt: Date;
   updatedAt: Date;
-}
+};
 
 export class Artist extends BaseEntity {
   readonly userId: string;
@@ -133,7 +133,11 @@ export class Artist extends BaseEntity {
     this.touch();
   }
 
-  updateProfile(updates: Partial<Pick<IArtist, 'stageName' | 'bio' | 'website' | 'instagram' | 'youtube' | 'profileImageUrl'>>): void {
+  updateProfile(
+    updates: Partial<
+      Pick<IArtist, "stageName" | "bio" | "website" | "instagram" | "youtube" | "profileImageUrl">
+    >
+  ): void {
     if (updates.stageName) this._stageName = updates.stageName;
     if (updates.bio) this._bio = updates.bio;
     if (updates.website !== undefined) this._website = updates.website;
@@ -163,7 +167,7 @@ export class Artist extends BaseEntity {
     };
   }
 
-  getPublicInfo(): Omit<IArtist, 'userId'> {
+  getPublicInfo(): Omit<IArtist, "userId"> {
     const { ...publicData } = this.toJSON();
     return publicData;
   }

@@ -2,34 +2,34 @@
  * Classe Artist - Modèle métier pour les artistes
  */
 
-import { z } from 'zod';
+import { z } from "zod";
 
 export enum GenreMusic {
-  ROCK = 'rock',
-  HARD_ROCK = 'hard_rock',
-  ALTERNATIVE_ROCK = 'alternative_rock',
-  GARAGE_ROCK = 'garage_rock',
-  GRUNGE = 'grunge',
-  PROGRESSIVE_ROCK = 'progressive_rock',
-  POST_ROCK = 'post_rock',
-  PUNK = 'punk',
-  PUNK_HARDCORE = 'punk_hardcore',
-  POST_PUNK = 'post_punk',
-  METAL = 'metal',
-  HEAVY_METAL = 'heavy_metal',
-  THRASH_METAL = 'thrash_metal',
-  DEATH_METAL = 'death_metal',
-  BLACK_METAL = 'black_metal',
-  DOOM_METAL = 'doom_metal',
-  SLUDGE_METAL = 'sludge_metal',
-  STONER_METAL = 'stoner_metal',
-  PROGRESSIVE_METAL = 'progressive_metal',
-  METALCORE = 'metalcore',
-  DEATHCORE = 'deathcore',
-  NU_METAL = 'nu_metal',
-  INDUSTRIAL_METAL = 'industrial_metal',
-  HEAVY_BLUES = 'heavy_blues',
-  OTHER = 'other',
+  ROCK = "rock",
+  HARD_ROCK = "hard_rock",
+  ALTERNATIVE_ROCK = "alternative_rock",
+  GARAGE_ROCK = "garage_rock",
+  GRUNGE = "grunge",
+  PROGRESSIVE_ROCK = "progressive_rock",
+  POST_ROCK = "post_rock",
+  PUNK = "punk",
+  PUNK_HARDCORE = "punk_hardcore",
+  POST_PUNK = "post_punk",
+  METAL = "metal",
+  HEAVY_METAL = "heavy_metal",
+  THRASH_METAL = "thrash_metal",
+  DEATH_METAL = "death_metal",
+  BLACK_METAL = "black_metal",
+  DOOM_METAL = "doom_metal",
+  SLUDGE_METAL = "sludge_metal",
+  STONER_METAL = "stoner_metal",
+  PROGRESSIVE_METAL = "progressive_metal",
+  METALCORE = "metalcore",
+  DEATHCORE = "deathcore",
+  NU_METAL = "nu_metal",
+  INDUSTRIAL_METAL = "industrial_metal",
+  HEAVY_BLUES = "heavy_blues",
+  OTHER = "other",
 }
 
 export interface IArtist {
@@ -107,7 +107,7 @@ export class Artist implements IArtist {
    * Obtient les genres comme string lisible
    */
   getGenresLabel(): string {
-    return this.genres.map((g) => g.toUpperCase()).join(', ');
+    return this.genres.map((g) => g.toUpperCase()).join(", ");
   }
 
   /**
@@ -156,7 +156,7 @@ export class Artist implements IArtist {
   /**
    * Retourne les informations publiques
    */
-  getPublicInfo(): Omit<IArtist, 'userId'> {
+  getPublicInfo(): Omit<IArtist, "userId"> {
     return {
       id: this.id,
       stageName: this.stageName,
@@ -179,7 +179,7 @@ export class Artist implements IArtist {
    * Obtient le badge de vérification
    */
   getVerificationBadge(): string {
-    return this.isVerified ? '✅' : '';
+    return this.isVerified ? "✅" : "";
   }
 
   /**

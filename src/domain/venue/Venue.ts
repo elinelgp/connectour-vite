@@ -18,7 +18,7 @@ export type IVenue = {
   isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
-}
+};
 
 export class Venue extends BaseEntity {
   private _name: string;
@@ -112,7 +112,11 @@ export class Venue extends BaseEntity {
     this.touch();
   }
 
-  updateInfo(updates: Partial<Pick<IVenue, 'name' | 'description' | 'address' | 'city' | 'country' | 'phone' | 'website'>>): void {
+  updateInfo(
+    updates: Partial<
+      Pick<IVenue, "name" | "description" | "address" | "city" | "country" | "phone" | "website">
+    >
+  ): void {
     if (updates.name) this._name = updates.name;
     if (updates.description) this._description = updates.description;
     if (updates.address) this._address = updates.address;
@@ -144,7 +148,7 @@ export class Venue extends BaseEntity {
     };
   }
 
-  getPublicInfo(): Omit<IVenue, 'managerId'> {
+  getPublicInfo(): Omit<IVenue, "managerId"> {
     const { ...publicData } = this.toJSON();
     return publicData;
   }
