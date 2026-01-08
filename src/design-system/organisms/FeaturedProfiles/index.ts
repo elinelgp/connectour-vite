@@ -1,2 +1,2 @@
-export { FeaturedProfiles } from './FeaturedProfiles';
-export type { FeaturedProfilesProps, Profile } from './FeaturedProfiles.types';
+export { FeaturedProfiles } from "./FeaturedProfiles";
+export type { FeaturedProfilesProps, Profile } from "./FeaturedProfiles.types";

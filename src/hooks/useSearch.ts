@@ -1,19 +1,19 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from "react";
 
-export const useSearch = (initialValue = '') => {
+export const useSearch = (initialValue = "") => {
   const [searchQuery, setSearchQuery] = useState(initialValue);
-  
+
   const handleSearchChange = useCallback((value: string) => {
     setSearchQuery(value);
   }, []);
-  
+
   const clearSearch = useCallback(() => {
-    setSearchQuery('');
+    setSearchQuery("");
   }, []);
-  
+
   return {
     searchQuery,
     handleSearchChange,
-    clearSearch
+    clearSearch,
   };
 };

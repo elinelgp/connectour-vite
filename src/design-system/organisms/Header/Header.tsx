@@ -1,14 +1,14 @@
-import React from 'react';
-import { Search } from 'lucide-react';
-import { Input } from '../../atoms/Input';
-import { HeaderProps } from './Header.types';
+import React from "react";
+import { Search } from "lucide-react";
+import { Input } from "../../atoms/Input";
+import { HeaderProps } from "./Header.types";
 
 export const Header: React.FC<HeaderProps> = ({
   title,
   subtitle,
   searchValue,
   onSearchChange,
-  searchPlaceholder = 'Search...'
+  searchPlaceholder = "Search...",
 }) => {
   return (
     <header
@@ -46,4 +46,4 @@ export const Header: React.FC<HeaderProps> = ({
   );
 };
 
-Header.displayName = 'Header';
+Header.displayName = "Header";

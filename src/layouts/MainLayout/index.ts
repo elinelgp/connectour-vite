@@ -1,2 +1,2 @@
-export { MainLayout } from './MainLayout';
-export type { MainLayoutProps, ActiveTab } from './MainLayout.types';
+export { MainLayout } from "./MainLayout";
+export type { MainLayoutProps, ActiveTab } from "./MainLayout.types";

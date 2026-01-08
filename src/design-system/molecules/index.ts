@@ -1,2 +1,2 @@
-export * from './UserTypeCard';
-export * from './ProfileCard';
+export * from "./UserTypeCard";
+export * from "./ProfileCard";

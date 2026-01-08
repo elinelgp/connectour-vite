@@ -9,9 +9,7 @@ export function ErrorLayout(): JSX.Element {
         <h1 className="text-5xl font-light text-[#5C9C9C] mb-2">
           <strong className="font-normal">Error {err.status || 500}</strong>
         </h1>
-        <p className="text-lg text-gray-600">
-          {err.statusText ?? err.message}
-        </p>
+        <p className="text-lg text-gray-600">{err.statusText ?? err.message}</p>
       </div>
     </div>
   );

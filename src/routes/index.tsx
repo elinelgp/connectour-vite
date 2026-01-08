@@ -34,7 +34,7 @@ export const router = createBrowserRouter([
       const { MainLayout: MainLayoutMui } = await import("../components/layout");
       const { RootError } = await import("../components/error");
       const { MuiProviders } = await import("../providers/MuiProviders");
-      
+
       return {
         element: (
           <MuiProviders>

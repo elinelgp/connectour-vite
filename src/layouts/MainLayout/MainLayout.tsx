@@ -1,17 +1,14 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import { Home, MessageCircle, Bell, User } from 'lucide-react';
-import { MainLayoutProps, ActiveTab } from './MainLayout.types';
+import React from "react";
+import { Outlet } from "react-router-dom";
+import { Home, MessageCircle, Bell, User } from "lucide-react";
+import { MainLayoutProps, ActiveTab } from "./MainLayout.types";
 
-export const MainLayout: React.FC<MainLayoutProps> = ({
-  activeTab = 'home',
-  onTabChange
-}) => {
+export const MainLayout: React.FC<MainLayoutProps> = ({ activeTab = "home", onTabChange }) => {
   const navItems = [
-    { id: 'home' as ActiveTab, icon: Home, label: 'Home' },
-    { id: 'messages' as ActiveTab, icon: MessageCircle, label: 'Messages' },
-    { id: 'notifications' as ActiveTab, icon: Bell, label: 'Alerts', hasNotification: true },
-    { id: 'profile' as ActiveTab, icon: User, label: 'Profile' }
+    { id: "home" as ActiveTab, icon: Home, label: "Home" },
+    { id: "messages" as ActiveTab, icon: MessageCircle, label: "Messages" },
+    { id: "notifications" as ActiveTab, icon: Bell, label: "Alerts", hasNotification: true },
+    { id: "profile" as ActiveTab, icon: User, label: "Profile" },
   ];
 
   return (
@@ -48,11 +45,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
                   text-xs
                   transition-colors
                   relative
-                  ${
-                    isActive
-                      ? 'text-[#FF9F5A]'
-                      : 'text-[#5C9C9C]'
-                  }
+                  ${isActive ? "text-[#FF9F5A]" : "text-[#5C9C9C]"}
                 `}
               >
                 <Icon className="w-6 h-6" />
@@ -71,5 +64,4 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
   );
 };
 
-
-MainLayout.displayName = 'MainLayout';
+MainLayout.displayName = "MainLayout";

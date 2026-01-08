@@ -3,22 +3,22 @@
 /* Personnalisation des couleurs via @theme */
 @theme {
   /* Couleurs Primary */
-  --color-primary-main: #FF9F5A;
+  --color-primary-main: #ff9f5a;
   --color-primary-dark: #ff8a3d;
-  --color-primary-light: #FFF4E6;
-  
+  --color-primary-light: #fff4e6;
+
   /* Couleurs Secondary */
-  --color-secondary-main: #5C9C9C;
-  --color-secondary-dark: #4A7E7E;
-  --color-secondary-light: #E8F4F4;
-  
+  --color-secondary-main: #5c9c9c;
+  --color-secondary-dark: #4a7e7e;
+  --color-secondary-light: #e8f4f4;
+
   /* Couleurs Neutral */
-  --color-brown: #8B5A2B;
-  --color-gray-custom: #E5E5E5;
-  --color-light-gray: #F9FAFB;
-  
+  --color-brown: #8b5a2b;
+  --color-gray-custom: #e5e5e5;
+  --color-light-gray: #f9fafb;
+
   /* Couleurs Accent */
-  --color-accent-yellow: #FBBF24;
+  --color-accent-yellow: #fbbf24;
 }
 
 /* Custom scrollbar */

@@ -1,32 +1,29 @@
-import React from 'react';
-import { CardProps } from './Card.types';
-import { cardBaseStyles, cardVariantStyles } from '../../componentStyles';
+import React from "react";
+import { CardProps } from "./Card.types";
+import { cardBaseStyles, cardVariantStyles } from "../../componentStyles";
 
 export const Card: React.FC<CardProps> = ({
   children,
-  variant = 'default',
+  variant = "default",
   onClick,
-  className = '',
+  className = "",
   ...props
 }) => {
-  const interactiveStyles = onClick ? 'cursor-pointer' : '';
-  
-  const cardClasses = [
-    interactiveStyles,
-    className
-  ].filter(Boolean).join(' ');
-  
+  const interactiveStyles = onClick ? "cursor-pointer" : "";
+
+  const cardClasses = [interactiveStyles, className].filter(Boolean).join(" ");
+
   const combinedStyles: React.CSSProperties = {
     ...cardBaseStyles,
     ...cardVariantStyles[variant],
   };
-  
+
   return (
     <div
       className={cardClasses}
       style={combinedStyles}
       onClick={onClick}
-      role={onClick ? 'button' : undefined}
+      role={onClick ? "button" : undefined}
       tabIndex={onClick ? 0 : undefined}
       {...props}
     >
@@ -35,4 +32,4 @@ export const Card: React.FC<CardProps> = ({
   );
 };
 
-Card.displayName = 'Card';
+Card.displayName = "Card";

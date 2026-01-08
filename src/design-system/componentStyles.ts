@@ -43,9 +43,30 @@ export const buttonVariantColors = {
 // ============ INPUT STYLES ============
 
 export const inputSizeClasses = {
-  sm: { height: "32px", fontSize: "14px", paddingTop: "0", paddingBottom: "0", paddingLeft: "8px", paddingRight: "8px" },
-  md: { height: "40px", fontSize: "16px", paddingTop: "0", paddingBottom: "0", paddingLeft: "12px", paddingRight: "12px" },
-  lg: { height: "48px", fontSize: "18px", paddingTop: "0", paddingBottom: "0", paddingLeft: "16px", paddingRight: "16px" },
+  sm: {
+    height: "32px",
+    fontSize: "14px",
+    paddingTop: "0",
+    paddingBottom: "0",
+    paddingLeft: "8px",
+    paddingRight: "8px",
+  },
+  md: {
+    height: "40px",
+    fontSize: "16px",
+    paddingTop: "0",
+    paddingBottom: "0",
+    paddingLeft: "12px",
+    paddingRight: "12px",
+  },
+  lg: {
+    height: "48px",
+    fontSize: "18px",
+    paddingTop: "0",
+    paddingBottom: "0",
+    paddingLeft: "16px",
+    paddingRight: "16px",
+  },
 };
 
 export const inputVariantColors = {

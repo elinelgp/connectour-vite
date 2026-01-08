@@ -13,7 +13,7 @@ export interface FeaturedProfilesProps {
    * Liste des profils mis en avant
    */
   profiles: Profile[];
-  
+
   /**
    * Callback lors du clic sur un profil
    */

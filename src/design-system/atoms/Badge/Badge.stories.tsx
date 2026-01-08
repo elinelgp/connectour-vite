@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Badge } from './Badge';
+import type { Meta, StoryObj } from "@storybook/react";
+import { Badge } from "./Badge";
 
 /**
  * Le composant Badge affiche un label informatif.
- * 
+ *
  * ## Quand l'utiliser ?
  * - Tags et catégories
  * - Statuts
@@ -11,30 +11,30 @@ import { Badge } from './Badge';
  * - Compteurs
  */
 const meta = {
-  title: 'Design System/Atoms/Badge',
+  title: "Design System/Atoms/Badge",
   component: Badge,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'Un badge coloré pour afficher des informations contextuelles.',
+        component: "Un badge coloré pour afficher des informations contextuelles.",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: 'select',
-      options: ['primary', 'secondary', 'success'],
-      description: 'Variante de couleur du badge',
+      control: "select",
+      options: ["primary", "secondary", "success"],
+      description: "Variante de couleur du badge",
       table: {
-        type: { summary: 'primary | secondary | success' },
-        defaultValue: { summary: 'primary' },
+        type: { summary: "primary | secondary | success" },
+        defaultValue: { summary: "primary" },
       },
     },
     children: {
-      control: 'text',
-      description: 'Contenu du badge',
+      control: "text",
+      description: "Contenu du badge",
     },
   },
 } satisfies Meta<typeof Badge>;
@@ -45,46 +45,44 @@ type Story = StoryObj<typeof meta>;
 // Par défaut
 export const Default: Story = {
   args: {
-    children: 'Badge',
-    variant: 'primary',
+    children: "Badge",
+    variant: "primary",
   },
 };
 
 // Variantes
 export const Primary: Story = {
   args: {
-    children: 'Jazz',
-    variant: 'primary',
+    children: "Jazz",
+    variant: "primary",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    children: 'Artist',
-    variant: 'secondary',
+    children: "Artist",
+    variant: "secondary",
   },
 };
 
 export const Success: Story = {
   args: {
-    children: 'Verified',
-    variant: 'success',
+    children: "Verified",
+    variant: "success",
   },
 };
 
 // Avec différents textes
 export const LongText: Story = {
   args: {
-    children: 'Professional Tour Manager',
-    variant: 'primary',
+    children: "Professional Tour Manager",
+    variant: "primary",
   },
 };
 
 export const ShortText: Story = {
   args: {
-    children: 'New',
-    variant: 'success',
+    children: "New",
+    variant: "success",
   },
 };
-
-
