@@ -1,6 +1,5 @@
 /* SPDX-FileCopyrightText: 2014-present Kriasoft */
 /* SPDX-License-Identifier: MIT */
-import React from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import { BaseLayout, MainLayout, RootError } from "../components";
 
@@ -35,6 +34,7 @@ export const router = createBrowserRouter([
         lazy: () => import("./artist-agent-page"),
       },
       { path: "artist/:artistShortName", lazy: () => import("./artist-page") },
+      { path: "admin/hooks-demo", lazy: () => import("./hooks-demo") },
     ],
   },
 ]);
