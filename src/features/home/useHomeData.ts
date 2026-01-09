@@ -2,10 +2,11 @@ import { useMemo } from "react";
 import { Music, Users, Building2, Calendar } from "lucide-react";
 import { UserType } from "../../design-system/organisms/UserTypeGrid";
 import { Profile } from "../../design-system/organisms/FeaturedProfiles";
+import { mockFeaturedProfiles } from "../../mocks/data";
 
 /**
  * Hook personnalisé pour gérer les données de la HomePage
- * Dans une vraie app, ces données viendraient d'une API
+ * Utilise les données mockées du fichier mocks/data.ts
  */
 export const useHomeData = () => {
   // Types d'utilisateurs
@@ -43,32 +44,9 @@ export const useHomeData = () => {
     []
   );
 
-  // Profils mis en avant
+  // Profils mis en avant - utilise les vraies données mockées
   const featuredProfiles: Profile[] = useMemo(
-    () => [
-      {
-        id: "1",
-        name: "Sarah Johnson",
-        type: "Jazz Artist",
-        location: "New York, NY",
-        rating: 4.8,
-        genre: "Jazz",
-      },
-      {
-        id: "2",
-        name: "Blue Note Jazz Club",
-        type: "Venue",
-        location: "New York, NY",
-        rating: 4.9,
-      },
-      {
-        id: "3",
-        name: "Michael Chen",
-        type: "Tour Manager",
-        location: "Los Angeles, CA",
-        rating: 4.7,
-      },
-    ],
+    () => mockFeaturedProfiles as Profile[],
     []
   );
 

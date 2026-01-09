@@ -4,6 +4,7 @@ import { Card } from "../../atoms/Card";
 import { Avatar } from "../../atoms/Avatar";
 import { Badge } from "../../atoms/Badge";
 import { ProfileCardProps } from "./ProfileCard.types";
+import { tokens } from "../../tokens";
 
 export const ProfileCard: React.FC<ProfileCardProps> = ({
   name,
@@ -17,25 +18,35 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
   return (
     <Card variant="elevated" className="min-w-[280px] text-left" onClick={onClick}>
       {/* Header avec Avatar et Rating */}
-      <div className="flex items-start justify-between mb-3">
+      <div className="flex items-start justify-between" style={{ marginBottom: tokens.spacing.md }}>
         <Avatar src={avatarUrl} alt={name} size="md" />
-        <div className="flex items-center gap-1 text-amber-500">
+        <div className="flex items-center gap-1" style={{ color: tokens.colors.accent.yellow }}>
           <Star className="w-4 h-4 fill-current" />
-          <span className="text-sm font-semibold">{rating.toFixed(1)}</span>
+          <span className="text-sm" style={{ fontWeight: tokens.typography.fontWeights.semibold }}>
+            {rating.toFixed(1)}
+          </span>
         </div>
       </div>
 
       {/* Nom */}
-      <h3 className="text-[#8B5A2B] font-semibold mb-2">{name}</h3>
+      <h3
+        className="font-semibold"
+        style={{ color: tokens.colors.neutral.brown, marginBottom: tokens.spacing.sm }}
+      >
+        {name}
+      </h3>
 
       {/* Badges */}
-      <div className="flex flex-wrap gap-2 mb-3">
+      <div className="flex flex-wrap gap-2" style={{ marginBottom: tokens.spacing.md }}>
         <Badge variant="secondary">{type}</Badge>
         {genre && <Badge variant="primary">{genre}</Badge>}
       </div>
 
       {/* Localisation */}
-      <div className="flex items-center gap-1 text-sm text-[#8B5A2B]/70">
+      <div
+        className="flex items-center gap-1 text-sm"
+        style={{ color: `${tokens.colors.neutral.brown}b3` }}
+      >
         <MapPin className="w-4 h-4" />
         <span>{location}</span>
       </div>

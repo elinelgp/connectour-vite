@@ -45,39 +45,42 @@ export const buttonVariantColors = {
 export const inputSizeClasses = {
   sm: {
     height: "32px",
-    fontSize: "14px",
+    fontSize: tokens.typography.fontSizes.sm,
     paddingTop: "0",
     paddingBottom: "0",
-    paddingLeft: "8px",
-    paddingRight: "8px",
+    paddingLeft: tokens.spacing.sm,
+    paddingRight: tokens.spacing.sm,
   },
   md: {
     height: "40px",
-    fontSize: "16px",
+    fontSize: tokens.typography.fontSizes.base,
     paddingTop: "0",
     paddingBottom: "0",
-    paddingLeft: "12px",
-    paddingRight: "12px",
+    paddingLeft: tokens.spacing.md,
+    paddingRight: tokens.spacing.md,
   },
   lg: {
     height: "48px",
-    fontSize: "18px",
+    fontSize: tokens.typography.fontSizes.lg,
     paddingTop: "0",
     paddingBottom: "0",
-    paddingLeft: "16px",
-    paddingRight: "16px",
+    paddingLeft: tokens.spacing.lg,
+    paddingRight: tokens.spacing.lg,
   },
 };
 
 export const inputVariantColors = {
   default: {
-    border: "1px solid #d1d5db",
+    border: `1px solid ${tokens.colors.neutral.gray}`,
+    borderRadius: tokens.borderRadius.md,
   },
   error: {
-    border: "1px solid #ef4444",
+    border: `1px solid ${tokens.colors.semantic.error}`,
+    borderRadius: tokens.borderRadius.md,
   },
   success: {
-    border: "1px solid #22c55e",
+    border: `1px solid ${tokens.colors.semantic.success}`,
+    borderRadius: tokens.borderRadius.md,
   },
 };
 
@@ -85,15 +88,15 @@ export const inputVariantColors = {
 
 export const cardVariantStyles = {
   default: {
-    backgroundColor: "white",
+    backgroundColor: tokens.colors.neutral.white,
     boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
   },
   elevated: {
-    backgroundColor: "white",
+    backgroundColor: tokens.colors.neutral.white,
     boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
   },
   outlined: {
-    backgroundColor: "white",
+    backgroundColor: tokens.colors.neutral.white,
     border: `2px solid ${tokens.colors.neutral.gray}`,
   },
 } as const;
@@ -118,8 +121,8 @@ export const avatarSizeStyles = {
     fontSize: tokens.typography.fontSizes.lg,
   },
   lg: {
-    width: "96px",
-    height: "96px",
+    width: tokens.spacing["5xl"],
+    height: tokens.spacing["5xl"],
     fontSize: tokens.typography.fontSizes["2xl"],
   },
 } as const;
@@ -143,15 +146,15 @@ export const badgeVariantColors = {
   },
   success: {
     backgroundColor: "#dcfce7",
-    color: "#15803d",
+    color: tokens.colors.semantic.success,
   },
   warning: {
     backgroundColor: "#fef3c7",
-    color: "#b45309",
+    color: tokens.colors.semantic.warning,
   },
   error: {
     backgroundColor: "#fee2e2",
-    color: "#dc2626",
+    color: tokens.colors.semantic.error,
   },
 } as const;
 

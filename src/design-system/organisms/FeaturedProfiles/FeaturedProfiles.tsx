@@ -1,12 +1,18 @@
 import React from "react";
 import { ProfileCard } from "../../molecules/ProfileCard";
 import { FeaturedProfilesProps } from "./FeaturedProfiles.types";
+import { tokens } from "../../tokens";
 
 export const FeaturedProfiles: React.FC<FeaturedProfilesProps> = ({ profiles, onProfileClick }) => {
   return (
-    <section className="mt-8">
-      <div className="px-4 sm:px-6 mb-4">
-        <h2 className="text-[#8B5A2B] text-lg sm:text-xl font-semibold">Featured Profiles</h2>
+    <section style={{ marginTop: tokens.spacing["2xl"] }}>
+      <div className="px-4 sm:px-6" style={{ marginBottom: tokens.spacing.lg }}>
+        <h2
+          className="text-lg sm:text-xl font-semibold"
+          style={{ color: tokens.colors.neutral.brown }}
+        >
+          Featured Profiles
+        </h2>
       </div>
 
       <div
