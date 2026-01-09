@@ -18,8 +18,8 @@ export const Input: React.FC<InputProps> = ({
   const generatedId = React.useId();
   const inputId = id ?? generatedId;
 
-  const sizeStyles = inputSizeClasses[size];
-  const colorStyles = inputVariantColors[variant];
+  const sizeStyles = inputSizeClasses[size as keyof typeof inputSizeClasses];
+  const colorStyles = inputVariantColors[variant as keyof typeof inputVariantColors];
 
   // Ajuster le padding en fonction des icônes
   const paddingStyles = {

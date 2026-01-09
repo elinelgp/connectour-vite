@@ -462,6 +462,51 @@ export const mockStats = {
     .reduce((sum, b) => sum + b.totalPrice, 0),
 };
 
+// Mock data pour la HomePage
+export const mockFeaturedProfiles = [
+  {
+    id: mockArtists[0].id,
+    name: mockArtists[0].stageName,
+    type: "Artist",
+    location: "Paris, France",
+    rating: mockArtists[0].rating,
+    genre: mockArtists[0].genres[0],
+    avatarUrl: mockArtists[0].profileImageUrl,
+  },
+  {
+    id: mockVenues[0].id,
+    name: mockVenues[0].name,
+    type: "Venue",
+    location: `${mockVenues[0].city}, ${mockVenues[0].country}`,
+    rating: mockVenues[0].rating,
+  },
+  {
+    id: mockArtists[1].id,
+    name: mockArtists[1].stageName,
+    type: "Artist",
+    location: "Paris, France",
+    rating: mockArtists[1].rating,
+    genre: mockArtists[1].genres[0],
+    avatarUrl: mockArtists[1].profileImageUrl,
+  },
+  {
+    id: mockVenues[1].id,
+    name: mockVenues[1].name,
+    type: "Venue",
+    location: `${mockVenues[1].city}, ${mockVenues[1].country}`,
+    rating: mockVenues[1].rating,
+  },
+  {
+    id: mockArtists[2].id,
+    name: mockArtists[2].stageName,
+    type: "Artist",
+    location: "Lyon, France",
+    rating: mockArtists[2].rating,
+    genre: mockArtists[2].genres[0],
+    avatarUrl: mockArtists[2].profileImageUrl,
+  },
+];
+
 console.log("=== TEST DE LA POO ===\n");
 
 // Test 1 : Vérifier qu'un User peut être créé

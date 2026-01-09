@@ -1,5 +1,6 @@
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
+// @ts-expect-error - vite-plugin-eslint has incomplete type definitions
 import eslint from "vite-plugin-eslint";
 import path from "node:path";
 import tailwindcss from "@tailwindcss/vite";
