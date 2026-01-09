@@ -42,10 +42,7 @@ export const UserTypeCard: React.FC<UserTypeCardProps> = ({
       >
         {title}
       </h3>
-      <p
-        className="text-xs line-clamp-2"
-        style={{ color: `${tokens.colors.neutral.brown}b3` }}
-      >
+      <p className="text-xs line-clamp-2" style={{ color: `${tokens.colors.neutral.brown}b3` }}>
         {description}
       </p>
     </Card>

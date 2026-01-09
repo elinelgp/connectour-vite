@@ -45,10 +45,7 @@ export const useHomeData = () => {
   );
 
   // Profils mis en avant - utilise les vraies données mockées
-  const featuredProfiles: Profile[] = useMemo(
-    () => mockFeaturedProfiles as Profile[],
-    []
-  );
+  const featuredProfiles: Profile[] = useMemo(() => mockFeaturedProfiles as Profile[], []);
 
   return {
     userTypes,
