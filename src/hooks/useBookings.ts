@@ -7,7 +7,6 @@ interface UseBookingsReturn {
   loading: boolean;
   error: string | null;
 
-  // Actions
   confirmBooking: (bookingId: string, paymentId?: string) => Promise<boolean>;
   completeBooking: (bookingId: string) => Promise<boolean>;
   cancelBooking: (bookingId: string) => Promise<boolean>;
@@ -19,7 +18,6 @@ interface UseBookingsReturn {
     price: number
   ) => Promise<Booking | null>;
 
-  // Filtres
   findByUserId: (userId: string) => Booking[];
   findByEventId: (eventId: string) => Booking[];
   findByStatus: (status: BookingStatus) => Booking[];
@@ -27,7 +25,6 @@ interface UseBookingsReturn {
   findActive: () => Booking[];
   findById: (id: string) => Booking | undefined;
 
-  // Stats
   calculateRevenue: (eventId?: string) => number;
 
   refresh: () => Promise<void>;
@@ -139,7 +136,7 @@ export function useBookings(): UseBookingsReturn {
     [bookings]
   );
 
-  // === FILTRES ===
+  // === FILTERS ===
 
   const findByUserId = useCallback(
     (userId: string) => {

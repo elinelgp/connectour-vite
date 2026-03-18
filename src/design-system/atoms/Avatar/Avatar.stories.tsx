@@ -1,16 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Avatar } from "./Avatar";
 
-/**
- * Le composant Avatar affiche une image de profil circulaire.
- * Si aucune image n'est fournie, il affiche l'initiale du nom.
- *
- * ## Quand l'utiliser ?
- * - Profils utilisateurs
- * - Listes de contacts
- * - Commentaires
- * - Notifications
- */
 const meta = {
   title: "Design System/Atoms/Avatar",
   component: Avatar,
@@ -47,7 +37,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Avec initiale (pas d'image)
 export const Default: Story = {
   args: {
     alt: "John Doe",
@@ -55,7 +44,6 @@ export const Default: Story = {
   },
 };
 
-// Avec image
 export const WithImage: Story = {
   args: {
     src: "https://i.pravatar.cc/150?img=1",
@@ -64,7 +52,6 @@ export const WithImage: Story = {
   },
 };
 
-// Tailles
 export const Small: Story = {
   args: {
     alt: "Jane Smith",
@@ -86,7 +73,6 @@ export const Large: Story = {
   },
 };
 
-// Avec images de différentes tailles
 export const SmallWithImage: Story = {
   args: {
     src: "https://i.pravatar.cc/150?img=2",

@@ -7,7 +7,6 @@ interface UseUsersReturn {
   loading: boolean;
   error: string | null;
 
-  // Filtres
   findByEmail: (email: string) => User | undefined;
   findByRole: (role: UserRole) => User[];
   getArtists: () => User[];
@@ -41,7 +40,7 @@ export function useUsers(): UseUsersReturn {
     loadUsers();
   }, [loadUsers]);
 
-  // === FILTRES ===
+  // === FILTERS ===
 
   const findByEmail = useCallback(
     (email: string) => {

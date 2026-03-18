@@ -1,8 +1,3 @@
-/**
- * Component Styles Mapping
- * Centralise les mappings de tailles et variantes pour tous les composants
- */
-
 import { tokens } from "./tokens";
 
 // ============ BUTTON STYLES ============
@@ -138,23 +133,23 @@ export const avatarBaseStyles = {
 export const badgeVariantColors = {
   primary: {
     backgroundColor: tokens.colors.primary.light,
-    color: tokens.colors.primary.main,
+    color: tokens.colors.neutral.brown,
   },
   secondary: {
     backgroundColor: tokens.colors.secondary.light,
-    color: tokens.colors.secondary.main,
+    color: tokens.colors.neutral.brown,
   },
   success: {
     backgroundColor: "#dcfce7",
-    color: tokens.colors.semantic.success,
+    color: tokens.colors.neutral.brown,
   },
   warning: {
     backgroundColor: "#fef3c7",
-    color: tokens.colors.semantic.warning,
+    color: tokens.colors.neutral.brown,
   },
   error: {
     backgroundColor: "#fee2e2",
-    color: tokens.colors.semantic.error,
+    color: tokens.colors.neutral.brown,
   },
 } as const;
 

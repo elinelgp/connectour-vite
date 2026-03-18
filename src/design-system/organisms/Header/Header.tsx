@@ -26,7 +26,6 @@ export const Header: React.FC<HeaderProps> = ({
         background: `linear-gradient(to bottom, ${tokens.colors.primary.main}, ${tokens.colors.primary.dark})`,
       }}
     >
-      {/* Titre et sous-titre */}
       <div className="mb-5 sm:mb-6 md:mb-8 max-w-full">
         <h1
           className="text-xl sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2 break-words leading-tight"
@@ -36,13 +35,12 @@ export const Header: React.FC<HeaderProps> = ({
         </h1>
         <p
           className="sm:text-sm md:text-base max-w-full break-words leading-relaxed pr-2"
-          style={{ color: tokens.colors.neutral.brown }}
+          style={{ color: tokens.colors.neutral.white }}
         >
           {subtitle}
         </p>
       </div>
 
-      {/* Barre de recherche */}
       <Input
         fullWidth
         placeholder={searchPlaceholder}

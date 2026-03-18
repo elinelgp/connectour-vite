@@ -1,11 +1,11 @@
 export const colors = {
-  primary: {
+  secondary: {
     main: "#FF9F5A",
     dark: "#ff8a3d",
     light: "#FFF4E6",
     contrast: "#FFFFFF",
   },
-  secondary: {
+  primary: {
     main: "#4A7E7E",
     dark: "#365c5cff",
     light: "#E8F4F4",

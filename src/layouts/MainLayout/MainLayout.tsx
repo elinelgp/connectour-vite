@@ -13,14 +13,12 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ activeTab = "home", onTa
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-[var(--color-light-gray)]">
-      {/* Main content */}
       <main className="pb-24 overscroll-contain">
         <div className="mx-auto max-w-7xl">
           <Outlet />
         </div>
       </main>
 
-      {/* Bottom navigation (mobile only) */}
       <nav
         className="
           fixed bottom-0 left-0 right-0

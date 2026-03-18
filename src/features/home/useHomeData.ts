@@ -4,12 +4,7 @@ import { UserType } from "../../design-system/organisms/UserTypeGrid";
 import { Profile } from "../../design-system/organisms/FeaturedProfiles";
 import { mockFeaturedProfiles } from "../../mocks/data";
 
-/**
- * Hook personnalisé pour gérer les données de la HomePage
- * Utilise les données mockées du fichier mocks/data.ts
- */
 export const useHomeData = () => {
-  // Types d'utilisateurs
   const userTypes: UserType[] = useMemo(
     () => [
       {
@@ -44,7 +39,6 @@ export const useHomeData = () => {
     []
   );
 
-  // Profils mis en avant - utilise les vraies données mockées
   const featuredProfiles: Profile[] = useMemo(() => mockFeaturedProfiles as Profile[], []);
 
   return {

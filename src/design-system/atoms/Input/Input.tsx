@@ -21,7 +21,6 @@ export const Input: React.FC<InputProps> = ({
   const sizeStyles = inputSizeClasses[size as keyof typeof inputSizeClasses];
   const colorStyles = inputVariantColors[variant as keyof typeof inputVariantColors];
 
-  // Ajuster le padding en fonction des icônes
   const paddingStyles = {
     ...sizeStyles,
     paddingLeft: leftIcon ? "40px" : sizeStyles.paddingLeft,
