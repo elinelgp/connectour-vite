@@ -6,7 +6,6 @@ export const useNavigation = (initialTab: ActiveTab = "home") => {
 
   const handleTabChange = useCallback((tab: ActiveTab) => {
     setActiveTab(tab);
-    // Ici vous pouvez ajouter de la logique de routing
     console.log(`Navigating to: ${tab}`);
   }, []);
 

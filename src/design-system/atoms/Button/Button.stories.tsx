@@ -2,20 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
 import { Heart, Download, Mail } from "lucide-react";
 
-/**
- * Le composant Button est un élément atomique réutilisable
- * permettant aux utilisateurs d'effectuer des actions.
- *
- * ## Quand utiliser ce composant ?
- * - Actions primaires (soumission de formulaire, confirmation)
- * - Actions secondaires (annulation, navigation)
- * - Actions légères (ghost variant)
- *
- * ## Accessibilité
- * - Supporte les attributs ARIA standard
- * - Focus visible avec ring
- * - État désactivé géré automatiquement
- */
 const meta = {
   title: "Design System/Atoms/Button",
   component: Button,
@@ -65,7 +51,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Story par défaut
 export const Default: Story = {
   args: {
     children: "Button",
@@ -74,7 +59,6 @@ export const Default: Story = {
   },
 };
 
-// Variantes
 export const Primary: Story = {
   args: {
     children: "Primary Button",
@@ -96,7 +80,6 @@ export const Ghost: Story = {
   },
 };
 
-// Tailles
 export const Small: Story = {
   args: {
     children: "Small Button",
@@ -118,7 +101,6 @@ export const Large: Story = {
   },
 };
 
-// États
 export const Disabled: Story = {
   args: {
     children: "Disabled Button",
@@ -136,7 +118,6 @@ export const FullWidth: Story = {
   },
 };
 
-// Avec icônes
 export const WithIcon: Story = {
   args: {
     children: (

@@ -67,7 +67,6 @@ export const mockUsersData: IUser[] = [
   },
 ];
 
-// Créer les instances User
 export const mockUsers = mockUsersData.map((data) => new User(data));
 
 export const mockArtistsData: IArtist[] = [
@@ -139,7 +138,6 @@ export const mockArtistsData: IArtist[] = [
   },
 ];
 
-// Créer les instances Artist
 export const mockArtists = mockArtistsData.map((data) => new Artist(data));
 
 export const mockVenuesData: IVenue[] = [
@@ -238,7 +236,6 @@ export const mockVenuesData: IVenue[] = [
   },
 ];
 
-// Créer les instances Venue
 export const mockVenues = mockVenuesData.map((data) => new Venue(data));
 
 export const mockEventsData: IEvent[] = [
@@ -354,7 +351,6 @@ export const mockEventsData: IEvent[] = [
   },
 ];
 
-// Créer les instances Event
 export const mockEvents = mockEventsData.map((data) => new Event(data));
 
 export const mockBookingsData: IBooking[] = [
@@ -436,7 +432,6 @@ export const mockBookingsData: IBooking[] = [
   },
 ];
 
-// Créer les instances Booking
 export const mockBookings = mockBookingsData.map((data) => new Booking(data));
 
 export const mockData = {
@@ -447,7 +442,6 @@ export const mockData = {
   bookings: mockBookings,
 };
 
-// Stats utiles
 export const mockStats = {
   totalUsers: mockUsers.length,
   totalArtists: mockArtists.length,
@@ -462,7 +456,6 @@ export const mockStats = {
     .reduce((sum, b) => sum + b.totalPrice, 0),
 };
 
-// Mock data pour la HomePage
 export const mockFeaturedProfiles = [
   {
     id: mockArtists[0].id,
@@ -509,19 +502,16 @@ export const mockFeaturedProfiles = [
 
 console.log("=== TEST DE LA POO ===\n");
 
-// Test 1 : Vérifier qu'un User peut être créé
 const testUser = mockUsers[0];
 console.log(`✓ User créé: ${testUser.name} (${testUser.email})`);
 console.log(`  Role: ${testUser.isArtist() ? "Artiste ✅" : "Autre"}\n`);
 
-// Test 2 : Vérifier qu'un Artist peut suivre/unfollow
 const testArtist = mockArtists[0];
 const initialFollowers = testArtist.followerCount;
 testArtist.follow();
 console.log(`✓ Artist "${testArtist.stageName}"`);
 console.log(`  Followers: ${initialFollowers} → ${testArtist.followerCount}\n`);
 
-// Test 3 : Vérifier qu'un Event peut gérer des réservations
 const testEvent = mockEvents[0];
 const initialSeats = testEvent.availableSeats;
 const bookingSuccess = testEvent.bookSeats(50);
@@ -530,7 +520,6 @@ console.log(`  Réservation de 50 places: ${bookingSuccess ? "Succès ✅" : "É
 console.log(`  Places disponibles: ${initialSeats} → ${testEvent.availableSeats}`);
 console.log(`  Taux d'occupation: ${testEvent.occupancyRate}%\n`);
 
-// Test 4 : Vérifier le state machine d'un Booking
 const testBooking = mockBookings[2]; // Status PENDING
 console.log(`✓ Booking "${testBooking.bookingReference}"`);
 console.log(`  Status initial: ${testBooking.status}`);
@@ -538,8 +527,7 @@ const confirmSuccess = testBooking.confirm("pay_test123");
 console.log(`  Confirmation: ${confirmSuccess ? "Succès ✅" : "Échec ❌"}`);
 console.log(`  Status final: ${testBooking.status}\n`);
 
-// Test 5 : Vérifier l'ajout d'artiste à un événement
-const draftEvent = mockEvents[6]; // Event en DRAFT
+const draftEvent = mockEvents[6]; // Event DRAFT
 console.log(`✓ Event Draft "${draftEvent.title}"`);
 const addArtistSuccess = draftEvent.addArtist("artist-001");
 console.log(`  Ajout artiste: ${addArtistSuccess ? "Succès ✅" : "Échec ❌"}`);
@@ -547,7 +535,6 @@ const publishSuccess = draftEvent.publish();
 console.log(`  Publication: ${publishSuccess ? "Succès ✅" : "Échec ❌"}`);
 console.log(`  Status: ${draftEvent.status}\n`);
 
-// Test 6 : Stats globales
 console.log("=== STATISTIQUES ===");
 console.log(`Total utilisateurs: ${mockStats.totalUsers}`);
 console.log(`Total artistes: ${mockStats.totalArtists}`);

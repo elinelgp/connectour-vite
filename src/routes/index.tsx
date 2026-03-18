@@ -10,7 +10,7 @@ import { ErrorLayout } from "../layouts/ErrorLayout/ErrorLayout";
  */
 export const router = createBrowserRouter([
   {
-    // Routes "clean" / nouveau design system (sans MUI)
+    // new design system routes
     path: "",
     element: <MainLayout />,
     errorElement: <ErrorLayout />,
@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    // Routes legacy / MUI (chargées uniquement quand nécessaire)
+    // legacy routes/ MUI
     path: "",
     lazy: async () => {
       const { MainLayout: MainLayoutMui } = await import("../components/layout");

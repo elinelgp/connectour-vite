@@ -1,15 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Badge } from "./Badge";
 
-/**
- * Le composant Badge affiche un label informatif.
- *
- * ## Quand l'utiliser ?
- * - Tags et catégories
- * - Statuts
- * - Labels
- * - Compteurs
- */
 const meta = {
   title: "Design System/Atoms/Badge",
   component: Badge,
@@ -42,7 +33,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Par défaut
 export const Default: Story = {
   args: {
     children: "Badge",
@@ -50,7 +40,6 @@ export const Default: Story = {
   },
 };
 
-// Variantes
 export const Primary: Story = {
   args: {
     children: "Jazz",
@@ -72,7 +61,6 @@ export const Success: Story = {
   },
 };
 
-// Avec différents textes
 export const LongText: Story = {
   args: {
     children: "Professional Tour Manager",

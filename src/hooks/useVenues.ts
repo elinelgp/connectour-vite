@@ -7,12 +7,10 @@ interface UseVenuesReturn {
   loading: boolean;
   error: string | null;
 
-  // Actions
   activateVenue: (venueId: string) => Promise<boolean>;
   deactivateVenue: (venueId: string) => Promise<boolean>;
   updateRating: (venueId: string, rating: number, reviewCount: number) => Promise<boolean>;
 
-  // Filtres
   findByManagerId: (managerId: string) => Venue[];
   findByCity: (city: string) => Venue[];
   findByType: (type: VenueType) => Venue[];
@@ -87,7 +85,7 @@ export function useVenues(): UseVenuesReturn {
     [venues]
   );
 
-  // === FILTRES ===
+  // === FILTERS ===
 
   const findByManagerId = useCallback(
     (managerId: string) => {

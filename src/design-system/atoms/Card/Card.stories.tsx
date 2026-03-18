@@ -2,15 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Card } from "./Card";
 import { Music } from "lucide-react";
 
-/**
- * Le composant Card est un conteneur versatile.
- *
- * ## Quand l'utiliser ?
- * - Grouper du contenu lié
- * - Afficher des informations structurées
- * - Créer des layouts modulaires
- * - Éléments cliquables
- */
 const meta = {
   title: "Design System/Atoms/Card",
   component: Card,
@@ -43,7 +34,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Variantes
 export const Default: Story = {
   args: {
     variant: "default",
@@ -65,7 +55,6 @@ export const Outlined: Story = {
   },
 };
 
-// Avec contenu riche
 export const WithRichContent: Story = {
   args: {
     variant: "elevated",
@@ -78,7 +67,6 @@ export const WithRichContent: Story = {
   },
 };
 
-// Cliquable
 export const Clickable: Story = {
   args: {
     variant: "elevated",
@@ -92,7 +80,6 @@ export const Clickable: Story = {
   },
 };
 
-// Avec icône
 export const WithIcon: Story = {
   args: {
     variant: "elevated",

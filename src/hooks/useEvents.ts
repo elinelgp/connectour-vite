@@ -7,7 +7,6 @@ interface UseEventsReturn {
   loading: boolean;
   error: string | null;
 
-  // Actions
   bookSeats: (eventId: string, count: number) => Promise<boolean>;
   cancelSeats: (eventId: string, count: number) => Promise<boolean>;
   publishEvent: (eventId: string) => Promise<boolean>;
@@ -17,7 +16,6 @@ interface UseEventsReturn {
   addArtist: (eventId: string, artistId: string) => Promise<boolean>;
   removeArtist: (eventId: string, artistId: string) => Promise<boolean>;
 
-  // Filtres
   getPublishedEvents: () => Event[];
   getUpcomingEvents: () => Event[];
   getAvailableEvents: () => Event[];
@@ -27,7 +25,6 @@ interface UseEventsReturn {
   getEventsByArtist: (artistId: string) => Event[];
   findById: (id: string) => Event | undefined;
 
-  // Utils
   refresh: () => Promise<void>;
 }
 
@@ -36,7 +33,6 @@ export function useEvents(): UseEventsReturn {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Chargement initial
   const loadEvents = useCallback(async () => {
     try {
       setLoading(true);
@@ -186,7 +182,7 @@ export function useEvents(): UseEventsReturn {
     [events]
   );
 
-  // === FILTRES ===
+  // === FILTERS ===
 
   const getPublishedEvents = useCallback(() => {
     return events.filter((e) => e.status === EventStatus.PUBLISHED);
@@ -256,9 +252,6 @@ export function useEvents(): UseEventsReturn {
   };
 }
 
-/**
- * Hook pour un événement unique
- */
 export function useEvent(eventId: string) {
   const {
     events,

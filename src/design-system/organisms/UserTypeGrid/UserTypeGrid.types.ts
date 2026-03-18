@@ -9,13 +9,6 @@ export interface UserType {
 }
 
 export interface UserTypeGridProps {
-  /**
-   * Liste des types d'utilisateurs
-   */
   userTypes: UserType[];
-
-  /**
-   * Callback lors du clic sur une carte
-   */
   onTypeClick?: (typeId: string) => void;
 }

@@ -7,7 +7,6 @@ interface UseArtistsReturn {
   loading: boolean;
   error: string | null;
 
-  // Actions
   followArtist: (artistId: string) => Promise<boolean>;
   unfollowArtist: (artistId: string) => Promise<boolean>;
   verifyArtist: (artistId: string) => Promise<boolean>;
@@ -16,7 +15,6 @@ interface UseArtistsReturn {
   removeGenre: (artistId: string, genre: GenreMusic) => Promise<boolean>;
   updateRating: (artistId: string, rating: number, reviewCount: number) => Promise<boolean>;
 
-  // Filtres
   findByGenre: (genre: GenreMusic) => Artist[];
   findVerified: () => Artist[];
   findTopRated: (limit?: number) => Artist[];
@@ -147,7 +145,7 @@ export function useArtists(): UseArtistsReturn {
     [artists]
   );
 
-  // === FILTRES ===
+  // === FILTERS ===
 
   const findByGenre = useCallback(
     (genre: GenreMusic) => {
@@ -213,9 +211,6 @@ export function useArtists(): UseArtistsReturn {
   };
 }
 
-/**
- * Hook pour un artiste unique
- */
 export function useArtist(artistId: string) {
   const {
     artists,

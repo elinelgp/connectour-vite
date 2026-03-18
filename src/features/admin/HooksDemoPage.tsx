@@ -1,8 +1,3 @@
-/**
- * Composant Démonstration Simple - Tester un Hook à la Fois
- * Utile pour vérifier qu'un hook fonctionne correctement de manière isolée
- */
-
 import React, { useState } from "react";
 import { useArtists } from "../../hooks/useArtists";
 import { GenreMusic } from "../../domain";
@@ -56,9 +51,6 @@ export function HooksDemoPage() {
   );
 }
 
-/**
- * Démo du hook useArtists avec interactions en temps réel
- */
 function ArtistsDemoComponent() {
   const { artists, loading, findByGenre, findVerified, findTopRated, search } = useArtists();
   const [selectedGenre, setSelectedGenre] = useState<GenreMusic | "">("");
@@ -80,7 +72,6 @@ function ArtistsDemoComponent() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
         <h2 className="text-2xl font-bold text-white mb-4">🎤 Artists Hook Demo</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -91,11 +82,9 @@ function ArtistsDemoComponent() {
         </div>
       </div>
 
-      {/* Controls */}
       <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 space-y-4">
         <h3 className="text-xl font-bold text-white">🔧 Controls</h3>
 
-        {/* Search */}
         <div>
           <label className="block text-white mb-2 font-semibold">Search</label>
           <input
@@ -107,7 +96,6 @@ function ArtistsDemoComponent() {
           />
         </div>
 
-        {/* Genre Filter */}
         <div>
           <label className="block text-white mb-2 font-semibold">Filter by Genre</label>
           <select
@@ -124,7 +112,6 @@ function ArtistsDemoComponent() {
           </select>
         </div>
 
-        {/* Toggle Buttons */}
         <div className="flex gap-2">
           <button
             onClick={() => setShowVerifiedOnly(!showVerifiedOnly)}
@@ -147,7 +134,6 @@ function ArtistsDemoComponent() {
         </div>
       </div>
 
-      {/* Results */}
       <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
         <h3 className="text-xl font-bold text-white mb-4">
           📊 Results ({displayedArtists.length})
@@ -182,9 +168,6 @@ function ArtistsDemoComponent() {
   );
 }
 
-/**
- * Démo du hook useEvents
- */
 function EventsDemoComponent() {
   return (
     <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
@@ -194,9 +177,6 @@ function EventsDemoComponent() {
   );
 }
 
-/**
- * Démo du hook useVenues
- */
 function VenuesDemoComponent() {
   return (
     <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
@@ -206,9 +186,6 @@ function VenuesDemoComponent() {
   );
 }
 
-/**
- * Composant utilitaire
- */
 function StatItem({ label, value }: { label: string; value: string | number }) {
   return (
     <div className="bg-white/5 p-3 rounded-lg border border-white/10">
