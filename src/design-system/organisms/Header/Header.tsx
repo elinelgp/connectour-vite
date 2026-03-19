@@ -9,7 +9,7 @@ export const Header: React.FC<HeaderProps> = ({
   subtitle,
   searchValue,
   onSearchChange,
-  searchPlaceholder = "Search...",
+  searchPlaceholder = "Rechercher...",
 }) => {
   return (
     <header

@@ -11,7 +11,7 @@ export const FeaturedProfiles: React.FC<FeaturedProfilesProps> = ({ profiles, on
           className="text-lg sm:text-xl font-semibold"
           style={{ color: tokens.colors.neutral.brown }}
         >
-          Featured Profiles
+          Profils à la une
         </h2>
       </div>
 

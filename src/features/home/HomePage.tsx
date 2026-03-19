@@ -22,10 +22,10 @@ const HomePage: React.FC<HomePageProps> = () => {
     <>
       <Header
         title="Connectour"
-        subtitle="Connecting artists, tour managers, venues and organizers worldwide"
+        subtitle="L'application qui met en relation artistes, tourneurs, salles et organisateurs"
         searchValue={searchQuery}
         onSearchChange={handleSearchChange}
-        searchPlaceholder="Search artists, venues, events..."
+        searchPlaceholder="Chercher un artiste, une salle..."
       />
 
       <UserTypeGrid userTypes={userTypes} onTypeClick={handleTypeClick} />
