@@ -1,0 +1,14 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#F5F1E8"/>
+  
+  <!-- Three nodes representing connection -->
+  <circle cx="60" cy="80" r="12" fill="#FF6B6B"/>
+  <circle cx="140" cy="80" r="12" fill="#4ECDC4"/>
+  <circle cx="100" cy="140" r="12" fill="#FFD93D"/>
+  
+  <!-- Connection lines (solid, minimalist) -->
+  <line x1="65" y1="88" x2="95" y2="135" stroke="#2D2D2D" stroke-width="3" stroke-linecap="round"/>
+  <line x1="135" y1="88" x2="105" y2="135" stroke="#2D2D2D" stroke-width="3" stroke-linecap="round"/>
+  <line x1="72" y1="80" x2="128" y2="80" stroke="#2D2D2D" stroke-width="3" stroke-linecap="round"/>
+</svg>
