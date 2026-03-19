@@ -6,7 +6,7 @@ export const UserTypeGrid: React.FC<UserTypeGridProps> = ({ userTypes, onTypeCli
   return (
     <section className="mt-6 px-4 sm:px-6">
       <h2 className="mb-4 text-[var(--color-brown)] text-lg sm:text-xl font-semibold">
-        Explore by Type
+        Explorez par type
       </h2>
 
       <div className="grid grid-cols-2 gap-4 sm:gap-6">
