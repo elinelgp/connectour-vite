@@ -26,10 +26,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
     .filter(Boolean)
     .join(" ");
 
-  const titleClasses = [
-    "font-semibold text-black",
-    isCompact ? "text-base" : "text-lg md:text-xl",
-  ]
+  const titleClasses = ["font-semibold text-black", isCompact ? "text-base" : "text-lg md:text-xl"]
     .filter(Boolean)
     .join(" ");
 

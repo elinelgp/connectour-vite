@@ -21,8 +21,14 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
         <Avatar src={avatarUrl} alt={name} size="md" />
         <div className="flex items-center gap-1" style={{ color: tokens.colors.accent.yellow }}>
           <Star className="w-4 h-4 fill-current" />
-          <span className="text-sm" style={{ fontWeight: tokens.typography.fontWeights.semibold, color: tokens.colors.primary.dark }}>
-            {rating.toFixed(1) }
+          <span
+            className="text-sm"
+            style={{
+              fontWeight: tokens.typography.fontWeights.semibold,
+              color: tokens.colors.primary.dark,
+            }}
+          >
+            {rating.toFixed(1)}
           </span>
         </div>
       </div>

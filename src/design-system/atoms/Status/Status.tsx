@@ -23,8 +23,9 @@ const bookingStatusColorMap: Record<BookingStatus, string> = {
 const isEventStatusProps = (props: StatusProps): props is Extract<StatusProps, { kind: "event" }> =>
   props.kind === "event";
 
-const isBookingStatusProps = (props: StatusProps): props is Extract<StatusProps, { kind: "booking" }> =>
-  props.kind === "booking";
+const isBookingStatusProps = (
+  props: StatusProps
+): props is Extract<StatusProps, { kind: "booking" }> => props.kind === "booking";
 
 const getLabel = (props: StatusProps): string => {
   if (isEventStatusProps(props)) {
@@ -81,7 +82,11 @@ export const Status: React.FC<StatusProps> = ({ status, kind, size = "md", class
     backgroundColor: getStatusColor({ kind, status }),
   };
 
-  return <span className={badgeClasses} style={combinedStyles}>{getLabel({ kind, status })}</span>;
+  return (
+    <span className={badgeClasses} style={combinedStyles}>
+      {getLabel({ kind, status })}
+    </span>
+  );
 };
 
 Status.displayName = "Status";
