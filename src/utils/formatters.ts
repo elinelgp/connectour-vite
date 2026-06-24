@@ -1,4 +1,5 @@
 import { EventStatus, BookingStatus, VenueType, GenreMusic, UserRole } from "../domain";
+import { tokens } from "../design-system/tokens";
 
 /**
  * Formatteurs pour les statuts d'événements
@@ -55,11 +56,11 @@ export const BookingFormatters = {
 
   getStatusColor(status: BookingStatus): string {
     const colors: Record<BookingStatus, string> = {
-      [BookingStatus.PENDING]: "warning",
-      [BookingStatus.CONFIRMED]: "success",
-      [BookingStatus.COMPLETED]: "success",
-      [BookingStatus.CANCELLED]: "error",
-      [BookingStatus.NO_SHOW]: "error",
+      [BookingStatus.PENDING]: tokens.colors.status.pending,
+      [BookingStatus.CONFIRMED]: tokens.colors.status.confirmed,
+      [BookingStatus.COMPLETED]: tokens.colors.status.completed,
+      [BookingStatus.CANCELLED]: tokens.colors.status.cancelled,
+      [BookingStatus.NO_SHOW]: tokens.colors.status.noShow,
     };
     return colors[status];
   },

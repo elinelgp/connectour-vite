@@ -53,6 +53,7 @@
 /* Base Typography */
 body {
   color: var(--color-brown);
+  font-family: Inter, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;

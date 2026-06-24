@@ -23,13 +23,18 @@ export const Header: React.FC<HeaderProps> = ({
         overflow-hidden
       "
       style={{
-        background: `linear-gradient(to bottom, ${tokens.colors.primary.main}, ${tokens.colors.primary.dark})`,
+        background: `linear-gradient(to bottom, ${tokens.colors.primary.main}, ${tokens.colors.primary.muted})`,
       }}
     >
       <div className="mb-5 sm:mb-6 md:mb-8 max-w-full">
         <h1
-          className="text-xl sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2 break-words leading-tight"
-          style={{ color: tokens.colors.neutral.white }}
+          className="text-3xl sm:text-4xl md:text-5xl font-normal mb-1 sm:mb-2 break-words leading-tight"
+          style={{
+            color: tokens.colors.neutral.white,
+            fontFamily: tokens.typography.fontFamily.display,
+            fontWeight: tokens.typography.fontWeights.normal,
+            fontSize: tokens.typography.fontSizes["4xl"],
+          }}
         >
           {title}
         </h1>
@@ -47,7 +52,7 @@ export const Header: React.FC<HeaderProps> = ({
         value={searchValue}
         onChange={(e) => onSearchChange(e.target.value)}
         leftIcon={<Search className="w-5 h-5" />}
-        className="bg-white text-gray-800 placeholder:text-gray-400"
+        className="bg-white w-full text-gray-800 placeholder:text-gray-400"
       />
     </header>
   );

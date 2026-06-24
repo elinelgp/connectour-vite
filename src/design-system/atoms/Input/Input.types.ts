@@ -13,7 +13,9 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
    */
   size?: number;
 
-  label?: string;
+  label?: ReactNode;
+  labelClassName?: string;
+  labelStyle?: React.CSSProperties;
   helperText?: string;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;

@@ -1,4 +1,8 @@
 export const typography = {
+  fontFamily: {
+    display: "'Ranchers', cursive",
+    body: "Inter, system-ui, sans-serif",
+  },
   fontSizes: {
     xs: "0.75rem",
     sm: "0.875rem",
@@ -7,6 +11,7 @@ export const typography = {
     xl: "1.25rem",
     "2xl": "1.5rem",
     "3xl": "1.875rem",
+    "4xl": "2.25rem",
   },
   fontWeights: {
     normal: 400,

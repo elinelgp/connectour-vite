@@ -6,6 +6,8 @@ export const Input: React.FC<InputProps> = ({
   variant = "default",
   size = "md",
   label,
+  labelClassName = "",
+  labelStyle,
   helperText,
   leftIcon,
   rightIcon,
@@ -46,7 +48,11 @@ export const Input: React.FC<InputProps> = ({
   return (
     <div className={containerClasses}>
       {label && (
-        <label htmlFor={inputId} className="block mb-1 text-sm font-medium">
+        <label
+          htmlFor={inputId}
+          className={["block mb-1 text-sm font-medium", labelClassName].filter(Boolean).join(" ")}
+          style={labelStyle}
+        >
           {label}
         </label>
       )}
@@ -62,6 +68,7 @@ export const Input: React.FC<InputProps> = ({
           id={inputId}
           className={inputClasses}
           style={combinedStyles}
+          lang="fr"
           disabled={disabled}
           aria-invalid={variant === "error"}
           {...props}
