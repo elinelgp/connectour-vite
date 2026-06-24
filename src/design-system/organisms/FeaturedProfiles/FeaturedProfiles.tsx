@@ -9,7 +9,7 @@ export const FeaturedProfiles: React.FC<FeaturedProfilesProps> = ({ profiles, on
       <div className="px-4 sm:px-6" style={{ marginBottom: tokens.spacing.lg }}>
         <h2
           className="text-lg sm:text-xl font-semibold"
-          style={{ color: tokens.colors.neutral.brown }}
+          style={{ color: tokens.colors.primary.dark }}
         >
           Profils à la une
         </h2>
@@ -20,6 +20,7 @@ export const FeaturedProfiles: React.FC<FeaturedProfilesProps> = ({ profiles, on
       flex gap-3 sm:gap-4
       overflow-x-auto
       px-4 sm:px-6
+      pb-8
       snap-x snap-mandatory
       no-scrollbar
     "

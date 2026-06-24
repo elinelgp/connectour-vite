@@ -31,7 +31,7 @@ export const buttonVariantColors = {
   },
   ghost: {
     backgroundColor: "transparent",
-    color: tokens.colors.neutral.brown,
+    color: tokens.colors.primary.dark,
   },
 } as const;
 
@@ -125,31 +125,56 @@ export const avatarSizeStyles = {
 export const avatarBaseStyles = {
   borderRadius: "50%",
   overflow: "hidden",
-  background: `linear-gradient(to bottom right, ${tokens.colors.primary.main}, ${tokens.colors.primary.dark})`,
+  background: `linear-gradient(to bottom right, ${tokens.colors.primary.main}, ${tokens.colors.primary.muted})`,
 } as const;
 
 // ============ BADGE STYLES ============
 
+export const statusSizeStyles = {
+  sm: {
+    padding: `${tokens.spacing.xs} ${tokens.spacing.sm}`,
+    fontSize: tokens.typography.fontSizes.xs,
+  },
+  md: {
+    padding: `${tokens.spacing.sm} ${tokens.spacing.md}`,
+    fontSize: tokens.typography.fontSizes.sm,
+  },
+  lg: {
+    padding: `${tokens.spacing.md} ${tokens.spacing.lg}`,
+    fontSize: tokens.typography.fontSizes.base,
+  },
+} as const;
+
+export const statusBaseStyles = {
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  borderRadius: tokens.borderRadius.full,
+  fontWeight: tokens.typography.fontWeights.medium,
+  textTransform: "capitalize",
+  color: tokens.colors.neutral.white,
+} as const;
+
 export const badgeVariantColors = {
   primary: {
     backgroundColor: tokens.colors.primary.light,
-    color: tokens.colors.neutral.brown,
+    color: tokens.colors.primary.dark,
   },
   secondary: {
     backgroundColor: tokens.colors.secondary.light,
-    color: tokens.colors.neutral.brown,
+    color: tokens.colors.primary.dark,
   },
   success: {
     backgroundColor: "#dcfce7",
-    color: tokens.colors.neutral.brown,
+    color: tokens.colors.primary.dark,
   },
   warning: {
     backgroundColor: "#fef3c7",
-    color: tokens.colors.neutral.brown,
+    color: tokens.colors.primary.dark,
   },
   error: {
     backgroundColor: "#fee2e2",
-    color: tokens.colors.neutral.brown,
+    color: tokens.colors.primary.dark,
   },
 } as const;
 

@@ -1,18 +1,19 @@
 export const colors = {
-  secondary: {
+  primary: {
     main: "#FF9F5A",
-    dark: "#ff8a3d",
+    muted: "#ff8a3d",
+    dark: "#8B5A2B",
     light: "#FFF4E6",
     contrast: "#FFFFFF",
   },
-  primary: {
+  secondary: {
     main: "#4A7E7E",
-    dark: "#365c5cff",
+    muted: "#365c5cff",
+    dark: "#2a4a4a",
     light: "#E8F4F4",
     contrast: "#FFFFFF",
   },
   neutral: {
-    brown: "#8B5A2B",
     gray: "#E5E5E5",
     lightGray: "#F9FAFB",
     white: "#FFFFFF",
@@ -25,9 +26,19 @@ export const colors = {
   },
   semantic: {
     success: "#10B981",
-    warning: "#FBBF24",
-    error: "#EF4444",
+    warning: "#fb9724",
+    error: "#c13434",
     info: "#3B82F6",
+  },
+  status: {
+    draft: "#9CA3AF",
+    published: "#3B82F6",
+    ongoing: "#22C55E",
+    pending: "#FBBF24",
+    confirmed: "#10B981",
+    completed: "#22C55E",
+    cancelled: "#EF4444",
+    noShow: "#B91C1C",
   },
 } as const;
 

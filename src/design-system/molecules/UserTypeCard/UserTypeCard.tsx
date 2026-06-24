@@ -38,11 +38,11 @@ export const UserTypeCard: React.FC<UserTypeCardProps> = ({
       </div>
       <h3
         className="font-semibold text-xs sm:text-sm mb-1"
-        style={{ color: tokens.colors.neutral.brown }}
+        style={{ color: tokens.colors.primary.dark }}
       >
         {title}
       </h3>
-      <p className="text-xs line-clamp-2" style={{ color: tokens.colors.neutral.brown }}>
+      <p className="text-xs line-clamp-2" style={{ color: tokens.colors.primary.dark }}>
         {description}
       </p>
     </Card>

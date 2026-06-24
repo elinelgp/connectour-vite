@@ -9,7 +9,8 @@ const meta = {
     layout: "centered",
     docs: {
       description: {
-        component: "Un bouton versatile avec plusieurs variantes et tailles.",
+        component:
+          "Un bouton versatile avec plusieurs variantes et tailles. Gère les états disabled et loading pour les formulaires et les appels asynchrones.",
       },
     },
   },
@@ -35,7 +36,15 @@ const meta = {
     },
     disabled: {
       control: "boolean",
-      description: "Désactiver le bouton",
+      description: "Désactive le bouton pour les formulaires incomplets",
+    },
+    loading: {
+      control: "boolean",
+      description: "Affiche un état de chargement et empêche les clics répétés",
+    },
+    loadingText: {
+      control: "text",
+      description: "Texte affiché pendant le chargement",
     },
     fullWidth: {
       control: "boolean",
@@ -80,31 +89,18 @@ export const Ghost: Story = {
   },
 };
 
-export const Small: Story = {
-  args: {
-    children: "Small Button",
-    size: "sm",
-  },
-};
-
-export const Medium: Story = {
-  args: {
-    children: "Medium Button",
-    size: "md",
-  },
-};
-
-export const Large: Story = {
-  args: {
-    children: "Large Button",
-    size: "lg",
-  },
-};
-
 export const Disabled: Story = {
   args: {
     children: "Disabled Button",
     disabled: true,
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    children: "Se connecter",
+    loading: true,
+    loadingText: "Connexion en cours...",
   },
 };
 

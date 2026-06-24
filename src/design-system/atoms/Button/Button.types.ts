@@ -24,5 +24,15 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * @default false
    */
+  loading?: boolean;
+
+  /**
+   * @default 'Loading...'
+   */
+  loadingText?: ReactNode;
+
+  /**
+   * @default false
+   */
   fullWidth?: boolean;
 }
