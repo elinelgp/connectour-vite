@@ -58,7 +58,7 @@ const getLabel = (props: StatusProps): string => {
     }
   }
 
-  return String(props.status);
+  return "Inconnu";
 };
 
 const getStatusColor = (props: StatusProps): string => {
@@ -73,18 +73,19 @@ const getStatusColor = (props: StatusProps): string => {
   return tokens.colors.neutral.gray;
 };
 
-export const Status: React.FC<StatusProps> = ({ status, kind, size = "md", className = "" }) => {
+export const Status: React.FC<StatusProps> = (props) => {
+  const { size = "md", className = "" } = props;
   const badgeClasses = [className].filter(Boolean).join(" ");
 
   const combinedStyles: React.CSSProperties = {
     ...statusBaseStyles,
     ...statusSizeStyles[size],
-    backgroundColor: getStatusColor({ kind, status }),
+    backgroundColor: getStatusColor(props),
   };
 
   return (
     <span className={badgeClasses} style={combinedStyles}>
-      {getLabel({ kind, status })}
+      {getLabel(props)}
     </span>
   );
 };

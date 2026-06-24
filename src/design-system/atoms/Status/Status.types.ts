@@ -1,4 +1,4 @@
-import { BookingStatus, EventStatus } from "../../../../domain";
+import { BookingStatus, EventStatus } from "../../../domain";
 
 export type StatusSize = "sm" | "md" | "lg";
 
