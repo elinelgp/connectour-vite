@@ -8,7 +8,8 @@ const meta = {
     layout: "padded",
     docs: {
       description: {
-        component: "Barre de filtres du cœur de l’écran de recherche avec localisation, capacité, genre et période.",
+        component:
+          "Barre de filtres du cœur de l’écran de recherche avec localisation, capacité, genre et période.",
       },
     },
   },

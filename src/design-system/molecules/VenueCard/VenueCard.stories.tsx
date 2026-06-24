@@ -8,7 +8,8 @@ const meta = {
     layout: "centered",
     docs: {
       description: {
-        component: "Carte de salle pour l’écran de recherche avec informations essentielles et CTA de contact.",
+        component:
+          "Carte de salle pour l’écran de recherche avec informations essentielles et CTA de contact.",
       },
     },
   },
@@ -33,7 +34,8 @@ export const Default: Story = {
     capacity: 180,
     genres: ["rock", "metal", "punk"],
     responseTime: "Réponse en 2h",
-    avatarUrl: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=300&q=80",
+    avatarUrl:
+      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=300&q=80",
     onContact: () => console.log("Contact venue"),
   },
 };

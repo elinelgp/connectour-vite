@@ -16,12 +16,18 @@ export const AvailabilitySlot: React.FC<AvailabilitySlotProps> = ({
     <Card variant="outlined" className="w-full max-w-[360px] text-left">
       <article className="flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
-          <p className="mb-1 flex items-center gap-2 text-sm font-medium" style={{ color: tokens.colors.primary.dark }}>
+          <p
+            className="mb-1 flex items-center gap-2 text-sm font-medium"
+            style={{ color: tokens.colors.primary.dark }}
+          >
             <CalendarDays className="h-4 w-4" style={{ color: tokens.colors.primary.main }} />
             {dateRange}
           </p>
 
-          <p className="mb-2 flex items-center gap-2 text-sm" style={{ color: tokens.colors.primary.dark }}>
+          <p
+            className="mb-2 flex items-center gap-2 text-sm"
+            style={{ color: tokens.colors.primary.dark }}
+          >
             <MapPin className="h-4 w-4" style={{ color: tokens.colors.secondary.main }} />
             {location}
           </p>

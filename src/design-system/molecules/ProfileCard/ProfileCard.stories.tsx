@@ -8,7 +8,8 @@ const meta = {
     layout: "centered",
     docs: {
       description: {
-        component: "Carte de profil réutilisable pour présenter un artiste ou un profil utilisateur.",
+        component:
+          "Carte de profil réutilisable pour présenter un artiste ou un profil utilisateur.",
       },
     },
   },
@@ -33,6 +34,7 @@ export const Default: Story = {
     location: "Paris, 10e",
     rating: 4.8,
     genre: "hard rock",
-    avatarUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80",
+    avatarUrl:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80",
   },
 };

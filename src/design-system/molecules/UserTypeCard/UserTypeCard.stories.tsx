@@ -9,7 +9,8 @@ const meta = {
     layout: "centered",
     docs: {
       description: {
-        component: "Carte de choix de type d’utilisateur pour les parcours d’onboarding ou de sélection.",
+        component:
+          "Carte de choix de type d’utilisateur pour les parcours d’onboarding ou de sélection.",
       },
     },
   },

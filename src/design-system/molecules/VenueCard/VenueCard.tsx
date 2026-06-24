@@ -26,7 +26,10 @@ export const VenueCard: React.FC<VenueCardProps> = ({
           >
             {name}
           </h3>
-          <p className="flex items-center gap-1 text-sm" style={{ color: tokens.colors.primary.dark }}>
+          <p
+            className="flex items-center gap-1 text-sm"
+            style={{ color: tokens.colors.primary.dark }}
+          >
             <MapPin className="h-4 w-4 shrink-0" />
             <span className="truncate">{location}</span>
           </p>
@@ -42,7 +45,10 @@ export const VenueCard: React.FC<VenueCardProps> = ({
         ))}
       </div>
 
-      <div className="mt-4 flex flex-wrap items-center gap-3 text-sm" style={{ color: tokens.colors.primary.dark }}>
+      <div
+        className="mt-4 flex flex-wrap items-center gap-3 text-sm"
+        style={{ color: tokens.colors.primary.dark }}
+      >
         <span className="flex items-center gap-1">
           <Users className="h-4 w-4" />
           {capacity} pers.
