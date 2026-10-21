@@ -10,7 +10,7 @@ export const VenueCard: React.FC<VenueCardProps> = ({
   name,
   location,
   capacity,
-  genres = [],
+  type,
   responseTime,
   avatarUrl,
   onContact,
@@ -38,11 +38,9 @@ export const VenueCard: React.FC<VenueCardProps> = ({
       </article>
 
       <div className="mt-4 flex flex-wrap gap-2">
-        {genres.slice(0, 3).map((genre) => (
-          <Badge key={genre} variant="secondary">
-            {genre}
-          </Badge>
-        ))}
+        <Badge key={type} variant="secondary">
+          {type}
+        </Badge>
       </div>
 
       <div

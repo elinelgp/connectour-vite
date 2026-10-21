@@ -25,6 +25,13 @@ export const router = createBrowserRouter([
       { path: "login", lazy: () => import("./login") },
       { path: "privacy", lazy: () => import("./privacy") },
       { path: "terms", lazy: () => import("./terms") },
+      {
+        path: "venues",
+        lazy: () =>
+          import("../features/venue/SearchVenuesPage").then((module) => ({
+            Component: module.SearchVenuesPage,
+          })),
+      },
     ],
   },
   {

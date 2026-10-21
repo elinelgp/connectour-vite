@@ -42,4 +42,7 @@ export default defineConfig([
       ],
     },
   },
+  {
+    ignores: ['storybook-static/**'],
+  },
 ]);

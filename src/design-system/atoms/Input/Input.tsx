@@ -34,9 +34,10 @@ export const Input: React.FC<InputProps> = ({
   `.trim();
 
   const inputClasses = `
+    ${fullWidth ? "w-full" : ""}
     ${className}
     truncate
-  `
+`
     .replace(/\s+/g, " ")
     .trim();
 
