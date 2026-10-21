@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
-import { Heart, Download, Mail } from "lucide-react";
+import { Heart, Download, Mail, Trash2 } from "lucide-react";
 
 const meta = {
   title: "Design System/Atoms/Button",
@@ -10,7 +10,7 @@ const meta = {
     docs: {
       description: {
         component:
-          "Un bouton versatile avec plusieurs variantes et tailles. Gère les états disabled et loading pour les formulaires et les appels asynchrones.",
+          "Bouton avec variantes, tailles, états disabled/loading, et slots d’icônes (`leftIcon` / `rightIcon`) pour un alignement horizontal fiable.",
       },
     },
   },
@@ -36,11 +36,11 @@ const meta = {
     },
     disabled: {
       control: "boolean",
-      description: "Désactive le bouton pour les formulaires incomplets",
+      description: "Désactive le bouton",
     },
     loading: {
       control: "boolean",
-      description: "Affiche un état de chargement et empêche les clics répétés",
+      description: "Affiche un spinner et bloque les clics",
     },
     loadingText: {
       control: "text",
@@ -48,11 +48,19 @@ const meta = {
     },
     fullWidth: {
       control: "boolean",
-      description: "Afficher en pleine largeur",
+      description: "Pleine largeur",
     },
     children: {
       control: "text",
-      description: "Contenu du bouton",
+      description: "Libellé du bouton",
+    },
+    leftIcon: {
+      control: false,
+      description: "Icône à gauche (ReactNode)",
+    },
+    rightIcon: {
+      control: false,
+      description: "Icône à droite (ReactNode)",
     },
   },
 } satisfies Meta<typeof Button>;
@@ -116,34 +124,30 @@ export const FullWidth: Story = {
 
 export const WithIcon: Story = {
   args: {
-    children: (
-      <>
-        <Heart className="w-5 h-5" />
-        Like
-      </>
-    ),
+    children: "Like",
+    leftIcon: <Heart className="h-5 w-5" />,
   },
 };
 
 export const WithIconLeft: Story = {
   args: {
-    children: (
-      <>
-        <Download className="w-5 h-5" />
-        Download
-      </>
-    ),
+    children: "Download",
     variant: "secondary",
+    leftIcon: <Download className="h-5 w-5" />,
   },
 };
 
 export const WithIconRight: Story = {
   args: {
-    children: (
-      <>
-        Send Message
-        <Mail className="w-5 h-5" />
-      </>
-    ),
+    children: "Send Message",
+    rightIcon: <Mail className="h-5 w-5" />,
+  },
+};
+
+export const IconOnly: Story = {
+  args: {
+    leftIcon: <Trash2 className="h-5 w-5" />,
+    "aria-label": "Supprimer",
+    variant: "ghost",
   },
 };

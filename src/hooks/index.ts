@@ -5,3 +5,4 @@ export { useBookings } from "./useBookings";
 export { useUsers } from "./useUsers";
 export { useSearch } from "./useSearch";
 export { useNavigation } from "./useNavigation";
+export { useVenueSearch } from "./useVenueSearch";

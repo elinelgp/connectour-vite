@@ -3,8 +3,19 @@ import { ButtonProps } from "./Button.types";
 import { buttonSizeClasses, buttonVariantColors } from "../../componentStyles";
 import { tokens } from "../../tokens";
 
-const Spinner: React.FC = () => (
-  <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+const spinnerSizeClasses = {
+  sm: "h-3.5 w-3.5",
+  md: "h-4 w-4",
+  lg: "h-5 w-5",
+} as const;
+
+const Spinner: React.FC<{ className?: string }> = ({ className = "h-4 w-4" }) => (
+  <svg
+    className={`shrink-0 animate-spin ${className}`}
+    viewBox="0 0 24 24"
+    fill="none"
+    aria-hidden="true"
+  >
     <circle
       cx="12"
       cy="12"
@@ -31,13 +42,15 @@ export const Button: React.FC<ButtonProps> = ({
   loading = false,
   loadingText,
   fullWidth = false,
+  leftIcon,
+  rightIcon,
   className = "",
   ...props
 }) => {
   const isDisabled = disabled || loading;
 
   const baseStyles =
-    "inline-flex items-center justify-center font-medium transition-all duration-200 " +
+    "inline-flex flex-row items-center justify-center whitespace-nowrap font-medium transition-all duration-200 " +
     "focus:outline-none focus:ring-2 focus:ring-offset-2 " +
     "disabled:opacity-50 disabled:cursor-not-allowed";
 
@@ -45,17 +58,14 @@ export const Button: React.FC<ButtonProps> = ({
     .filter(Boolean)
     .join(" ");
 
-  const sizeStyles = buttonSizeClasses[size];
-  const colorStyles = buttonVariantColors[variant];
-
   const combinedStyles: React.CSSProperties = {
-    ...sizeStyles,
-    ...colorStyles,
+    ...buttonSizeClasses[size],
+    ...buttonVariantColors[variant],
     borderRadius: tokens.borderRadius.full,
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
   };
+
+  const renderIcon = (icon: React.ReactNode) =>
+    icon ? <span className="inline-flex shrink-0 items-center">{icon}</span> : null;
 
   return (
     <button
@@ -66,9 +76,11 @@ export const Button: React.FC<ButtonProps> = ({
       aria-busy={loading || undefined}
       {...props}
     >
-      <span className="inline-flex items-center justify-center gap-2">
-        {loading ? <Spinner /> : null}
-        <span>{loading ? (loadingText ?? children) : children}</span>
+      {/* Tout passe directement dans le conteneur flex, plus de span intermédiaire */}
+      <span className="inline-flex flex-row items-center justify-center gap-2">
+        {loading ? <Spinner className={spinnerSizeClasses[size]} /> : renderIcon(leftIcon)}
+        {loading ? (loadingText ?? children) : children}
+        {!loading && renderIcon(rightIcon)}
       </span>
     </button>
   );

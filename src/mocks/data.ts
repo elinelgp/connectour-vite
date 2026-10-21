@@ -146,7 +146,7 @@ export const mockVenuesData: IVenue[] = [
     name: "Le Zénith Paris",
     description:
       "Salle mythique parisienne accueillant les plus grands concerts rock et metal. Acoustique exceptionnelle et capacité impressionnante.",
-    type: VenueType.CONCERT_HALL,
+    type: VenueType.CONCERT_VENUE,
     address: "211 Avenue Jean Jaurès",
     city: "Paris",
     country: "France",
@@ -202,7 +202,7 @@ export const mockVenuesData: IVenue[] = [
     id: "venue-004",
     name: "Hellfest Open Air",
     description: "Le plus grand festival metal de France. Trois jours de légende en plein air.",
-    type: VenueType.FESTIVAL_GROUND,
+    type: VenueType.FESTIVAL,
     address: "Rue du Champ Louet",
     city: "Clisson",
     country: "France",

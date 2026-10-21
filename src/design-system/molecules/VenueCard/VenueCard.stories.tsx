@@ -18,7 +18,7 @@ const meta = {
     name: { control: "text" },
     location: { control: "text" },
     capacity: { control: "number" },
-    genres: { control: "object" },
+    type: { control: "text" },
     responseTime: { control: "text" },
     avatarUrl: { control: "text" },
   },
@@ -32,7 +32,7 @@ export const Default: Story = {
     name: "Le Petit Echo",
     location: "Paris, 11e",
     capacity: 180,
-    genres: ["rock", "metal", "punk"],
+    type: "Bar / Club",
     responseTime: "Réponse en 2h",
     avatarUrl:
       "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=300&q=80",
@@ -45,6 +45,6 @@ export const WithoutContact: Story = {
     name: "La Scène Moderne",
     location: "Lyon",
     capacity: 90,
-    genres: ["rock", "metal"],
+    type: "Salle de concert",
   },
 };

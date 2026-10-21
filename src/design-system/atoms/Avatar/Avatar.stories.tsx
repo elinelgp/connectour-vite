@@ -72,19 +72,3 @@ export const Large: Story = {
     size: "lg",
   },
 };
-
-export const SmallWithImage: Story = {
-  args: {
-    src: "https://i.pravatar.cc/150?img=2",
-    alt: "Alice Brown",
-    size: "sm",
-  },
-};
-
-export const LargeWithImage: Story = {
-  args: {
-    src: "https://i.pravatar.cc/150?img=3",
-    alt: "Charlie Davis",
-    size: "lg",
-  },
-};

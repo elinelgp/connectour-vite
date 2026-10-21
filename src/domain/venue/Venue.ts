@@ -10,6 +10,7 @@ export type IVenue = {
   city: string;
   country: string;
   capacity: number;
+  avatarUrl?: string;
   phone?: string;
   website?: string;
   managerId: string;
@@ -34,6 +35,7 @@ export class Venue extends BaseEntity {
   private _rating: number;
   private _reviewCount: number;
   private _isActive: boolean;
+  avatarUrl: string | undefined;
 
   constructor(data: IVenue) {
     super(data.id, data.createdAt);

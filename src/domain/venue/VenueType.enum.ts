@@ -1,8 +1,9 @@
 export enum VenueType {
-  CONCERT_HALL = "concert_hall",
+  CONCERT_VENUE = "salle de concert",
   CLUB = "club",
-  THEATER = "theater",
-  FESTIVAL_GROUND = "festival_ground",
-  OUTDOOR = "outdoor",
-  OTHER = "other",
+  BAR = "bar",
+  THEATER = "théâtre",
+  FESTIVAL = "festival",
+  OUTDOOR = "scène extérieure",
+  OTHER = "autre",
 }

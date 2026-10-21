@@ -14,7 +14,11 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    */
   size?: ButtonSize;
 
-  children: ReactNode;
+  children?: ReactNode;
+
+  leftIcon?: ReactNode;
+
+  rightIcon?: ReactNode;
 
   /**
    * @default false
@@ -26,9 +30,6 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    */
   loading?: boolean;
 
-  /**
-   * @default 'Loading...'
-   */
   loadingText?: ReactNode;
 
   /**
